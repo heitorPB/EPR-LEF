@@ -6,7 +6,9 @@ Sistema de Aquisição Digital para o experimento de EPR do Laboratório de
 Ensino de Física do IFSC - USP.
 
 Desenvolvido por Emilio Galera e Heitor Pascoal de Bittencourt, sob
-orientação do Professor Luiz Antônio de Oliveira Nunes.
+orientação do Professor Luiz Antônio de Oliveira Nunes e do técnico
+Antenor Fabbri Petrilli Filho.
+
 
 Funcionalidades
 ---------------
@@ -20,11 +22,17 @@ Funcionalidades
 Instalação
 ----------
 
+Interface Gráfica
+~~~~~~~~~~~~~~~~~
+
 É necesario Python com as bibliotecas:
 
 - pySerial
 - matplotlib
 - TKinter
+
+Firmware
+~~~~~~~~
 
 Para compilar o *firmware* para Arduino:
 
