@@ -28,12 +28,18 @@ void loop()
 	int opcao = 100;
 	int media = 5;
 	int i;
-	float x;
+	
+	/*float x;
 	float y;
 	int RESH;
 	int RESL;
 	byte *data_x;
-	byte *data_y;
+	byte *data_y;*/
+	
+	//char lixo;
+	static double x;
+	static double y;
+	char result_x[9], result_y[9];
 
 	if (Serial.available() > 0) {
 		opcao = Serial.read();
@@ -41,12 +47,14 @@ void loop()
 		switch(opcao) {
 		case 'A':
 			// TODO deixar esse case decente
-			ret1:
+			/*ret1:
 			if (Serial.available() > 0)
 				media = Serial.parseInt();
 			else
 				goto ret1;
-
+			*/
+			while(Serial.peek() == -1);
+			media = Serial.parseInt();
 			opcao=100;
 			break;
 
@@ -67,11 +75,43 @@ void loop()
 			}
 			x /= media;
 			y /= media;
+			
+			dtostrf(x, 8, 4, result_x);
+			dtostrf(y, 8, 4, result_y);
+			
+			Serial.write('x');
+			Serial.print(strlen(result_x));
+			Serial.print(result_x);
+			Serial.white('X');
+
+			Serial.write('y');
+			Serial.print(strlen(result_y));
+			Serial.print(result_y);
+			Serial.write('Y');
+			
+			//Ou a passagem de dados pode ser feita assim:
+			//Dessa maneira passa sempre 6 bytes.
+			//o primeiro identifica a coordenada
+			//o proximos 4 sao dados e o ultimo eh um '\n'
+			//Para ler em python basta usar o comando readline() da Serial
+				
+			/*
+			Serial.print('x');
+			data_x = (byte *) &x;
+  			Serial.write(data_x, 4);
+			Serial.print("\n");
+			
+			Serial.print('y');
+			data_y = (byte *) &y;
+			Serial.write(data_y, 4);
+			Serial.print("\n");
+			*/
+				
 			/*Serial.print(x);
 			Serial.print("\t");
-			Serial.println(y);*/
+			Serial.println(y);
 
-			/*RESH = int (x / 256);
+			RESH = int (x / 256);
 			Serial.write((byte)  RESH);
 			RESL = x - RESH * 256;
 			Serial.write((byte)  RESL);
@@ -79,7 +119,7 @@ void loop()
 			RESH = int (y / 256);
 			Serial.write((byte)  RESH);
 			RESL = y - RESH * 256;
-			Serial.write((byte)  RESL);*/
+			Serial.write((byte)  RESL);
 
 			data_x = (byte *) &x;
 			Serial.write(data_x, 4);
@@ -87,7 +127,7 @@ void loop()
 			data_y = (byte *) &y;
 			Serial.write(data_y, 4);
 
-			digitalWrite(pinLed13, LOW);
+			digitalWrite(pinLed13, LOW);*/
 			opcao = 100;
 			break;
 
