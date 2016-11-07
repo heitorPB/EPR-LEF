@@ -73,68 +73,29 @@ def read_data():
     x = 0.
     y = 0.
 
-    while sem_dados:
-        x = connection.read(4)
-        if (len(x) > 3):
-            dados_x, = struct.unpack('<f', x)
-            sem_dados = False
-        else:
-            count += 1
-            if (count >= count_max):
-                print "nenhum dado foi recebido"
-                sem_dados = False
-                dados_x = 0
-    '''sem_dados = True
-    count = 0
-    while sem_dados:
-        dadosL = connection.read()
-        if (len(dadosL) > 0):
-            dadosL = ord(dadosL)
-            sem_dados = False
-        else:
-            count += 1
-            if (count >= count_max):
-                print "nenhum dado foi recebido"
-                sem_dados = False
-                dadosL = -1
-    dados_x = dadosH * 256. + dadosL'''
+    # TODO FIXME checar se datalen vai sempre ser 1 char!!!!!!!
+    connection.write("B")
 
-    #x = connection.read(4)
-    #dados_x, = struct.unpack('<f', x)
+    ehlo1   = connection.read(1)
+    datalen = connection.read(1)
+    data    = connection.read(int(datalen))
+    ehlo2   = connection.read(1)
 
-    for h in range(0, 1234):
-        a = h**2
+    if ehlo1 == b'x' and ehlo2 == b'X':
+        dados_x = float(data)
+    else:
+        dados_x = None
 
-    sem_dados = True
-    count = 0
-    while sem_dados:
-        y = connection.read(4)
-        if (len(y) > 3):
-            dados_y, = struct.unpack('<f', y)
-            sem_dados = False
-        else:
-            count += 1
-            if (count >= count_max):
-                print "nenhum dado foi recebido"
-                sem_dados = False
-                dados_y = 0
-    """sem_dados = True
-    count = 0
-    while sem_dados:
-        dadosL = connection.read()
-        if (len(dadosL) > 0):
-            dadosL = ord(dadosL)
-            sem_dados = False
-        else:
-            count += 1
-            if (count >= count_max):
-                print "nenhum dado foi recebido"
-                sem_dados = False
-                dadosL = -1
-    dados_y = dadosH * 256. + dadosL"""
+    ehlo1   = connection.read(1)
+    datalen = connection.read(1)
+    data    = connection.read(int(datalen))
+    ehlo2   = connection.read(1)
 
-    #y = connection.read(4)
-    #dados_y, = struct.unpack('<f', y)
+    if ehlo1 == b'y' and ehlo2 == b'Y':
+        dados_y = float(data)
+    else:
+        dados_y = None
+
 
     print dados_x, dados_y
     print type(dados_x), type(dados_y)
@@ -145,9 +106,10 @@ def read_data():
 def plot_received_data(collected_points):
     global stop_flag, number_of_points
     if (not stop_flag) and (collected_points < number_of_points):
-        connection.write("B")
-
         from_AD_x, from_AD_y = read_data()
+        while from_AD_x == None or from_AD_y == None:
+            from_AD_x, from_AD_y = read_data()
+
         write_display(from_AD_y, display_bits, "0")
         write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
 

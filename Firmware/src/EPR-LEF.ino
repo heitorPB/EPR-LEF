@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
+#include <stdlib.h>
 // external libraries
 #include <Nanoshield_ADC.h>
 #include <SoftReset.h>
@@ -28,12 +29,9 @@ void loop()
 	int opcao = 100;
 	int media = 5;
 	int i;
-	float x;
-	float y;
-	int RESH;
-	int RESL;
-	byte *data_x;
-	byte *data_y;
+	double x;
+	double y;
+	char result[11];
 
 	if (Serial.available() > 0) {
 		opcao = Serial.read();
@@ -67,25 +65,18 @@ void loop()
 			}
 			x /= media;
 			y /= media;
-			/*Serial.print(x);
-			Serial.print("\t");
-			Serial.println(y);*/
 
-			/*RESH = int (x / 256);
-			Serial.write((byte)  RESH);
-			RESL = x - RESH * 256;
-			Serial.write((byte)  RESL);
+			dtostrf(x, 4, 6, result);
+			Serial.write('x');
+			Serial.print(strlen(result));
+			Serial.print(result);
+			Serial.write('X');
 
-			RESH = int (y / 256);
-			Serial.write((byte)  RESH);
-			RESL = y - RESH * 256;
-			Serial.write((byte)  RESL);*/
-
-			data_x = (byte *) &x;
-			Serial.write(data_x, 4);
-			delay(1);
-			data_y = (byte *) &y;
-			Serial.write(data_y, 4);
+			dtostrf(y, 2, 8, result);
+			Serial.write('y');
+			Serial.print(strlen(result));
+			Serial.print(result);
+			Serial.write('Y');
 
 			digitalWrite(pinLed13, LOW);
 			opcao = 100;
