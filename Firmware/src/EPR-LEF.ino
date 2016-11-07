@@ -39,12 +39,16 @@ void loop()
 		switch(opcao) {
 		case 'A':
 			// TODO deixar esse case decente
+			/*
 			ret1:
 			if (Serial.available() > 0)
 				media = Serial.parseInt();
 			else
 				goto ret1;
-
+			*/
+			while(Serial.peek() < 0);
+			media = Serial.parseInt();
+			
 			opcao=100;
 			break;
 
