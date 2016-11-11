@@ -6,8 +6,8 @@
 #include <SoftReset.h>
 
 
-const int channel_x = 0;
-const int channel_y = 1;
+const int channel_x = 1;
+const int channel_y = 0;
 const int pinLed13  = 13;
 
 
@@ -27,7 +27,7 @@ void setup()
 void loop()
 {
 	int opcao = 100;
-	int media = 5;
+	long media = 5;
 	int i;
 	double x;
 	double y;
@@ -38,26 +38,21 @@ void loop()
 
 		switch(opcao) {
 		case 'A':
-			// TODO deixar esse case decente
-			/*
+			/*while(Serial.peek() < 0);
+			media = Serial.parseInt();*/
 			ret1:
-			if (Serial.available() > 0)
-				media = Serial.parseInt();
-			else
-				goto ret1;
-			*/
-			while(Serial.peek() < 0);
-			media = Serial.parseInt();
-			
-			opcao=100;
+				if (Serial.available() > 0)
+					media = Serial.parseInt();
+				else
+					goto ret1;
+
+			opcao = 100;
 			break;
 
 		case 'B':
 			// TODO separar isso aqui em duas funcoes. Ou Nao.
 			// pode nao ser uma boa ideia por questao de tempo
 			// de medida.
-			// TODO fazer um esquema de comunicacao decente,
-			// cf github.com/heitorPB/arduino-temp-logger
 			digitalWrite(pinLed13, HIGH);
 
 			x = 0;
@@ -70,13 +65,13 @@ void loop()
 			x /= media;
 			y /= media;
 
-			dtostrf(x, 4, 6, result);
+			dtostrf(x, 4, 5, result);
 			Serial.write('x');
 			Serial.print(strlen(result));
 			Serial.print(result);
 			Serial.write('X');
 
-			dtostrf(y, 2, 8, result);
+			dtostrf(y, 4, 5, result);
 			Serial.write('y');
 			Serial.print(strlen(result));
 			Serial.print(result);

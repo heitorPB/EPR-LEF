@@ -39,9 +39,11 @@ y_axis = []
 def get_arduino_port():
     ports = list(serial.tools.list_ports.comports())
     for p in ports:
-        if "Arduino" in p[1]:
-            print(p[0])
+        if "Arduino" in p[1] or "tty" in p[1]:
+            print("Arduino in", p[0])
             return p[0]
+        else:
+            return "/dev/ttyUSB0"
 
 
 def write_display(data, display, decimal):
@@ -75,10 +77,14 @@ def read_data():
 
     # TODO FIXME checar se datalen vai sempre ser 1 char!!!!!!!
     connection.write("B")
+    #print("B")
 
     ehlo1   = connection.read(1)
+    #print(ehlo1)
     datalen = connection.read(1)
+    #print(datalen)
     data    = connection.read(int(datalen))
+    #print(data)
     ehlo2   = connection.read(1)
 
     if ehlo1 == b'x' and ehlo2 == b'X':
@@ -91,6 +97,7 @@ def read_data():
     data    = connection.read(int(datalen))
     ehlo2   = connection.read(1)
 
+    #print(ehlo1, datalen, data, ehlo2)
     if ehlo1 == b'y' and ehlo2 == b'Y':
         dados_y = float(data)
     else:
@@ -99,7 +106,7 @@ def read_data():
 
     print dados_x, dados_y
     print type(dados_x), type(dados_y)
-    return dados_y, dados_x
+    return dados_x, dados_y
 
 
 # TODO fazer a porra do texto pro eixo x
@@ -129,7 +136,7 @@ def plot_received_data(collected_points):
         # line, = graph.plot (x_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
         # escala automatica para o eixo y
         graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
-        graph.set_xlim(0, 5 * 1.1)
+        graph.set_xlim(0, max(x_axis) * 1.1)
         canvas.draw()
 
         global delay
@@ -247,8 +254,8 @@ def field_check(*args):
         bt_on.config(state='disabled')
 
 
-connection = serial.Serial(get_arduino_port(), 115200, timeout=0)
-time.sleep(0.2)
+connection = serial.Serial(get_arduino_port(), 115200, timeout = 2)
+time.sleep(0.5)
 
 window = Tk()
 window.title("Programa 05")
