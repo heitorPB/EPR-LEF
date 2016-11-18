@@ -54,13 +54,13 @@ def write_display(data, display, decimal):
     display.config(state="disabled")
 
 
-def clear_displays():
+"""def clear_displays():
     display_volts.config(state="normal")
     display_volts.delete(1.0, END)
     display_volts.config(state="disabled")
     display_bits.config(state="normal")
     display_bits.delete(1.0, END)
-    display_bits.config(state="disabled")
+    display_bits.config(state="disabled")"""
 
 
 def clear_entries():
@@ -115,8 +115,8 @@ def plot_received_data(collected_points):
         while from_AD_x == None or from_AD_y == None:
             from_AD_x, from_AD_y = read_data()
 
-        write_display(from_AD_y, display_bits, "0")
-        write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
+        #write_display(from_AD_y, display_bits, "0")
+        #write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
 
         global x_axis, y_axis
         x_axis.append(from_AD_x)
@@ -142,7 +142,6 @@ def plot_received_data(collected_points):
     else:
         bt_on.config(state="normal")
         bt_off.config(state="disabled")
-        clear_displays()
         print "Fim da coleta"
 
 
@@ -341,18 +340,18 @@ for i in range(0, 2):
     user_displays.rowconfigure(i, weight=1)
     user_displays.columnconfigure(i, weight=1)
 
-label_volts = Label(user_displays, text="Tensão (0 - 5V):", font="arial 12")
-label_volts.grid(row=0, column=0)
-display_volts = Text(user_displays, font="arial 12 bold",
-                     width=8, height=1, state="disabled")
-display_volts.grid(row=0, column=1)
+#label_volts = Label(user_displays, text="Tensão (0 - 5V):", font="arial 12")
+#label_volts.grid(row=0, column=0)
+#display_volts = Text(user_displays, font="arial 12 bold",
+ #                    width=8, height=1, state="disabled")
+#display_volts.grid(row=0, column=1)
 
-label_bits = Label(
-    user_displays, text="Tensão (0 -1023 bits):", font="arial 12")
-label_bits.grid(row=1, column=0)
-display_bits = Text(user_displays, font="arial 12 bold",
-                    width=8, height=1, state="disabled")
-display_bits.grid(row=1, column=1)
+#label_bits = Label(
+#    user_displays, text="Tensão (0 -1023 bits):", font="arial 12")
+#label_bits.grid(row=1, column=0)
+#display_bits = Text(user_displays, font="arial 12 bold",
+#                    width=8, height=1, state="disabled")
+#display_bits.grid(row=1, column=1)
 
 
 # Entradas
