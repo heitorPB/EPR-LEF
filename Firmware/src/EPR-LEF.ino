@@ -1,10 +1,13 @@
+//18/11/2016 13:53
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <stdlib.h>
 // external libraries
 #include <Nanoshield_ADC.h>
 #include <SoftReset.h>
-
+#include <SoftwareSerial.h>
+//#include <WString.h>
 
 const int channel_x = 1;
 const int channel_y = 0;
@@ -12,15 +15,23 @@ const int pinLed13  = 13;
 
 
 Nanoshield_ADC adc;
-
+SoftwareSerial mySerial(10, 11); // RX, TX
 
 void setup()
 {
 	adc.begin();
-	Serial.begin(115200);
+	Serial.begin(9600);
+        mySerial.begin(9600);
+        delay(2000);
+
 	while (!Serial);
+
 	pinMode(pinLed13, OUTPUT);
 	analogReference(DEFAULT);
+        while (mySerial.available() > 0)
+        Serial.print(mySerial.read());
+        //mySerial.flush();
+        mySerial.print("W0\r");
 }
 
 
@@ -31,7 +42,10 @@ void loop()
 	int i;
 	double x;
 	double y;
-	char result[11];
+	char result[20];
+        char merda;
+        char aux_y[11];
+        int j;
 
 	if (Serial.available() > 0) {
 		opcao = Serial.read();
@@ -59,19 +73,26 @@ void loop()
 			y = 0;
 			for(i = 0; i < media; i++){
 				x += adc.readVoltage(channel_x);
-				y += adc.readVoltage(channel_y);
-				delay(2);
-			}
-			x /= media;
-			y /= media;
 
-			dtostrf(x, 4, 5, result);
+                                mySerial.print("q\r");
+                                delay(1);
+                                j = 0;
+                                while(mySerial.available() > 0 && j < 20){
+                                  aux_y[j]= mySerial.read();
+                                  j++;
+                                }
+				y += atof(aux_y);
+			}
+			x /= (double) media;
+			y /= (double) media;
+
+			dtostrf(x, 3, 6, result);
 			Serial.write('x');
 			Serial.print(strlen(result));
 			Serial.print(result);
 			Serial.write('X');
 
-			dtostrf(y, 4, 5, result);
+			dtostrf(y, 4, 10, result);
 			Serial.write('y');
 			Serial.print(strlen(result));
 			Serial.print(result);
@@ -85,6 +106,11 @@ void loop()
 			opcao = 100;
 			soft_restart();
 			break;
+
+		case 'Z':
+			opcao = 100;
+			mySerial.print("z\r");
+                        break;
 
 		default:
 			opcao = 100;
