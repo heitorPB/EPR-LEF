@@ -80,12 +80,10 @@ def read_data():
     #print("B")
 
     ehlo1   = connection.read(1)
-    #print(ehlo1)
     datalen = connection.read(1)
-    #print(datalen)
     data    = connection.read(int(datalen))
-    #print(data)
     ehlo2   = connection.read(1)
+    #print(ehlo1, datalen, data, ehlo2)
 
     if ehlo1 == b'x' and ehlo2 == b'X':
         dados_x = float(data)
@@ -93,7 +91,7 @@ def read_data():
         dados_x = None
 
     ehlo1   = connection.read(1)
-    datalen = connection.read(1)
+    datalen = connection.read(2)
     data    = connection.read(int(datalen))
     ehlo2   = connection.read(1)
 
@@ -104,8 +102,8 @@ def read_data():
         dados_y = None
 
 
-    print dados_x, dados_y
-    print type(dados_x), type(dados_y)
+    #print dados_x, dados_y
+    #print type(dados_x), type(dados_y)
     return dados_x, dados_y
 
 
@@ -254,8 +252,9 @@ def field_check(*args):
         bt_on.config(state='disabled')
 
 
-connection = serial.Serial(get_arduino_port(), 115200, timeout = 2)
-time.sleep(0.5)
+connection = serial.Serial(get_arduino_port(), 9600, timeout = 2)
+time.sleep(1)
+print("Foi")
 
 window = Tk()
 window.title("Programa 05")
@@ -274,7 +273,7 @@ user_area = Frame(window)
 user_area.pack(side="bottom", fill="x")
 
 # TÍTULO
-title = Label(title_area, text="Graficando dados do Arduino",
+title = Label(title_area, text="EPR - LEF",
               font="arial 14 bold")
 title.pack(side="top", fill="x", expand=True)
 
@@ -288,8 +287,10 @@ canvas.draw()
 canvas.get_tk_widget().pack(side="bottom", fill="both", expand=True)
 
 graph = fig.add_subplot(1, 1, 1)
-graph.set_ylabel("Valor do conversor (0 - 1023 bits)", size=18)
-graph.set_ylim(0, 1050)
+graph.set_ylabel("Sinal (Volts)", size=18)
+graph.set_xlabel("$\Delta B$", size=18)
+graph.grid()
+#graph.set_ylim(-20, 20)
 
 toolbar = NavigationToolbar2TkAgg(canvas, graph_area)
 toolbar.update()
@@ -371,13 +372,13 @@ stringvar1.trace("w", field_check)
 stringvar2.trace("w", field_check)
 
 entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
-entry_points.insert(END, "100")
+entry_points.insert(END, "256")
 entry_points.grid(row=0, column=1)
 
 label_mean = Label(user_entries, text="Número de médias:", font="arial 12")
 label_mean.grid(row=1, column=0)
 entry_mean = Entry(user_entries, width=8, textvariable=stringvar2)
-entry_mean.insert(END, "50")
+entry_mean.insert(END, "5")
 entry_mean.grid(row=1, column=1)
 
 
