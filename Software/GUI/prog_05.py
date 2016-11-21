@@ -109,40 +109,50 @@ def read_data():
 
 # TODO fazer a porra do texto pro eixo x
 def plot_received_data(collected_points):
-    global stop_flag, number_of_points
-    if (not stop_flag) and (collected_points < number_of_points):
-        from_AD_x, from_AD_y = read_data()
-        while from_AD_x == None or from_AD_y == None:
-            from_AD_x, from_AD_y = read_data()
+	
+	if collected_points == 0:
+		from_AD_x, from_AD_y = read_data()
+		while True:
+			aux, aux2 = read_data()
+			if abs(from_AD_x - aux) > 0.0002:
+				break
+	
+	global stop_flag, number_of_points
+    
+	if (not stop_flag) and (collected_points < number_of_points):
+		from_AD_x, from_AD_y = read_data()
+		while from_AD_x == None or from_AD_y == None:
+			from_AD_x, from_AD_y = read_data()
 
         #write_display(from_AD_y, display_bits, "0")
         #write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
 
-        global x_axis, y_axis
-        x_axis.append(from_AD_x)
-        y_axis.append(from_AD_y)
-
-        try:
-            graph.lines[0].remove()
-        except IndexError:
-            pass
-
-        graph.plot(x_axis, y_axis, color="red",
-                   linestyle="solid", linewidth="2.5")
-        # graph.plot (x_axis, y_axis, "r-", lw="2.5")
-        # graph.plot (y_axis, "r-", lw="2.5")
-        # line, = graph.plot (x_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
-        # escala automatica para o eixo y
-        graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
-        graph.set_xlim(0, max(x_axis) * 1.1)
-        canvas.draw()
-
-        global delay
-        window.after(delay, plot_received_data, collected_points + 1)
-    else:
-        bt_on.config(state="normal")
-        bt_off.config(state="disabled")
-        print "Fim da coleta"
+		global x_axis, y_axis
+		x_axis.append(from_AD_x)
+		y_axis.append(from_AD_y)
+		
+		try:
+			graph.lines[0].remove()
+		except IndexError:
+			pass
+			
+		graph.plot(x_axis, y_axis, color="red",
+				linestyle="solid", linewidth="2.5")
+		# graph.plot (x_axis, y_axis, "r-", lw="2.5")
+		# graph.plot (y_axis, "r-", lw="2.5")
+		# line, = graph.plot (x_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
+		# escala automatica para o eixo y
+		graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
+		graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
+		canvas.draw()
+        
+		global delay
+		window.after(delay, plot_received_data, collected_points + 1)
+	
+	else:
+		bt_on.config(state="normal")
+		bt_off.config(state="disabled")
+		print "Fim da coleta"
 
 
 def start_reading():
@@ -210,11 +220,12 @@ def write_data():
 
     # recebe o nome do arquivo a ser salvo
     file_name = asksaveasfilename()
-
+    print file_name + "!!!!!"
     header = "Arquivo: " + file_name + "\n"
     header = header + "Numero de pontos: " + str(number_of_points) + "\n"
     header = header + "Numero de medias: " + str(mean)
 
+    print header
     # salva os dados
     np.savetxt(file_name, np.transpose(
         [x_axis, y_axis]), delimiter='\t', header=header, comments='# ')
@@ -256,7 +267,7 @@ time.sleep(1)
 print("Foi")
 
 window = Tk()
-window.title("Programa 05")
+window.title("EPR - LEF - FisComp")
 window.state("normal")
 
 #### TÍTULO ####
@@ -286,9 +297,9 @@ canvas.draw()
 canvas.get_tk_widget().pack(side="bottom", fill="both", expand=True)
 
 graph = fig.add_subplot(1, 1, 1)
-graph.set_ylabel("Sinal (Volts)", size=18)
-graph.set_xlabel("$\Delta B$", size=18)
 graph.grid()
+graph.set_ylabel("Sinal (Volts)", size=18)
+graph.set_xlabel("$\Delta V \approx \Delta B$", size=18)
 #graph.set_ylim(-20, 20)
 
 toolbar = NavigationToolbar2TkAgg(canvas, graph_area)
@@ -333,12 +344,12 @@ bt_clear.grid(row=2, column=1, pady=3)
 
 
 # Displays
-user_displays = Frame(user_area)
-user_displays.pack(side="right", fill="y", expand=True)
+#user_displays = Frame(user_area)
+#user_displays.pack(side="right", fill="y", expand=True)
 
-for i in range(0, 2):
-    user_displays.rowconfigure(i, weight=1)
-    user_displays.columnconfigure(i, weight=1)
+#for i in range(0, 2):
+#    user_displays.rowconfigure(i, weight=1)
+#    user_displays.columnconfigure(i, weight=1)
 
 #label_volts = Label(user_displays, text="Tensão (0 - 5V):", font="arial 12")
 #label_volts.grid(row=0, column=0)
@@ -371,7 +382,7 @@ stringvar1.trace("w", field_check)
 stringvar2.trace("w", field_check)
 
 entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
-entry_points.insert(END, "256")
+entry_points.insert(END, "205")
 entry_points.grid(row=0, column=1)
 
 label_mean = Label(user_entries, text="Número de médias:", font="arial 12")
