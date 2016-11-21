@@ -32,7 +32,7 @@ void setup()
           Serial.print(mySerial.read());
         //mySerial.flush();
         mySerial.print("W0\r");
-        adc.setGain(GAIN_SIXTEEN);
+        adc.setGain(GAIN_EIGHT);
 }
 
 
