@@ -6,6 +6,7 @@ from Tkinter import *
 from tkFileDialog import askopenfilename, asksaveasfilename
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+import matplotlib.ticker as mtick
 import serial
 import serial.tools.list_ports
 import time
@@ -267,6 +268,7 @@ time.sleep(1)
 print("Foi")
 
 window = Tk()
+window.minsize(width=900,height=800)
 window.title("EPR - LEF - FisComp")
 window.state("normal")
 
@@ -298,6 +300,8 @@ canvas.get_tk_widget().pack(side="bottom", fill="both", expand=True)
 
 graph = fig.add_subplot(1, 1, 1)
 graph.grid()
+graph.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
+graph.xaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.set_ylabel("Sinal (Volts)", size=18)
 graph.set_xlabel("$\Delta V \approx \Delta B$", size=18)
 #graph.set_ylim(-20, 20)
