@@ -12,6 +12,7 @@ import serial.tools.list_ports
 import time
 import numpy as np
 import struct
+import random
 
 global count_max
 count_max = 500000
@@ -120,6 +121,7 @@ def plot_received_data(collected_points):
 	
 	global stop_flag, number_of_points
     
+    
 	if (not stop_flag) and (collected_points < number_of_points):
 		from_AD_x, from_AD_y = read_data()
 		while from_AD_x == None or from_AD_y == None:
@@ -129,7 +131,7 @@ def plot_received_data(collected_points):
         #write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
 
 		global x_axis, y_axis
-		x_axis.append(from_AD_x)
+		x_axis.append(from_AD_x*10000)
 		y_axis.append(from_AD_y)
 		
 		try:
@@ -194,22 +196,23 @@ def stop_reading():
 
 def plot_file():
     global number_of_points, mean
-
+    
+    cores = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'g'] #no more white
     # recebe o nome do arquivo a ser lido
     file_name = askopenfilename()
     # Le o arquivo em uma linha e retorna uma matriz com os dados
     data = np.loadtxt(file_name)
 
     # limpa a área gráfica (opcional)
-    try:
-        graph.lines[0].remove()
-    except IndexError:
-        pass
+    #try:
+    #    graph.lines[0].remove()
+    #except IndexError:
+    #    pass
     # separa a matriz de dados em vetores para X e Y
     x_axis = data[:, 0]
     y_axis = data[:, 1]
     # grafica
-    graph.plot(x_axis, y_axis, "k-", lw="1.5")
+    graph.plot(x_axis, y_axis, "k-", lw="1.5", color = cores[random.randint(0, len(cores)-1)])
     graph.autoscale()
     # desenha
     canvas.draw()
@@ -268,7 +271,7 @@ time.sleep(1)
 print("Foi")
 
 window = Tk()
-window.minsize(width=900,height=800)
+window.minsize(width=900,height=600)
 window.title("EPR - LEF - FisComp")
 window.state("normal")
 
@@ -303,7 +306,7 @@ graph.grid()
 graph.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.xaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.set_ylabel("Sinal (Volts)", size=18)
-graph.set_xlabel("$\Delta V \approx \Delta B$", size=18)
+graph.set_xlabel("$ B (Gauss)$", size=18)
 #graph.set_ylim(-20, 20)
 
 toolbar = NavigationToolbar2TkAgg(canvas, graph_area)
