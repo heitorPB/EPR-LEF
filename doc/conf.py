@@ -119,6 +119,8 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
+numfig = True
+
 
 # -- Options for HTML output ----------------------------------------------
 
@@ -251,11 +253,11 @@ latex_elements = {
 
      # The font size ('10pt', '11pt' or '12pt').
      #
-     # 'pointsize': '10pt',
+      'pointsize': '12pt',
 
      # Additional stuff for the LaTeX preamble.
      #
-     # 'preamble': '',
+      'preamble': '\usepackage[section]{placeins}',
 
      # Latex figure (float) alignment
      #
