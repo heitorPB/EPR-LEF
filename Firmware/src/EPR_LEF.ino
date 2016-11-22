@@ -1,4 +1,4 @@
-//18/11/2016 13:53
+//18/11/2016 13:53 
 
 #include <Arduino.h>
 #include <Wire.h>
@@ -23,15 +23,16 @@ void setup()
 	Serial.begin(9600);
         mySerial.begin(9600);
         delay(2000);
-
+        
 	while (!Serial);
 
 	pinMode(pinLed13, OUTPUT);
 	analogReference(DEFAULT);
         while (mySerial.available() > 0)
-        Serial.print(mySerial.read());
+          Serial.print(mySerial.read());
         //mySerial.flush();
         mySerial.print("W0\r");
+        adc.setGain(GAIN_EIGHT);
 }
 
 
@@ -67,8 +68,10 @@ void loop()
 			// TODO separar isso aqui em duas funcoes. Ou Nao.
 			// pode nao ser uma boa ideia por questao de tempo
 			// de medida.
+                        // FIXME primeira leitura do lockin nao funciona
 			digitalWrite(pinLed13, HIGH);
-
+                        //while (mySerial.available() > 0)
+                          //    merda = mySerial.read();
 			x = 0;
 			y = 0;
 			for(i = 0; i < media; i++){
@@ -81,6 +84,11 @@ void loop()
                                   aux_y[j]= mySerial.read();
                                   j++;
                                 }
+                                //Serial.print("\nj: ");
+                                //Serial.println(j);
+                                //for (int k = 0; k < j; k++)
+                                  //Serial.print(aux_y[k]);
+                                //Serial.println("");
 				y += atof(aux_y);
 			}
 			x /= (double) media;
