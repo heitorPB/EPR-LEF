@@ -5,14 +5,16 @@ Montagem Experimental
 Equipamento
 -----------
 
-Escrever um blablabla sobre a salaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Coisas a fazer nessa seção>
 
-Escrever uma legenda para figuraAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        #. Escrever um texto
 
-Colocar Foto da sala aqui. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        #. colocar foto da sala
 
-Fotos dos trocos (klystron, parafusos, lugar da amostra, amostras, ímäs,
-fonte do ímä, fonte do flystron, bobinas) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        #. Melhorar a legenda *descrever* cada foto.
+
+        #. colocar diagrama de blocos do arduino no trambolho
+
 
 .. _fig_diagrama_blocos_trambolho:
 
