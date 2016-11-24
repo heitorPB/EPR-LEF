@@ -54,7 +54,14 @@ fonte do ímä, fonte do flystron, bobinas) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
    Fonte do *klystron*.
 
-TODO foto do klystron e ref no item 9
+
+.. _fig_klystron:
+
+.. figure:: img/klystron.jpg
+   :scale: 80%
+   :align: center
+
+   O *klystron*.
 
 TODO defasador de microondas e ref no item 10
 
@@ -147,14 +154,16 @@ Ligar o espectrômetro
            feixe (*beam Curent*) indica próximo de 30 mA. Caso não esteja,
            chame o técnico do laboratório.
 
-        #. Ligue o osciloscópio no modo XY e ajuste a amplitude de modulção
+        #. Ligue o osciloscópio no modo XY e ajuste a amplitude de modulação
            na fonte do *klystron*  para observar o modo de oscilação do
            *klystron* e de absorção da cavidade.
 
            TODO fotos to osciloscopio mostrando o klystron oscilando na cavidade:
            fora de sintonia e em sintonia.
 
-           Talvez seja necessário ajustar o parafuso do *klystron* (REFERENCIA DA FOTO AQUI) para centralizar a absorção da cavidade no centro do modo.
+           Talvez seja necessário ajustar o parafuso do *klystron*,
+           :numref:`fig_klystron`  para centralizar a absorção da cavidade no
+           centro do modo.
 
         #. No defasador de microondas (REFERENCIA DA FOTO AQUI), desparafuse o pino (sentido anti-horário)
            até que não haja reflexão de microondas. Você saberá que não há mais
