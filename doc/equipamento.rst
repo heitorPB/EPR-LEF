@@ -38,7 +38,13 @@ fonte do ímä, fonte do flystron, bobinas) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
    Controlador de varredura do campo magnético.
 
-TODO foto da fonte do eletroima e ref no item 5.
+.. _fig_fonte_eletroima:
+
+.. figure:: img/fonte_TCA.jpg
+   :scale: 80%
+   :align: center
+
+   Fonte do eletroímã.
 
 TODO foto da fonte do klystron e ref no item 7 e 8.
 
@@ -107,8 +113,9 @@ Ligar o espectrômetro
 
            TODO fotos da amostra em posicoes diferentes.
 
-        #. Ligue a fonte de corrente do eletroíma e coloque seus controles
-           de voltagem e corrente no máximo.
+        #. Ligue a fonte de corrente do eletroíma,
+           :numref:`fig_fonte_eletroima`, e coloque seus controles de voltagem
+           e corrente no máximo.
 
         #. Aumente B_0 no controlador de varredura até que a corrente do
            eletroímã esteja perto de 32 A.
