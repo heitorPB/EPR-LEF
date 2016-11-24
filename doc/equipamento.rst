@@ -46,7 +46,13 @@ fonte do ímä, fonte do flystron, bobinas) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
    Fonte do eletroímã.
 
-TODO foto da fonte do klystron e ref no item 7 e 8.
+.. _fig_fonte_klystron:
+
+.. figure:: img/fonte_klystron.jpg
+   :scale: 80%
+   :align: center
+
+   Fonte do *klystron*.
 
 TODO foto do klystron e ref no item 9
 
@@ -129,8 +135,9 @@ Ligar o espectrômetro
         #. Aumente B_0 no controlador de varredura até que a corrente do
            eletroímã esteja perto de 32 A.
 
-        #. Verifique os controles das fonte do *klystron*: *beam*: 250 V,
-           *refletor*: 150 V, *function*: dente de serra.
+        #. Verifique os controles da fonte do *klystron*
+           (:numref:`fig_fonte_klystron`): *beam*: 250 V, *refletor*: 150 V,
+           *function*: dente de serra.
 
         #. Ligue a fonte do *klystron* na primeira posição (*FIL*), aguarde
            dois minutos e passe para a posição *HV-FIL*. Esse atraso é
