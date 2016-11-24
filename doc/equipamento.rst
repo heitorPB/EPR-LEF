@@ -109,9 +109,18 @@ Ligar o espectrômetro
            muito difícil obter um sinal.
 
            A amostra é bem pequena e encontra-se no fundo do tubo. Antes de
-           inserir a amostra na cavidade, meça a posição do centro.
+           inserir a amostra na cavidade, meça a posição do centro, como na
+           :numref:`fig_amostra_centro`.
 
-           TODO fotos da amostra em posicoes diferentes.
+           .. TODO colocar as outras imagens da amostra em lugar errado?
+
+           .. _fig_amostra_centro:
+
+           .. figure:: img/amostra_centro.jpg
+              :width: 75%
+              :align: center
+
+              Posição correta da amostra na cavidade.
 
         #. Ligue a fonte de corrente do eletroíma,
            :numref:`fig_fonte_eletroima`, e coloque seus controles de voltagem
@@ -185,9 +194,12 @@ Ligar o espectrômetro
            observe o sinal. Altere a frequência para maximizar o sinal visto.
 
         #. Antes de ligar o lock-in certifique-se de que o mesmo esteja conectado corretamente.
-	         Verifique se o input do lock-in está ligado ao gerador de funções.
-	         verifique se a entrada A esteja recebendo o sinal do receptor de micro-ondas.
-            Ligue o lock-in, em seu painel verifique a sensibilidade (sensitivity) esta deve estar marcando 200 micro volts, verifique se o offset do aparelho esta em off.
+
+	   Verifique se o input do lock-in está ligado ao gerador de funções.
+
+	   verifique se a entrada A esteja recebendo o sinal do receptor de micro-ondas.
+
+           Ligue o lock-in, em seu painel verifique a sensibilidade (sensitivity) esta deve estar marcando 200 micro volts, verifique se o offset do aparelho esta em off.
 
         #. Agora deve ser possível observar o sinal do EPR no display do lock-in. No controlador de varredura varie B_0 até que no display do lock-in seja possível observar uma variação brusca do sinal. Varie B_0 com cuidado, o aparelho é muito sensível a pequenas variações de B_0.
 
