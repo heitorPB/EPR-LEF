@@ -198,10 +198,22 @@ Desligar o espectrômetro
         #. Desligue os disjuntores da sala.
 
 
+Parâmetros Iniciais do Espectrômetro
+------------------------------------
+
+========================    ==============================   ============
+Fonte do *klystron*         *Lock-in*                        Amplificador
+========================    ==============================   ============
+Beam voltage: 250 V         Sensitivity: 200 :math:`\mu V`   Ganho: 1X.
+Reflector voltage: 150 V    Time constant: 100 ms
+Function: CW
+========================    ==============================   ============
+
+
 Práticas
 --------
 
 Aqui a gente explica cada passo pra ligar o bagulho, como fazer os ajustes finos,
-pra que serve.
+pra que serve?
 
 Colocar as práticas aqui ou em arquivo/secao sepsarada?
