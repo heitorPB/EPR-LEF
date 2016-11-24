@@ -70,7 +70,7 @@ para isso acontecer:
 
         #. Ligar o *klystron* antes do mesmo estar aquecido.
 
-Siga os passos abaixo para ligar corretamente o equipamento.
+Siga os passos abaixo para ligar e desligar corretamente o equipamento.
 
 
 Ligar o espectrômetro
@@ -173,9 +173,29 @@ Ligar o espectrômetro
 Desligar o espectrômetro
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-passos para desligar o equipamento.
+        #. No defasador, desparafuse o pino até que não haja mais reflexão
+           de microondas.
 
-Além do que ta na apostila do magon: tirar a amostra do rolê.
+        #. Na fonte do *klystron*, coloque na função dente de serra.
+
+           Desligue a alta tensão. Para isso, coloque a chave em *FIL*.
+
+           Obersve no osciloscópio o sinal do klystron desaparecer e depois
+           deligue a fonte (*OFF*).
+
+        #. No controle de varredura do campo, coloque B0 em zero e *depois*
+           desligue a fonte de corrente do eletroímã. Isso é necessário para
+           evitar que a tensão contraeletromotriz queime a eletrônica.
+
+        #. Desligue todos os demais equipamentos.
+
+        #. Retire a amostra da cavidade e guarde no lugar correto.
+
+        #. Feche o registro de água.
+
+        #. Organize a sala.
+
+        #. Desligue os disjuntores da sala.
 
 
 Práticas
@@ -184,4 +204,4 @@ Práticas
 Aqui a gente explica cada passo pra ligar o bagulho, como fazer os ajustes finos,
 pra que serve.
 
-Colocar as práticas aqui ou em arquivo/secao separada?
+Colocar as práticas aqui ou em arquivo/secao sepsarada?
