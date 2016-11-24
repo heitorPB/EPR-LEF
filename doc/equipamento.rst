@@ -168,6 +168,13 @@ Ligar o espectrômetro
 
            Ligue a bobina *pick-up* :numref:`fig_cavidade` a um osciloscópio e
            observe o sinal. Altere a frequência para maximizar o sinal visto.
+           
+        #. Antes de ligar o lock-in certifique-se de que o mesmo esteja conectado corretamente.
+	         Verifique se o input do lock-in está ligado ao gerador de funções.
+	         verifique se a entrada A esteja recebendo o sinal do receptor de micro-ondas.
+            Ligue o lock-in, em seu painel verifique a sensibilidade (sensitivity) esta deve estar marcando 200 micro volts, verifique se o offset do aparelho esta em off.
+            
+        #. Agora deve ser possível observar o sinal do EPR no display do lock-in. No controlador de varredura varie B_0 até que no display do lock-in seja possível observar uma variação brusca do sinal. Varie B_0 com cuidado, o aparelho é muito sensível a pequenas variações de B_0.
 
 
 Desligar o espectrômetro
