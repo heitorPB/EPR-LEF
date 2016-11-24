@@ -5,6 +5,10 @@ Montagem Experimental
 Equipamento
 -----------
 
+Escrever um blablabla sobre a salaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Escrever uma legenda para figuraAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 Colocar Foto da sala aqui. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 .. _fig_diagrama_blocos_trambolho:
@@ -25,6 +29,29 @@ Colocar Foto da sala aqui. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 Fotos dos trocos (klystron, parafusos, lugar da amostra, amostras, ímäs,
 fonte do ímä, fonte do flystron, bobinas) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+
+TODO foto das torneiras e referência a elas no item 2.
+
+TODO foto da fonte do eletroima e ref no item 5.
+
+TODO foto da fonte do klystron e ref no item 7 e 8.
+
+TODO foto do klystron e ref no item 9
+
+TODO defasador de microondas e ref no item 10
+
+.. _fig_cavidade:
+
+.. figure:: img/cavidade.jpg
+   :scale: 80%
+   :align: center
+
+   Cavidade do espectrômetro.
+
+TODO foto do gerador de sinais aqui.
+
+TODO foto do amplificador de audio aqui.
 
 
 Instruções
@@ -70,10 +97,13 @@ Ligar o espectrômetro
            A amostra é bem pequena e encontra-se no fundo do tubo. Antes de
            inserir a amostra na cavidade, meça a posição do centro.
 
+           TODO fotos da amostra em posicoes diferentes.
+
         #. Ligue a fonte de corrente do eletroíma e coloque seus controles
            de voltagem e corrente no máximo.
 
-        #. Aumente B_0 até que a corrente do eletroímã esteja perto de 32 A.
+        #. Aumente B_0 no controlador de varredura até que a corrente do
+           eletroímã esteja perto de 32 A.
 
         #. Verifique os controles das fonte do *klystron*: *beam*: 250 V,
            *refletor*: 150 V, *function*: dente de serra.
@@ -89,6 +119,55 @@ Ligar o espectrômetro
         #. Ligue o osciloscópio no modo XY e ajuste a amplitude de modulção
            na fonte do *klystron*  para observar o modo de oscilação do
            *klystron* e de absorção da cavidade.
+
+           TODO fotos to osciloscopio mostrando o klystron oscilando na cavidade:
+           fora de sintonia e em sintonia.
+
+           Talvez seja necessário ajustar o parafuso do *klystron* (REFERENCIA DA FOTO AQUI) para centralizar a absorção da cavidade no centro do modo.
+
+        #. No defasador de microondas (REFERENCIA DA FOTO AQUI), desparafuse o pino (sentido anti-horário)
+           até que não haja reflexão de microondas. Você saberá que não há mais
+           reflexão de microondas quando não houver mudança na forma do modo
+           ao deslocar a posição do pino. Basta desparafusar algumas voltas,
+           não retire o parafuso que controla a profundidade do pino.
+
+        #. Se o item anterior foi executado corretamente, a única microonda
+           que atinge o detector é a refletida pela cavidade. Estava deve ser
+           nula quando a frequência do *klystron* for igual à de ressonância
+           da cavidade. Observando a absorção da cavidade no osciloscópio,
+           ajuste o parafuso de sintonia da cavidade, :numref:`fig_cavidade`,
+           para máximo acoplamento. Utilize uma chave de fenda não-magnética,
+           de latão ou cobre.
+
+           TODO fotos iguais a da fig7 do magon:
+           klystron fora de sintonia.
+           klystron em sintonia, cavidade desacoplada.
+           klystron ok e cavidade ok.
+
+        #. Introduza reflexão no defasador parafusando o pino (sentido
+           horário). Observando o osciloscópio, desloque o mínimo da
+           absorção da cavidade verticalmente, aproximadamente uma divisão,
+           conforme ilustrado na (REFERENCIA DA FIG AQUI) a seguir.
+
+           TODO FIGURA AQUI: Sem reflexao, com reflexao.
+
+        #. Observe a mudança na forma do sinal no osciloscópio quando você
+           altera a fase do braço de referência. Ajuste a fase da reflexão
+           para que o mínimo de absorção tenha um valor máximo.
+
+        #. Mude a função de modulação do *klystron* de dente de serra para
+           *CW*. Ajuste a voltagem do refletor para que o ponto no
+           osciloscópio tenha um valor mínimo. Para fins de referência,
+           ajuste a posição desse ponto no centro da tela do osciloscópio
+           (ajustes no osciloscópio apenas).
+
+           TODO foto do ponto no centro.
+
+        #. Ligue o gerador de sinais (REFERENCIA DA FIG AQUI). Selecione onda senoidal de cerca de
+           25 kHz. E ligue o amplificador (REFERENCIA DA FIG AQYU) de áudio com ganho de 1X.
+
+           Ligue a bobina *pick-up* :numref:`fig_cavidade` a um osciloscópio e
+           observe o sinal. Altere a frequência para maximizar o sinal visto.
 
 
 Desligar o espectrômetro
