@@ -90,9 +90,13 @@ para isso acontecer:
 
         #. Superaquecimento do *klystron*.
 
-        #. Tensão do feixe superior a 250 V.
+        #. Tensão do feixe superior a 250 V ou do refletor superior a 200 V.
 
         #. Ligar o *klystron* antes do mesmo estar aquecido.
+
+Muito cuidado ao manusear os tubinhos de amostra. Eles são feitos de quartzo
+ultrapuro, para não haver impurezas magnéticas. Por esse motivo, são muito
+caros e também frágeis.
 
 Siga os passos abaixo para ligar e desligar corretamente o equipamento.
 
