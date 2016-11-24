@@ -225,7 +225,7 @@ Ligar o espectrômetro
 	   
 	#. Inicie o programa EPR-LEF com o comando EPR-LEF.py.
            Nesse programa o usuário tem controle sobre o número de pontos a serem coletados para o gráfico e o número de  amostragem para média assim por exemplo, se o usuário colocar 1000 pontos e 50 médio o gráfico ira conter 1000 pontos e cada ponto será a média de 50 amostragens do lock-in.
-Há também a opção de salvar ou ler um gráfico, limpar a tela do gráfico e parar a varredura.
+           Há também a opção de salvar ou ler um gráfico, limpar a tela do gráfico e parar a varredura.
 
 
 Desligar o espectrômetro
