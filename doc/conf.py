@@ -121,6 +121,8 @@ todo_include_todos = True
 
 numfig = True
 
+math_number_all = True
+
 
 # -- Options for HTML output ----------------------------------------------
 
