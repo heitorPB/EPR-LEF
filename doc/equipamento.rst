@@ -79,9 +79,21 @@ fonte do ímä, fonte do flystron, bobinas) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
    Cavidade do espectrômetro.
 
-TODO foto do gerador de sinais aqui.
+.. _fig_gerador_sinais:
 
-TODO foto do amplificador de audio aqui.
+.. figure:: img/gerador_sinais.jpg
+   :scale: 80%
+   :align: center
+
+   Gerador de sinais.
+
+.. _fig_amplificador_audio:
+
+.. figure:: img/amplificador_audio.jpg
+   :scale: 80%
+   :align: center
+
+   Amplificador de audio.
 
 
 Instruções
@@ -214,10 +226,11 @@ Ligar o espectrômetro
 
            TODO foto do ponto no centro.
 
-        #. Ligue o gerador de sinais (REFERENCIA DA FIG AQUI). Selecione onda senoidal de cerca de
-           25 kHz. E ligue o amplificador (REFERENCIA DA FIG AQYU) de áudio com ganho de 1X.
+        #. Ligue o gerador de sinais, :numref:`fig_gerador_sinais`. Selecione
+           onda senoidal de cerca de 25 kHz. E ligue o amplificador de áudio,
+           :numref:`fig_amplificador_audio`, com ganho de 1X.
 
-           Ligue a bobina *pick-up* :numref:`fig_cavidade` a um osciloscópio e
+           Ligue a bobina *pick-up*, :numref:`fig_cavidade` a um osciloscópio e
            observe o sinal. Altere a frequência para maximizar o sinal visto.
 
         #. Antes de ligar o lock-in certifique-se de que o mesmo esteja conectado corretamente.
