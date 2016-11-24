@@ -11,6 +11,9 @@ Escrever uma legenda para figuraAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 Colocar Foto da sala aqui. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
+Fotos dos trocos (klystron, parafusos, lugar da amostra, amostras, ímäs,
+fonte do ímä, fonte do flystron, bobinas) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 .. _fig_diagrama_blocos_trambolho:
 
 .. figure:: img/diagrama_blocos_trambolho.jpg
@@ -19,6 +22,14 @@ Colocar Foto da sala aqui. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
    Diagrama de blocos do trambolho
 
+.. _fig_torneiras:
+
+.. figure:: img/torneiras.jpg
+   :scale: 80%
+   :align: center
+
+   Registro geral de água e torneiras para refrigeração.
+
 .. _fig_controlador_varredura:
 
 .. figure:: img/controlador_varredura.jpg
@@ -26,12 +37,6 @@ Colocar Foto da sala aqui. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
    :align: center
 
    Controlador de varredura do campo magnético.
-
-Fotos dos trocos (klystron, parafusos, lugar da amostra, amostras, ímäs,
-fonte do ímä, fonte do flystron, bobinas) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
-
-TODO foto das torneiras e referência a elas no item 2.
 
 TODO foto da fonte do eletroima e ref no item 5.
 
@@ -80,10 +85,13 @@ Ligar o espectrômetro
            encontram-se ligados.
 
         #. Abra o registro de água e a torneira para refrigerar o *klystron*
-           e o eletroímã. De tempos em tempos, verifique com os dedos a
-           temperatura do *klystron* e das bobinas. O *klystron* deve estar
-           morno, isto é, o contato com seus dedos nao deve ser
-           desconfortável. As bobinas devem estar na temperatura ambiente.
+           e o eletroímã, :numref:`fig_torneiras`.
+
+           De tempos em tempos, verifique com os dedos a temperatura do
+           *klystron* e das bobinas. O *klystron* deve estar morno, isto é, o
+           contato com seus dedos nao deve ser desconfortável. As bobinas
+           devem estar na temperatura ambiente.
+
            Caso você perceba algum aquecimento, chame o técnico do
            laboratório *imediatamente*.
 
@@ -168,12 +176,12 @@ Ligar o espectrômetro
 
            Ligue a bobina *pick-up* :numref:`fig_cavidade` a um osciloscópio e
            observe o sinal. Altere a frequência para maximizar o sinal visto.
-           
+
         #. Antes de ligar o lock-in certifique-se de que o mesmo esteja conectado corretamente.
 	         Verifique se o input do lock-in está ligado ao gerador de funções.
 	         verifique se a entrada A esteja recebendo o sinal do receptor de micro-ondas.
             Ligue o lock-in, em seu painel verifique a sensibilidade (sensitivity) esta deve estar marcando 200 micro volts, verifique se o offset do aparelho esta em off.
-            
+
         #. Agora deve ser possível observar o sinal do EPR no display do lock-in. No controlador de varredura varie B_0 até que no display do lock-in seja possível observar uma variação brusca do sinal. Varie B_0 com cuidado, o aparelho é muito sensível a pequenas variações de B_0.
 
 
