@@ -12,7 +12,8 @@
 const int channel_x = 1;
 const int channel_y = 0;
 const int pinLed13  = 13;
-
+const int start_r = 2;
+const int stop_r = 3;
 
 Nanoshield_ADC adc;
 SoftwareSerial mySerial(10, 11); // RX, TX
@@ -26,6 +27,13 @@ void setup()
         
 	while (!Serial);
 
+        pinMode(start_r, OUTPUT);
+        pinMode(stop_r,OUTPUT);
+        delay(1000);
+        digitalWrite(start_r, LOW);
+        digitalWrite(stop_r, HIGH);
+        delay(7);
+        digitalWrite(stop_r, LOW);
 	pinMode(pinLed13, OUTPUT);
 	analogReference(DEFAULT);
         while (mySerial.available() > 0)
@@ -119,6 +127,20 @@ void loop()
 		case 'Z':
 			opcao = 100;
 			mySerial.print("z\r");
+                        break;
+                        
+                case 'I':
+                        opcao = 100;
+                        digitalWrite(start_r, HIGH);
+                        delay(10);
+                        digitalWrite(start_r, LOW);
+                        break;
+                                  
+                case 'P':
+                        opcao = 100;
+                        digitalWrite(stop_r, HIGH);
+                        delay(10);
+                        digitalWrite(stop_r, LOW);
                         break;
 
 		default:
