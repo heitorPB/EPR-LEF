@@ -244,14 +244,31 @@ Ligar o espectrômetro
            Ligue o lock-in, em seu painel verifique a sensibilidade (sensitivity) esta marcando 200 uV, verifique se o offset do aparelho esta em off.
 
         #. Agora deve ser possível observar o sinal do EPR no display do lock-in. No controlador de varredura varie B_0 até que no display do lock-in seja possível observar uma variação brusca do sinal. Varie B_0 com cuidado, o aparelho é muito sensível a pequenas variações de campo.
-	
+
 	#. Antes de ligar o arduino na saída USB do computador verifique se os fios estão ligados corretamente.
            Verifique se as saídas Rx e Tx do shield RS232 estão ligados nos pinos 11 e 10 do arduino respectivamente.
            No conversor ADC verifique se os pinos A1 e GND estão ligados na saída marcada de campo magnético do controlador de varredura.
 
-	#. Inicie o programa EPR-LEF com o comando EPR-LEF.py.
-           Nesse programa o usuário tem controle sobre o número de pontos a serem coletados para o gráfico e o número de  amostragem para média assim, por exemplo, se o usuário colocar 1000 pontos e 50 médio o gráfico ira conter 1000 pontos e cada ponto será a média de 50 amostragens do lock-in.
-           Há também a opção de salvar ou ler um gráfico, limpar a tela do gráfico e parar a varredura.
+	#. Inicie o programa EPR-LEF com o comando python EPR-LEF.py.
+
+           Nesse programa o usuário tem controle sobre o número de pontos a
+           serem coletados para o gráfico e o número de amostragem para
+           média assim, por exemplo, se o usuário colocar 1000 pontos e 50
+           médias o gráfico ira conter 1000 pontos e cada ponto será a média
+           de 50 amostragens do lock-in.
+
+           Há também a opção de salvar ou ler um gráfico, limpar a tela do
+           gráfico e parar a varredura.
+
+           Exemplo de uma aquisição está na :numref:`fig_screenshot` a seguir.
+
+           .. _fig_screenshot:
+
+           .. figure:: img/sinal-epr.png
+              :width: 75%
+              :align: center
+
+              Tela do programa.
 
 
 Desligar o espectrômetro
