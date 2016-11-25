@@ -239,9 +239,17 @@ Ligar o espectrômetro
         #. Introduza reflexão no defasador parafusando o pino (sentido
            horário). Observando o osciloscópio, desloque o mínimo da
            absorção da cavidade verticalmente, aproximadamente uma divisão,
-           conforme ilustrado na (REFERENCIA DA FIG AQUI) a seguir.
+           conforme ilustrado na :numref:`fig_reflexao_boa` a seguir.
 
-           TODO FIGURA AQUI: Sem reflexao, com reflexao.
+           .. TODO FIGURA AQUI: Sem reflexao, com reflexao.
+
+           .. _fig_reflexao_boa:
+
+           .. figure:: img/reflexao_boa.jpg
+              :width: 75%
+              :align: center
+
+              Reflexão de microonda desloca o mínimo de absorção.
 
         #. Observe a mudança na forma do sinal no osciloscópio quando você
            altera a fase do braço de referência. Ajuste a fase da reflexão
@@ -251,9 +259,15 @@ Ligar o espectrômetro
            *CW*. Ajuste a voltagem do refletor para que o ponto no
            osciloscópio tenha um valor mínimo. Para fins de referência,
            ajuste a posição desse ponto no centro da tela do osciloscópio
-           (ajustes no osciloscópio apenas).
+           (ajustes no osciloscópio apenas), :numref:`fig_ponto_centro`.
 
-           TODO foto do ponto no centro.
+           .. _fig_ponto_centro:
+
+           .. figure:: img/CW.jpg
+              :width: 75%
+              :align: center
+
+              Ponto centralizado na tela.
 
         #. Ligue o gerador de sinais, :numref:`fig_gerador_sinais`. Selecione
            onda senoidal de cerca de 25 kHz. E ligue o amplificador de áudio,
@@ -262,21 +276,31 @@ Ligar o espectrômetro
            Ligue a bobina *pick-up*, :numref:`fig_cavidade` a um osciloscópio e
            observe o sinal. Altere a frequência para maximizar o sinal visto.
 
-        #. Antes de ligar o lock-in certifique-se de que o mesmo esteja conectado corretamente.
+        #. Antes de ligar o lock-in certifique-se de que o mesmo esteja
+           conectado corretamente.
 
-	   Verifique se o input do lock-in está ligado ao gerador de funções.
+           Verifique se o input do lock-in está ligado ao gerador de funções.
 
-	   verifique se a entrada A esteja recebendo o sinal do receptor de micro-ondas.
+           Verifique se a entrada A esteja recebendo o sinal do receptor de
+           microondas.
 
-           Ligue o lock-in, em seu painel verifique a sensibilidade (sensitivity) esta marcando 200 uV, verifique se o offset do aparelho esta em off.
+           Ligue o lock-in. Em seu painel verifique a sensibilidade está
+           marcando 200 :math:`\mu V`, verifique se o offset do aparelho esta
+           em off.
 
-        #. Agora deve ser possível observar o sinal do EPR no display do lock-in. No controlador de varredura varie B_0 até que no display do lock-in seja possível observar uma variação brusca do sinal. Varie B_0 com cuidado, o aparelho é muito sensível a pequenas variações de campo.
+        #. Agora deve ser possível observar o sinal do EPR no display do lock-in.
+           No controlador de varredura, varie B_0 até que no display do lock-in
+           seja possível observar uma variação brusca do sinal. Varie B_0 com
+           cuidado, o aparelho é muito sensível a pequenas variações de campo.
 
-	#. Antes de ligar o arduino na saída USB do computador verifique se os fios estão ligados corretamente.
-           Verifique se as saídas Rx e Tx do shield RS232 estão ligados nos pinos 11 e 10 do arduino respectivamente.
-           No conversor ADC verifique se os pinos A1 e GND estão ligados na saída marcada de campo magnético do controlador de varredura.
+        #. Antes de ligar o arduino na saída USB do computador verifique se os
+           fios estão ligados corretamente.
+           Verifique se as saídas Rx e Tx do shield RS232 estão ligados nos
+           pinos 11 e 10 do arduino respectivamente.
+           No conversor ADC verifique se os pinos A1 e GND estão ligados na
+           saída marcada de campo magnético do controlador de varredura.
 
-	#. Inicie o programa EPR-LEF com o comando python EPR-LEF.py.
+        #. Inicie o programa EPR-LEF com o comando python EPR-LEF.py.
 
            Nesse programa o usuário tem controle sobre o número de pontos a
            serem coletados para o gráfico e o número de amostragem para
