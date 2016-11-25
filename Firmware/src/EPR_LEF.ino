@@ -32,14 +32,14 @@ void setup()
           Serial.print(mySerial.read());
         //mySerial.flush();
         mySerial.print("W0\r");
-        adc.setGain(GAIN_EIGHT);
+        adc.setGain(GAIN_FOUR);
 }
 
 
 void loop()
 {
 	int opcao = 100;
-	long media = 5;
+	int media = 1;
 	int i;
 	double x;
 	double y;
@@ -62,6 +62,7 @@ void loop()
 					goto ret1;
 
 			opcao = 100;
+                        //Serial.println(media);
 			break;
 
 		case 'B':
