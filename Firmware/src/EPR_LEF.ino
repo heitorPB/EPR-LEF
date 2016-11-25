@@ -78,7 +78,7 @@ void loop()
 				x += adc.readVoltage(channel_x);
 
                                 mySerial.print("q\r");
-                                delay(1);
+                                //delay(1);
                                 j = 0;
                                 while(mySerial.available() > 0 && j < 20){
                                   aux_y[j]= mySerial.read();
