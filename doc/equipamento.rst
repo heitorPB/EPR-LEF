@@ -182,11 +182,23 @@ Ligar o espectrômetro
            na fonte do *klystron*  para observar o modo de oscilação do
            *klystron* e de absorção da cavidade.
 
-           TODO fotos to osciloscopio mostrando o klystron oscilando na cavidade:
-           fora de sintonia e em sintonia.
+           .. TODO fotos to osciloscopio mostrando o klystron oscilando na cavidade:
+           .. fora de sintonia e em sintonia.
+
+           .. figure:: img/cavidade_klystron.jpg
+              :width: 75%
+              :align: center
+
+              Klystron em sintonia com a cavidade.
+
+           .. figure:: img/cavidade_klystron_fora_sintonia.jpg
+              :width: 75%
+              :align: center
+
+              Klystron fora de sincronia
 
            Talvez seja necessário ajustar o parafuso do *klystron*,
-           :numref:`fig_klystron`  para centralizar a absorção da cavidade no
+           :numref:`fig_klystron` para centralizar a absorção da cavidade no
            centro do modo.
 
         #. No defasador de microondas, :numref:`fig_defasador`, desparafuse o
@@ -204,10 +216,25 @@ Ligar o espectrômetro
            para máximo acoplamento. Utilize uma chave de fenda não-magnética,
            de latão ou cobre.
 
-           TODO fotos iguais a da fig7 do magon:
-           klystron fora de sintonia.
-           klystron em sintonia, cavidade desacoplada.
-           klystron ok e cavidade ok.
+           .. TODO fotos iguais a da fig7 do magon:
+
+           .. figure:: img/acoplamento_cavidade_klystron1.jpg
+              :width: 75%
+              :align: center
+
+              Klystron fora de sintonia.
+
+           .. figure:: img/acoplamento_cavidade_klystron2.jpg
+              :width: 75%
+              :align: center
+
+              klystron em sintonia, cavidade desacoplada.
+
+           .. figure:: img/acoplamento_cavidade_klystron3.jpg
+              :width: 75%
+              :align: center
+
+              klystron ok e cavidade ok.
 
         #. Introduza reflexão no defasador parafusando o pino (sentido
            horário). Observando o osciloscópio, desloque o mínimo da
