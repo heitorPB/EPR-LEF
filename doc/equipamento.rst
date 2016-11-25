@@ -22,7 +22,7 @@ Coisas a fazer nessa seção>
    :scale: 80%
    :align: center
 
-   Diagrama de blocos do trambolho
+   Diagrama de blocos do EPR
 
 .. _fig_torneiras:
 
@@ -63,7 +63,7 @@ Coisas a fazer nessa seção>
    :scale: 80%
    :align: center
 
-   O *klystron*.
+   Emissor de micro-ondas *klystron*.
 
 .. _fig_defasador:
 
