@@ -111,17 +111,17 @@ def read_data():
 
 # TODO fazer a porra do texto pro eixo x
 def plot_received_data(collected_points):
-	
+
     if collected_points == 0:
         from_AD_x, from_AD_y = read_data()
         while True:
             aux, aux2 = read_data()
             if abs(from_AD_x - aux) > 0.0002:
                 break
-	
-    global stop_flag, number_of_points
-    
-    if (not stop_flag) and (collected_points < number_of_points):
+
+    global stop_flag
+
+    if not stop_flag:
         from_AD_x, from_AD_y = read_data()
         while from_AD_x == None or from_AD_y == None:
             from_AD_x, from_AD_y = read_data()
@@ -131,26 +131,31 @@ def plot_received_data(collected_points):
         
         global x_axis, y_axis
         try:
-            if from_AD_x*10000 - x_axis[len(x_axis)-1] > 0:
+            if abs(from_AD_x*10000 - x_axis[len(x_axis)-1]) < 100 :
                 x_axis.append(from_AD_x*10000)
                 y_axis.append(from_AD_y)
                 try:
                     graph.lines[0].remove()
                 except IndexError:
                     pass
-                        
+                  
                 graph.plot(x_axis, y_axis, color="red",
-                        linestyle="solid", linewidth="2.5")
+                    linestyle="solid", linewidth="2.5")
+            else:
+                stop_flag = True
 		# graph.plot (x_axis, y_axis, "r-", lw="2.5")
 		# graph.plot (y_axis, "r-", lw="2.5")
 		# line, = graph.plot (x_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
 		# escala automatica para o eixo y
-                graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
-                graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
-                canvas.draw()
+            graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
+            graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
+            canvas.draw()
         except IndexError:
-            x_axis.append(from_AD_x*10000)
-            y_axis.append(from_AD_y)
+            if collected_points == 0:
+                x_axis.append(from_AD_x*10000)
+                y_axis.append(from_AD_y)
+            else:
+                pass
             
         global delay
         window.after(delay, plot_received_data, collected_points + 1)
@@ -162,9 +167,9 @@ def plot_received_data(collected_points):
 
 
 def start_reading():
-    global number_of_points, mean
+    global mean
 
-    number_of_points = int(entry_points.get())
+    #number_of_points = int(entry_points.get())
     graph.set_xlim(0, number_of_points)
     canvas.draw()
 
@@ -261,9 +266,9 @@ def on_closing():
 
 # checa se os campos de numero e medias estao preenchidos
 def field_check(*args):
-    str1 = stringvar1.get()
+    #str1 = stringvar1.get()
     str2 = stringvar2.get()
-    if str1 and str2:
+    if str2:
         bt_on.config(state='normal')
     else:
         bt_on.config(state='disabled')
@@ -383,23 +388,23 @@ for i in range(0, 2):
     user_entries.columnconfigure(i, weight=1)
     user_entries.rowconfigure(i, weight=1)
 
-label_points = Label(user_entries, text="Número de pontos:", font="arial 12")
-label_points.grid(row=0, column=0)
+#label_points = Label(user_entries, text="Número de pontos:", font="arial 12")
+#label_points.grid(row=0, column=0)
 
-stringvar1 = StringVar(user_entries)
+#stringvar1 = StringVar(user_entries)
 stringvar2 = StringVar(user_entries)
-stringvar1.trace("w", field_check)
+#stringvar1.trace("w", field_check)
 stringvar2.trace("w", field_check)
 
-entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
-entry_points.insert(END, "205")
-entry_points.grid(row=0, column=1)
+#entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
+#entry_points.insert(END, "205")
+#entry_points.grid(row=0, column=1)
 
-label_mean = Label(user_entries, text="Número de médias:", font="arial 12")
-label_mean.grid(row=1, column=0)
+label_mean = Label(user_entries, text="Tempo de varredura:", font="arial 12")
+label_mean.grid(row=0, column=0)
 entry_mean = Entry(user_entries, width=8, textvariable=stringvar2)
 entry_mean.insert(END, "5")
-entry_mean.grid(row=1, column=1)
+entry_mean.grid(row=0, column=1)
 
 
 window.protocol("WM_DELETE_WINDOW", on_closing)
