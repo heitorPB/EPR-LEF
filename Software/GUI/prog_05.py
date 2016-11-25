@@ -175,7 +175,7 @@ def start_reading():
 
     mean = entry_mean.get()
     connection.write("A")
-    time.sleep(0.1)
+    time.sleep(0.01)
     connection.write(mean)
     time.sleep(0.1)
 
@@ -193,13 +193,14 @@ def start_reading():
 
     bt_on.config(state="disabled")
     bt_off.config(state="normal")
-
+    connection.write("I")
     plot_received_data(0)
 
 
 def stop_reading():
     global stop_flag
     stop_flag = True
+    connection.write("P");
 
 
 def plot_file():
