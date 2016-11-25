@@ -10,7 +10,7 @@
 //#include <WString.h>
 
 const int channel_x = 1;
-const int channel_y = 0;
+const int channel_b = 0;
 const int pinLed13  = 13;
 const int start_r = 2;
 const int stop_r = 3;
@@ -21,7 +21,7 @@ SoftwareSerial mySerial(10, 11); // RX, TX
 void setup()
 {
 	adc.begin();
-	Serial.begin(9600);
+	Serial.begin(115200);
         mySerial.begin(9600);
         delay(2000);
         
