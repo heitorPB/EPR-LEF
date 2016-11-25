@@ -36,6 +36,8 @@ x_axis = []
 global y_axis
 y_axis = []
 
+global b_axis
+b_axis = []
 
 # descobre qual a porta que o arduino esta conectado
 def get_arduino_port():
@@ -76,7 +78,7 @@ def read_data():
     count = 0
     x = 0.
     y = 0.
-
+    b = 0.
     # TODO FIXME checar se datalen vai sempre ser 1 char!!!!!!!
     connection.write("B")
     #print("B")
@@ -96,44 +98,55 @@ def read_data():
     datalen = connection.read(2)
     data    = connection.read(int(datalen))
     ehlo2   = connection.read(1)
-
+    
     #print(ehlo1, datalen, data, ehlo2)
     if ehlo1 == b'y' and ehlo2 == b'Y':
         dados_y = float(data)
     else:
         dados_y = None
 
+    ehlo1   = connection.read(1)
+    datalen = connection.read(1)
+    data    = connection.read(int(datalen))
+    ehlo2   = connection.read(1)
+    #print(ehlo1, datalen, data, ehlo2)
+
+    if ehlo1 == b'b' and ehlo2 == b'B':
+        dados_b = float(data)
+    else:
+        dados_b = None
 
     #print dados_x, dados_y
     #print type(dados_x), type(dados_y)
-    return dados_x, dados_y
+    return dados_x, dados_y, dados_b
 
 
 # TODO fazer a porra do texto pro eixo x
 def plot_received_data(collected_points):
 
     if collected_points == 0:
-        from_AD_x, from_AD_y = read_data()
+        from_AD_x, from_AD_y, from_AD_b = read_data()
         while True:
-            aux, aux2 = read_data()
+            aux, aux2, aux3 = read_data()
             if abs(from_AD_x - aux) > 0.0002:
                 break
 
     global stop_flag
 
     if not stop_flag:
-        from_AD_x, from_AD_y = read_data()
+        from_AD_x, from_AD_y, from_AD_b = read_data()
         while from_AD_x == None or from_AD_y == None:
-            from_AD_x, from_AD_y = read_data()
+            from_AD_x, from_AD_y, from_AD_b = read_data()
 
         #write_display(from_AD_y, display_bits, "0")
         #write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
         
-        global x_axis, y_axis
+        global x_axis, y_axis, b_axis
         try:
             if abs(from_AD_x*10000 - x_axis[len(x_axis)-1]) < 100 :
                 x_axis.append(from_AD_x*10000)
                 y_axis.append(from_AD_y)
+                b_axis.append(from_AD_b)
                 try:
                     graph.lines[0].remove()
                 except IndexError:
@@ -150,10 +163,12 @@ def plot_received_data(collected_points):
             #graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
             graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
             canvas.draw()
+            
         except IndexError:
             if collected_points == 0:
                 x_axis.append(from_AD_x*10000)
                 y_axis.append(from_AD_y)
+                b_axis.append(from_AD_b)
             else:
                 pass
             
