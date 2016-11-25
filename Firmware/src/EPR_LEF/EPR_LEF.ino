@@ -10,7 +10,7 @@
 //#include <WString.h>
 
 const int channel_x = 1;
-const int channel_b = 0;
+const int channel_b = 2;
 const int pinLed13  = 13;
 const int start_r = 2;
 const int stop_r = 3;
@@ -40,7 +40,7 @@ void setup()
           Serial.print(mySerial.read());
         //mySerial.flush();
         mySerial.print("W0\r");
-        adc.setGain(GAIN_FOUR);
+        adc.setGain(GAIN_EIGHT);
 }
 
 
@@ -51,6 +51,7 @@ void loop()
 	int i;
 	double x;
 	double y;
+        double b;
 	char result[20];
         char merda;
         char aux_y[11];
@@ -83,9 +84,10 @@ void loop()
                           //    merda = mySerial.read();
 			x = 0;
 			y = 0;
+                        b = 0;
 			for(i = 0; i < media; i++){
-				x += adc.readVoltage(channel_x);
-
+				x += 2*adc.readVoltage(channel_x);
+                                b += adc.readVoltage(channel_b);  
                                 mySerial.print("q\r");
                                 //delay(1);
                                 j = 0;
@@ -102,6 +104,7 @@ void loop()
 			}
 			x /= (double) media;
 			y /= (double) media;
+                        b /= (double) media;
 
 			dtostrf(x, 3, 6, result);
 			Serial.write('x');
@@ -114,6 +117,13 @@ void loop()
 			Serial.print(strlen(result));
 			Serial.print(result);
 			Serial.write('Y');
+
+                        dtostrf(b, 3, 6, result);
+			Serial.write('b');
+			Serial.print(strlen(result));
+			Serial.print(result);
+			Serial.write('B');
+
 
 			digitalWrite(pinLed13, LOW);
 			opcao = 100;
