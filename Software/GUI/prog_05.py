@@ -112,50 +112,53 @@ def read_data():
 # TODO fazer a porra do texto pro eixo x
 def plot_received_data(collected_points):
 	
-	if collected_points == 0:
-		from_AD_x, from_AD_y = read_data()
-		while True:
-			aux, aux2 = read_data()
-			if abs(from_AD_x - aux) > 0.0002:
-				break
+    if collected_points == 0:
+        from_AD_x, from_AD_y = read_data()
+        while True:
+            aux, aux2 = read_data()
+            if abs(from_AD_x - aux) > 0.0002:
+                break
 	
-	global stop_flag, number_of_points
+    global stop_flag, number_of_points
     
-    
-	if (not stop_flag) and (collected_points < number_of_points):
-		from_AD_x, from_AD_y = read_data()
-		while from_AD_x == None or from_AD_y == None:
-			from_AD_x, from_AD_y = read_data()
+    if (not stop_flag) and (collected_points < number_of_points):
+        from_AD_x, from_AD_y = read_data()
+        while from_AD_x == None or from_AD_y == None:
+            from_AD_x, from_AD_y = read_data()
 
         #write_display(from_AD_y, display_bits, "0")
         #write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
-
-		global x_axis, y_axis
-		x_axis.append(from_AD_x*10000)
-		y_axis.append(from_AD_y)
-		
-		try:
-			graph.lines[0].remove()
-		except IndexError:
-			pass
-			
-		graph.plot(x_axis, y_axis, color="red",
-				linestyle="solid", linewidth="2.5")
+        
+        global x_axis, y_axis
+        try:
+            if from_AD_x*10000 - x_axis[len(x_axis)-1] > 0:
+                x_axis.append(from_AD_x*10000)
+                y_axis.append(from_AD_y)
+                try:
+                    graph.lines[0].remove()
+                except IndexError:
+                    pass
+                        
+                graph.plot(x_axis, y_axis, color="red",
+                        linestyle="solid", linewidth="2.5")
 		# graph.plot (x_axis, y_axis, "r-", lw="2.5")
 		# graph.plot (y_axis, "r-", lw="2.5")
 		# line, = graph.plot (x_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
 		# escala automatica para o eixo y
-		graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
-		graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
-		canvas.draw()
-        
-		global delay
-		window.after(delay, plot_received_data, collected_points + 1)
+                graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
+                graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
+                canvas.draw()
+        except IndexError:
+            x_axis.append(from_AD_x*10000)
+            y_axis.append(from_AD_y)
+            
+        global delay
+        window.after(delay, plot_received_data, collected_points + 1)
 	
-	else:
-		bt_on.config(state="normal")
-		bt_off.config(state="disabled")
-		print "Fim da coleta"
+    else:
+        bt_on.config(state="normal")
+        bt_off.config(state="disabled")
+        print "Fim da coleta"
 
 
 def start_reading():
