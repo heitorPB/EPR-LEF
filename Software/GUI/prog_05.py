@@ -22,7 +22,7 @@ stop_flag = False
 
 # tempo entre aquisições (em milisegundos)
 global delay
-delay = 10
+delay = 5
 
 global number_of_points
 number_of_points = 1
@@ -147,7 +147,7 @@ def plot_received_data(collected_points):
 		# graph.plot (y_axis, "r-", lw="2.5")
 		# line, = graph.plot (x_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
 		# escala automatica para o eixo y
-            graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
+            #graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
             graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
             canvas.draw()
         except IndexError:
@@ -228,14 +228,14 @@ def plot_file():
 
 
 def write_data():
-    global number_of_points, mean
+    global mean
     global x_axis, y_axis
 
     # recebe o nome do arquivo a ser salvo
     file_name = asksaveasfilename()
     print file_name + "!!!!!"
     header = "Arquivo: " + file_name + "\n"
-    header = header + "Numero de pontos: " + str(number_of_points) + "\n"
+    header = header + "Numero de pontos: " + str(len(x_axis)) + "\n"
     header = header + "Numero de medias: " + str(mean)
 
     print header
@@ -275,7 +275,7 @@ def field_check(*args):
         bt_on.config(state='disabled')
 
 
-connection = serial.Serial(get_arduino_port(), 9600, timeout = 2)
+connection = serial.Serial(get_arduino_port(), 115200, timeout = 2)
 time.sleep(1)
 print("Foi")
 
@@ -316,6 +316,7 @@ graph.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.xaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.set_ylabel("Sinal (Volts)", size=18)
 graph.set_xlabel("$ B (Gauss)$", size=18)
+graph.autoscale(True, "y", False)
 #graph.set_ylim(-20, 20)
 
 toolbar = NavigationToolbar2TkAgg(canvas, graph_area)
