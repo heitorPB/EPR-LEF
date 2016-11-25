@@ -178,6 +178,18 @@ def plot_received_data(collected_points):
     else:
         bt_on.config(state="normal")
         bt_off.config(state="disabled")
+        (b, b0), cov = np.polyfit(x_axis, b_axis, 1, cov = True)
+        #print b, b0
+        B_axis = []
+        for x_iten in x_axis:
+            B_axis.append(10000*((x_iten*b)+b0))
+        #print B_axis
+        graph.lines[0].remove()
+        canvas.draw()
+        graph.plot(B_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
+        graph.set_xlim(min(B_axis) * .99, max(B_axis) * 1.01)
+        canvas.draw()
+        
         print "Fim da coleta"
 
 
@@ -330,7 +342,7 @@ graph.grid()
 graph.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.xaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.set_ylabel("Sinal (Volts)", size=18)
-graph.set_xlabel("$ B (Gauss)$", size=18)
+graph.set_xlabel("B$(Gauss)", size=18)
 graph.autoscale(True, "y", False)
 #graph.set_ylim(-20, 20)
 
