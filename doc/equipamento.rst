@@ -97,6 +97,14 @@ Coisas a fazer nessa seção>
 
    Amplificador de audio.
 
+.. _fig_lockin:
+
+.. figure:: img/lock-in.jpg
+   :scale: 80%
+   :align: center
+
+   Amplificador *lock-in*.
+
 
 Instruções
 ----------
@@ -269,6 +277,11 @@ Ligar o espectrômetro
 
               Ponto centralizado na tela.
 
+
+           De tempos em tempos, verifique se o ponto continua no centro da tela.
+           Talvez seja necessário refazer este ajuste após um tempo de
+           operação do espectrômetro.
+
         #. Ligue o gerador de sinais, :numref:`fig_gerador_sinais`. Selecione
            onda senoidal de cerca de 25 kHz. E ligue o amplificador de áudio,
            :numref:`fig_amplificador_audio`, com ganho de 1X.
@@ -276,8 +289,8 @@ Ligar o espectrômetro
            Ligue a bobina *pick-up*, :numref:`fig_cavidade` a um osciloscópio e
            observe o sinal. Altere a frequência para maximizar o sinal visto.
 
-        #. Antes de ligar o lock-in certifique-se de que o mesmo esteja
-           conectado corretamente.
+        #. Antes de ligar o lock-in, :numref:`fig_lockin`, certifique-se de que
+           o mesmo esteja conectado corretamente.
 
            Verifique se o input do lock-in está ligado ao gerador de funções.
 
@@ -285,13 +298,20 @@ Ligar o espectrômetro
            microondas.
 
            Ligue o lock-in. Em seu painel verifique a sensibilidade está
-           marcando 200 :math:`\mu V`, verifique se o offset do aparelho esta
-           em off.
+           marcando :math:`200 \mu V`, *offset* desligado e constante de tempo
+           em :math:`100 ms`.
 
         #. Agora deve ser possível observar o sinal do EPR no display do lock-in.
            No controlador de varredura, varie B_0 até que no display do lock-in
            seja possível observar uma variação brusca do sinal. Varie B_0 com
            cuidado, o aparelho é muito sensível a pequenas variações de campo.
+
+        #. Talvez seja necessário ajustar a fase do *lock-in*. Para isso, varie
+           B0 até achar um pico de sinal. Após achar o campo tal que o sinal
+           é máximo, altere a fase do amplificador em :math:`90 ^\circ` e faça
+           um ajuste fino para que o sinal seja minimizado. Em seguida, retire
+           a fase de :math:`90 ^\circ`. É muito mais fácil minimizar o sinal em
+           quadratura do que maximizar o sinal em fase.
 
         #. Antes de ligar o arduino na saída USB do computador verifique se os
            fios estão ligados corretamente.
@@ -365,7 +385,4 @@ Function: CW
 Práticas
 --------
 
-Aqui a gente explica cada passo pra ligar o bagulho, como fazer os ajustes finos,
-pra que serve?
-
-Colocar as práticas aqui ou em arquivo/secao sepsarada?
+Entender todo o trambolho.
