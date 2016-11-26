@@ -22,7 +22,7 @@ stop_flag = False
 
 # tempo entre aquisições (em milisegundos)
 global delay
-delay = 10
+delay = 5
 
 global number_of_points
 number_of_points = 1
@@ -36,6 +36,8 @@ x_axis = []
 global y_axis
 y_axis = []
 
+global b_axis
+b_axis = []
 
 # descobre qual a porta que o arduino esta conectado
 def get_arduino_port():
@@ -76,7 +78,7 @@ def read_data():
     count = 0
     x = 0.
     y = 0.
-
+    b = 0.
     # TODO FIXME checar se datalen vai sempre ser 1 char!!!!!!!
     connection.write("B")
     #print("B")
@@ -96,61 +98,79 @@ def read_data():
     datalen = connection.read(2)
     data    = connection.read(int(datalen))
     ehlo2   = connection.read(1)
-
+    
     #print(ehlo1, datalen, data, ehlo2)
     if ehlo1 == b'y' and ehlo2 == b'Y':
         dados_y = float(data)
     else:
         dados_y = None
 
+    ehlo1   = connection.read(1)
+    datalen = connection.read(1)
+    data    = connection.read(int(datalen))
+    ehlo2   = connection.read(1)
+    #print(ehlo1, datalen, data, ehlo2)
+
+    if ehlo1 == b'b' and ehlo2 == b'B':
+        dados_b = float(data)
+    else:
+        dados_b = None
 
     #print dados_x, dados_y
     #print type(dados_x), type(dados_y)
-    return dados_x, dados_y
+    return dados_x, dados_y, dados_b
 
 
 # TODO fazer a porra do texto pro eixo x
 def plot_received_data(collected_points):
-	
+
     if collected_points == 0:
-        from_AD_x, from_AD_y = read_data()
+        from_AD_x, from_AD_y, from_AD_b = read_data()
         while True:
-            aux, aux2 = read_data()
+            aux, aux2, aux3 = read_data()
             if abs(from_AD_x - aux) > 0.0002:
                 break
-	
-    global stop_flag, number_of_points
-    
-    if (not stop_flag) and (collected_points < number_of_points):
-        from_AD_x, from_AD_y = read_data()
+
+    global stop_flag
+
+    if not stop_flag:
+        from_AD_x, from_AD_y, from_AD_b = read_data()
         while from_AD_x == None or from_AD_y == None:
-            from_AD_x, from_AD_y = read_data()
+            from_AD_x, from_AD_y, from_AD_b = read_data()
 
         #write_display(from_AD_y, display_bits, "0")
         #write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
         
-        global x_axis, y_axis
+        global x_axis, y_axis, b_axis
         try:
-            if from_AD_x*10000 - x_axis[len(x_axis)-1] > 0:
+            if abs(from_AD_x*10000 - x_axis[len(x_axis)-1]) < 100 :
                 x_axis.append(from_AD_x*10000)
                 y_axis.append(from_AD_y)
+                b_axis.append(from_AD_b)
                 try:
                     graph.lines[0].remove()
                 except IndexError:
                     pass
-                        
+                  
                 graph.plot(x_axis, y_axis, color="red",
-                        linestyle="solid", linewidth="2.5")
+                    linestyle="solid", linewidth="2.5")
+            else:
+                stop_flag = True
 		# graph.plot (x_axis, y_axis, "r-", lw="2.5")
 		# graph.plot (y_axis, "r-", lw="2.5")
 		# line, = graph.plot (x_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
 		# escala automatica para o eixo y
-                graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
-                graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
-                canvas.draw()
+            #graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
+            graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
+            canvas.draw()
+            
         except IndexError:
-            x_axis.append(from_AD_x*10000)
-            y_axis.append(from_AD_y)
+            if collected_points == 0:
+                x_axis.append(from_AD_x*10000)
+                y_axis.append(from_AD_y)
+                b_axis.append(from_AD_b)
+            else:
+                pass
             
         global delay
         window.after(delay, plot_received_data, collected_points + 1)
@@ -158,19 +178,31 @@ def plot_received_data(collected_points):
     else:
         bt_on.config(state="normal")
         bt_off.config(state="disabled")
+        (b, b0), cov = np.polyfit(x_axis, b_axis, 1, cov = True)
+        #print b, b0
+        B_axis = []
+        for x_iten in x_axis:
+            B_axis.append(10000*((x_iten*b)+b0))
+        #print B_axis
+        graph.lines[0].remove()
+        canvas.draw()
+        graph.plot(B_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
+        graph.set_xlim(min(B_axis) * .99, max(B_axis) * 1.01)
+        canvas.draw()
+        
         print "Fim da coleta"
 
 
 def start_reading():
-    global number_of_points, mean
+    global mean
 
-    number_of_points = int(entry_points.get())
+    #number_of_points = int(entry_points.get())
     graph.set_xlim(0, number_of_points)
     canvas.draw()
 
     mean = entry_mean.get()
     connection.write("A")
-    time.sleep(0.1)
+    time.sleep(0.01)
     connection.write(mean)
     time.sleep(0.1)
 
@@ -188,13 +220,14 @@ def start_reading():
 
     bt_on.config(state="disabled")
     bt_off.config(state="normal")
-
+    connection.write("I")
     plot_received_data(0)
 
 
 def stop_reading():
     global stop_flag
     stop_flag = True
+    connection.write("P");
 
 
 def plot_file():
@@ -222,14 +255,14 @@ def plot_file():
 
 
 def write_data():
-    global number_of_points, mean
+    global mean
     global x_axis, y_axis
 
     # recebe o nome do arquivo a ser salvo
     file_name = asksaveasfilename()
     print file_name + "!!!!!"
     header = "Arquivo: " + file_name + "\n"
-    header = header + "Numero de pontos: " + str(number_of_points) + "\n"
+    header = header + "Numero de pontos: " + str(len(x_axis)) + "\n"
     header = header + "Numero de medias: " + str(mean)
 
     print header
@@ -261,15 +294,15 @@ def on_closing():
 
 # checa se os campos de numero e medias estao preenchidos
 def field_check(*args):
-    str1 = stringvar1.get()
+    #str1 = stringvar1.get()
     str2 = stringvar2.get()
-    if str1 and str2:
+    if str2:
         bt_on.config(state='normal')
     else:
         bt_on.config(state='disabled')
 
 
-connection = serial.Serial(get_arduino_port(), 9600, timeout = 2)
+connection = serial.Serial(get_arduino_port(), 115200, timeout = 2)
 time.sleep(1)
 print("Foi")
 
@@ -309,7 +342,8 @@ graph.grid()
 graph.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.xaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.set_ylabel("Sinal (Volts)", size=18)
-graph.set_xlabel("$ B (Gauss)$", size=18)
+graph.set_xlabel("B$(Gauss)", size=18)
+graph.autoscale(True, "y", False)
 #graph.set_ylim(-20, 20)
 
 toolbar = NavigationToolbar2TkAgg(canvas, graph_area)
@@ -383,23 +417,23 @@ for i in range(0, 2):
     user_entries.columnconfigure(i, weight=1)
     user_entries.rowconfigure(i, weight=1)
 
-label_points = Label(user_entries, text="Número de pontos:", font="arial 12")
-label_points.grid(row=0, column=0)
+#label_points = Label(user_entries, text="Número de pontos:", font="arial 12")
+#label_points.grid(row=0, column=0)
 
-stringvar1 = StringVar(user_entries)
+#stringvar1 = StringVar(user_entries)
 stringvar2 = StringVar(user_entries)
-stringvar1.trace("w", field_check)
+#stringvar1.trace("w", field_check)
 stringvar2.trace("w", field_check)
 
-entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
-entry_points.insert(END, "205")
-entry_points.grid(row=0, column=1)
+#entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
+#entry_points.insert(END, "205")
+#entry_points.grid(row=0, column=1)
 
-label_mean = Label(user_entries, text="Número de médias:", font="arial 12")
-label_mean.grid(row=1, column=0)
+label_mean = Label(user_entries, text="Tempo de varredura:", font="arial 12")
+label_mean.grid(row=0, column=0)
 entry_mean = Entry(user_entries, width=8, textvariable=stringvar2)
 entry_mean.insert(END, "5")
-entry_mean.grid(row=1, column=1)
+entry_mean.grid(row=0, column=1)
 
 
 window.protocol("WM_DELETE_WINDOW", on_closing)

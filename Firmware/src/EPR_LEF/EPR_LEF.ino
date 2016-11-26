@@ -10,9 +10,10 @@
 //#include <WString.h>
 
 const int channel_x = 1;
-const int channel_y = 0;
+const int channel_b = 2;
 const int pinLed13  = 13;
-
+const int start_r = 2;
+const int stop_r = 3;
 
 Nanoshield_ADC adc;
 SoftwareSerial mySerial(10, 11); // RX, TX
@@ -20,12 +21,19 @@ SoftwareSerial mySerial(10, 11); // RX, TX
 void setup()
 {
 	adc.begin();
-	Serial.begin(9600);
+	Serial.begin(115200);
         mySerial.begin(9600);
         delay(2000);
         
 	while (!Serial);
 
+        pinMode(start_r, OUTPUT);
+        pinMode(stop_r,OUTPUT);
+        delay(1000);
+        digitalWrite(start_r, LOW);
+        digitalWrite(stop_r, HIGH);
+        delay(7);
+        digitalWrite(stop_r, LOW);
 	pinMode(pinLed13, OUTPUT);
 	analogReference(DEFAULT);
         while (mySerial.available() > 0)
@@ -39,10 +47,11 @@ void setup()
 void loop()
 {
 	int opcao = 100;
-	long media = 5;
+	int media = 1;
 	int i;
 	double x;
 	double y;
+        double b;
 	char result[20];
         char merda;
         char aux_y[11];
@@ -62,6 +71,7 @@ void loop()
 					goto ret1;
 
 			opcao = 100;
+                        //Serial.println(media);
 			break;
 
 		case 'B':
@@ -74,9 +84,10 @@ void loop()
                           //    merda = mySerial.read();
 			x = 0;
 			y = 0;
+                        b = 0;
 			for(i = 0; i < media; i++){
-				x += adc.readVoltage(channel_x);
-
+				x += 2*adc.readVoltage(channel_x);
+                                b += adc.readVoltage(channel_b);  
                                 mySerial.print("q\r");
                                 //delay(1);
                                 j = 0;
@@ -93,6 +104,7 @@ void loop()
 			}
 			x /= (double) media;
 			y /= (double) media;
+                        b /= (double) media;
 
 			dtostrf(x, 3, 6, result);
 			Serial.write('x');
@@ -106,6 +118,13 @@ void loop()
 			Serial.print(result);
 			Serial.write('Y');
 
+                        dtostrf(b, 3, 6, result);
+			Serial.write('b');
+			Serial.print(strlen(result));
+			Serial.print(result);
+			Serial.write('B');
+
+
 			digitalWrite(pinLed13, LOW);
 			opcao = 100;
 			break;
@@ -118,6 +137,20 @@ void loop()
 		case 'Z':
 			opcao = 100;
 			mySerial.print("z\r");
+                        break;
+                        
+                case 'I':
+                        opcao = 100;
+                        digitalWrite(start_r, HIGH);
+                        delay(10);
+                        digitalWrite(start_r, LOW);
+                        break;
+                                  
+                case 'P':
+                        opcao = 100;
+                        digitalWrite(stop_r, HIGH);
+                        delay(10);
+                        digitalWrite(stop_r, LOW);
                         break;
 
 		default:
