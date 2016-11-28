@@ -14,6 +14,7 @@ Contents:
    introducao
    teoria
    equipamento
+   praticas
 
 Indices and tables
 ==================

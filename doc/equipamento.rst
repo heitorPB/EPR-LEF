@@ -380,9 +380,3 @@ Beam voltage: 250 V         Sensitivity: 200 :math:`\mu V`   Ganho: 1X.
 Reflector voltage: 150 V    Time constant: 100 ms
 Function: CW
 ========================    ==============================   ============
-
-
-Práticas
---------
-
-Entender todo o trambolho.
