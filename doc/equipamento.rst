@@ -5,16 +5,28 @@ Montagem Experimental
 Equipamento
 -----------
 
-Coisas a fazer nessa seção>
+.. TODO diagrama de blocos arduino ligado no bagulho
 
-        #. Escrever um texto
+.. TODO melhorar as legendsa
 
-        #. colocar foto da sala
+O equipamento necessário para se fazer espectroscopia por EPR consiste
+de um magneto com controle de campo magnético, *klystron* para gerar a 
+microonda, sistema de modulação de sinal, amplificador *lock-in* e
+registrador.
 
-        #. Melhorar a legenda *descrever* cada foto.
+Além do registrador mecânico do resultado, foi adicionado um sistema digital
+de aquisição de dados, que consiste em um microcontrolador Arduino e uma
+interface através de um microcomputador.
 
-        #. colocar diagrama de blocos do arduino no trambolho
+Todo o equipamento utilizado está registrado a seguir.
 
+.. _fig_sala:
+
+.. figure:: img/sala.jpg
+   :scale: 80%
+   :align: center
+
+   Foto da sala.
 
 .. _fig_diagrama_blocos_trambolho:
 
@@ -105,6 +117,13 @@ Coisas a fazer nessa seção>
 
    Amplificador *lock-in*.
 
+.. _fig_arduino_lindo:
+
+.. figure:: img/arduino-lindo.jpg
+   :scale: 80%
+   :align: center
+
+   Arduino com módulos *ADC* e *RS-232*.
 
 Instruções
 ----------
