@@ -42,7 +42,7 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Registro geral de água e torneiras para refrigeração.
+   Registro geral de água (2) e torneiras para refrigeração, ligue apenas atorneira (1)
 
 .. _fig_controlador_varredura:
 
@@ -51,6 +51,10 @@ Todo o equipamento utilizado está registrado a seguir.
    :align: center
 
    Controlador de varredura do campo magnético.
+   Chave para ligar e desligar o controlador (1), três botões estilo rádio para
+   controlar respectivamente o tempo de varredura (2), a largura do campo varrido (3)
+   e o mais importante, :math:`B_0` o referencial do campo para varredura (4). Os
+   dois últimos são botões de disparo, para iniciar (5)  e parar (6) a varredura.
 
 .. _fig_fonte_eletroima:
 
@@ -58,7 +62,7 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Fonte do eletroímã.
+   Fonte do eletroímã. (1) botão para ligar e (2) botão para desligar a fonte.
 
 .. _fig_fonte_klystron:
 
@@ -66,7 +70,14 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Fonte do *klystron*.
+   Fonte do *klystron*. (1) medidor da corrente do feixe de etétrons. (2) formato
+   da função de onda do *klystron*, pode ser C.W (onda contínua), onda dente de
+   "serra" ou onda pulsada. (3) tensão do feixe de elétrons, (4) tensão do refletor
+   do feixe. (5) chave para ligar e desligar a fonte, note que a mesma possui 3
+   estágios, *off* para desligar o equipamento, *FIL* para ligar apenas a
+   tensão do filamento e *HV+FIL* para ligar a alta tensão e a tensão no filamento.
+   Não ligue a fonte direramente em *HV+FIl*, o filamento deve esquentar primeiro
+   na opção *FIL*.
 
 
 .. _fig_klystron:
@@ -83,7 +94,8 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Defasador de microondas.
+   Defasador de microondas. (1) parafuso para inserir ou retirar o defasador
+   da guia de onda, (2) ajusta a fase do defasador.
 
 .. _fig_cavidade:
 
@@ -91,7 +103,7 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Cavidade do espectrômetro.
+   Cavidade do espectrômetro.(1) local onde a amostra é colocada.
 
 .. _fig_gerador_sinais:
 
@@ -115,7 +127,9 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Amplificador *lock-in*.
+   Amplificador *lock-in*. (1) sinais de entrada, (2) display do aparelho,
+   (3) sensibilidade de medida, (4) ajuste de fase do sinal de entrada,
+   (5) controle de constantes de tempo para integração do sinal (médias).
 
 .. _fig_arduino_lindo:
 

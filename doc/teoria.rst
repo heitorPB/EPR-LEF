@@ -68,7 +68,7 @@ lock-in.
 	\frac{1}{2}H_m^2\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2} \right ]
 	 + \left [ H_m\frac{\mathrm{d} Y}{\mathrm{d} H} \right ]sen(\omega_mt) -
 	\left [ \frac{1}{4}H_m^2\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2} \right ]
-	sen^2(\omega_mt)
+	sen^2(\omega_mt) + ...
 
 O lock-in funciona multiplicando o sinal de entrada pela referência e o
 resultado dessa multiplicação passa por um filtro passa baixa.
