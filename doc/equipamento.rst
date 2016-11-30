@@ -7,8 +7,6 @@ Equipamento
 
 .. TODO diagrama de blocos arduino ligado no bagulho
 
-.. TODO melhorar as legendsa
-
 O equipamento necessário para se fazer espectroscopia por EPR consiste
 de um magneto com controle de campo magnético, *klystron* para gerar a 
 microonda, sistema de modulação de sinal, amplificador *lock-in* e
@@ -42,7 +40,9 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Registro geral de água (2) e torneiras para refrigeração, ligue apenas atorneira (1)
+   Registro geral de água (1) e torneiras para refrigeração, ligue apenas a
+   torneira (1) e o registro (2). Cuidado para não abrir a torneira errada e
+   molhar o equipamento.
 
 .. _fig_controlador_varredura:
 
@@ -86,7 +86,8 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Emissor de micro-ondas *klystron*.
+   Emissor de micro-ondas *klystron*. Note o parafuso cinza. Este ajusta o centro
+   de emissão de microondas.
 
 .. _fig_defasador:
 
@@ -94,8 +95,9 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Defasador de microondas. (1) parafuso para inserir ou retirar o defasador
-   da guia de onda, (2) ajusta a fase do defasador.
+   Refletor defasador de microondas. (1) parafuso para inserir ou retirar o
+   defasador da guia de onda, (2) ajuste de fase do defasador. Acima (3)
+   encontra-se o absorvedor de microondas.
 
 .. _fig_cavidade:
 
@@ -103,7 +105,8 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Cavidade do espectrômetro.(1) local onde a amostra é colocada.
+   Cavidade do espectrômetro. (1) local onde a amostra é colocada. (2) parafuso
+   de ajuste de sintonia amostra-cavidade. (3) bobina *pick-up*.
 
 .. _fig_gerador_sinais:
 
@@ -119,7 +122,7 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Amplificador de audio.
+   Amplificador de audio. (1) botão para ligar. (2) ajustes de ganho.
 
 .. _fig_lockin:
 
@@ -137,7 +140,8 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Arduino com módulos *ADC* e *RS-232*.
+   Arduino com módulos *ADC* e *RS-232*, em cimda do gerador de sinais e
+   amplificador *lock-in*.
 
 Instruções
 ----------
