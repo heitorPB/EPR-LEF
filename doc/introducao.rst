@@ -32,3 +32,13 @@ experimento a observar ressonância magnética (MNR).
 Em 1945, foi feita a primeira observação de um pico de ressonância
 paramagnetica eletronica (EPR), quando Zavoisky detectou a linha de absorção
 de radiofrequência de uma amostra de CuCl2.2H2O.
+
+referências:
+	(1) M. J. N. Junk, Assessing the Functional Structure of
+ 	Molecular Transporters by EPR Spectroscopy, Springer Theses,
+ 	DOI: 10.1007/978-3-642-25135-1_2
+
+	(2) http://hyperphysics.phy-astr.gsu.edu/hbase/molecule/esr.html
+
+
+
