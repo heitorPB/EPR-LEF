@@ -33,6 +33,17 @@ Em 1945, foi feita a primeira observação de um pico de ressonância
 paramagnetica eletronica (EPR), quando Zavoisky detectou a linha de absorção
 de radiofrequência de uma amostra de CuCl2.2H2O.
 
+.. _fig_ZeemanZavoisky:
+.. figure:: img/Zemman-Zavoisky.png
+   :scale: 80%
+   :align: center
+
+   A esquerda vamos Pieter Zeeman, descobriu a separação de linhas espectrais
+   devido a campos magnéticos o que ficou comnhecido como efeito Zeeman.
+   A direita temos Yevgeny Konstantinovich Zavoisky, ele foi o primeiro a medir
+   efeito de ressonância paramagnética eletrônica.
+
+
 referências:
 	(1) M. J. N. Junk, Assessing the Functional Structure of
  	Molecular Transporters by EPR Spectroscopy, Springer Theses,

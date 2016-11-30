@@ -26,7 +26,12 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Foto da sala.
+   Foto da sala. (1) EPR, (2) ontrolador de varredura, (3) osciloscópio analógico,
+   (4) fonte do *klystron*, (5) amplificador de audio, (6) *lock-in*, (7)
+   frequencímetro, (8) fonte do EPR, (9) refletor desafador de miro-ondas e (10)
+   equipamento utilizado para desenhar o sinal do EPR esse aparelho será
+   substituído por um sistema de aquisição de dados utilizando um arduino e um
+   microcomputador.
 
 .. _fig_diagrama_blocos_trambolho:
 
@@ -137,7 +142,8 @@ Todo o equipamento utilizado está registrado a seguir.
    :scale: 80%
    :align: center
 
-   Arduino com módulos *ADC* e *RS-232*.
+   Arduino(1) com módulos *ADC* (3), *RS-232* (2). (4) conexão entre arduino e
+   computador.
 
 Instruções
 ----------
@@ -198,7 +204,9 @@ Ligar o espectrômetro
               :width: 75%
               :align: center
 
-              Posição correta da amostra na cavidade.
+              Posição correta da amostra na cavidade. Note que existem 2 entradas
+              para colocar amostras (1) e (2). Isso será importante mais para
+              os experimentos.
 
         #. Ligue a fonte de corrente do eletroíma,
            :numref:`fig_fonte_eletroima`, e coloque seus controles de voltagem
