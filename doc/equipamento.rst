@@ -208,8 +208,8 @@ Ligar o espectrômetro
               :align: center
 
               Posição correta da amostra na cavidade. Note que existem 2 entradas
-              para colocar amostras (1) e (2). Isso será importante mais para
-              os experimentos.
+              para colocar amostras, (1) e (2). Isso será importante para os 
+              experimentos.
 
         #. Ligue a fonte de corrente do eletroíma,
            :numref:`fig_fonte_eletroima`, e coloque seus controles de voltagem
