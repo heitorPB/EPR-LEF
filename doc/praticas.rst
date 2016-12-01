@@ -70,7 +70,7 @@ Duas amostras
 
 Realizar a calibração das varreduras de 100 G, 500 G e 1000 G. Para isto,
 deve-se montar as duas amostras, DPPH e MgO simultaneamente na cavidade,
-ver figura :numref:`fig_amostra_centro`. A idéia é registrar os dois sinais
+ver :numref:`fig_amostra_centro`. A idéia é registrar os dois sinais
 simultaneamente, em uma única varredura. Como o sinal do DPPH é mais intenso,
 esta amostra deve ser colocada por baixo, um pouco abaixo do centro da cavidade.
 
