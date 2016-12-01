@@ -8,7 +8,7 @@ Equipamento
 .. TODO diagrama de blocos arduino ligado no bagulho
 
 O equipamento necessário para se fazer espectroscopia por EPR consiste
-de um magneto com controle de campo magnético, *klystron* para gerar a 
+de um magneto com controle de campo magnético, *klystron* para gerar a
 microonda, sistema de modulação de sinal, amplificador *lock-in* e
 registrador.
 
@@ -208,7 +208,7 @@ Ligar o espectrômetro
               :align: center
 
               Posição correta da amostra na cavidade. Note que existem 2 entradas
-              para colocar amostras, (1) e (2). Isso será importante para os 
+              para colocar amostras, (1) e (2). Isso será importante para os
               experimentos.
 
         #. Ligue a fonte de corrente do eletroíma,
@@ -383,7 +383,8 @@ Ligar o espectrômetro
               :width: 75%
               :align: center
 
-              Tela do programa.
+              Tela do programa, após uma aquisição com 1000 gauss de
+              varredura.
 
 
 Desligar o espectrômetro
