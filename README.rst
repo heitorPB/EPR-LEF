@@ -15,7 +15,7 @@ Funcionalidades
 
 - Sistema digital, permitindo salvar o espectro como figura e/ou exportar
   o sinal obtido.
-- Aquisição de sinal do *lock-in* usando um *ADC* de 16-bits.
+- Aquisição de sinal do *lock-in* usando comunição digital.
 - Controle manual de varredura do campo magnetico.
 
 
@@ -31,16 +31,13 @@ Interface Gráfica
 - matplotlib
 - TKinter
 
+O código fonte encontra-se em Software/GUI/EPR-LEF.py
+
 Firmware
 ~~~~~~~~
 
-Para compilar o *firmware* para Arduino:
-
-- avrdude
-- avr-gcc < 6.1
-- avr-libc
-
-Ou IDE do Arduino.
+Para compilar o *firmware* para Arduino, utilize a IDE do mesmo. O código
+encontra-se em Firmware/src e as bibliotecas necessárias em Firmware/libs.
 
 
 Uso
