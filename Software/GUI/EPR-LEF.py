@@ -1,7 +1,6 @@
 # encoding: utf-8
 # Emilio e Heitor
 
-# TODO import TKinter as tk to be compatible to python3
 from Tkinter import *
 from tkFileDialog import askopenfilename, asksaveasfilename
 from matplotlib.figure import Figure
@@ -71,7 +70,6 @@ def clear_entries():
     entry_points.delete(0, END)
     entry_mean.delete(0, END)
 
-# TODO ARRUMAR ESSA BOSTA DE FUNCAO IMBECIL
 def read_data():
     global count_max
     sem_dados = True
@@ -79,7 +77,6 @@ def read_data():
     x = 0.
     y = 0.
     b = 0.
-    # TODO FIXME checar se datalen vai sempre ser 1 char!!!!!!!
     connection.write("B")
     #print("B")
 
@@ -98,7 +95,7 @@ def read_data():
     datalen = connection.read(2)
     data    = connection.read(int(datalen))
     ehlo2   = connection.read(1)
-    
+
     #print(ehlo1, datalen, data, ehlo2)
     if ehlo1 == b'y' and ehlo2 == b'Y':
         dados_y = float(data)
@@ -140,18 +137,18 @@ def plot_received_data(collected_points):
 
         #write_display(from_AD_y, display_bits, "0")
         #write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
-        
+
         global x_axis, y_axis, b_axis
         try:
-            if abs(from_AD_x*10000 - x_axis[len(x_axis)-1]) < 100 :
-                x_axis.append(from_AD_x*10000)
+            if abs(from_AD_x * 10000. - x_axis[len(x_axis) - 1]) < 100.:
+                x_axis.append(from_AD_x * 10000.)
                 y_axis.append(from_AD_y)
                 b_axis.append(from_AD_b)
                 try:
                     graph.lines[0].remove()
                 except IndexError:
                     pass
-                  
+
                 graph.plot(x_axis, y_axis, color="red",
                     linestyle="solid", linewidth="2.5")
             else:
@@ -163,18 +160,18 @@ def plot_received_data(collected_points):
             #graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
             graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
             canvas.draw()
-            
+
         except IndexError:
             if collected_points == 0:
-                x_axis.append(from_AD_x*10000)
+                x_axis.append(from_AD_x * 10000)
                 y_axis.append(from_AD_y)
                 b_axis.append(from_AD_b)
             else:
                 pass
-            
+
         global delay
         window.after(delay, plot_received_data, collected_points + 1)
-	
+
     else:
         bt_on.config(state="normal")
         bt_off.config(state="disabled")
@@ -182,14 +179,14 @@ def plot_received_data(collected_points):
         #print b, b0
         B_axis = []
         for x_iten in x_axis:
-            B_axis.append(10000*((x_iten*b)+b0))
+            B_axis.append(10000. * ((x_iten * b) + b0))
         #print B_axis
         graph.lines[0].remove()
         canvas.draw()
         graph.plot(B_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
         graph.set_xlim(min(B_axis) * .99, max(B_axis) * 1.01)
         canvas.draw()
-        
+
         print "Fim da coleta"
 
 
@@ -214,6 +211,7 @@ def start_reading():
     global x_axis, y_axis
     x_axis = []
     y_axis = []
+    b_axis = []
 
     global stop_flag
     stop_flag = False
@@ -232,7 +230,7 @@ def stop_reading():
 
 def plot_file():
     global number_of_points, mean
-    
+
     cores = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'g'] #no more white
     # recebe o nome do arquivo a ser lido
     file_name = askopenfilename()
@@ -342,7 +340,7 @@ graph.grid()
 graph.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.xaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 graph.set_ylabel("Sinal (Volts)", size=18)
-graph.set_xlabel("B$(Gauss)", size=18)
+graph.set_xlabel("B (Gauss)", size=18)
 graph.autoscale(True, "y", False)
 #graph.set_ylim(-20, 20)
 
