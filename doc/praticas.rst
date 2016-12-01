@@ -47,7 +47,7 @@ parâmetros amplitude da modulação, constante de tempo, amplitude de varredura
 e tempo da varredura para que o espectro represente corretamente a derivada do
 sinal de absorção?
 
-:math:`MgO + Cr3^{++} Mn2^{+}`
+:math:`MgO + Cr^{3+} Mn^{2+}`
 ------------------------------
 
 Esta é uma amostra de um cristal MgO dopado com :math:`Cr^{3+}` e :math:`Mn^{2+}`.
@@ -72,13 +72,10 @@ Realizar a calibração das varreduras de 100 G, 500 G e 1000 G. Para isto,
 deve-se montar as duas amostras, DPPH e MgO simultaneamente na cavidade,
 ver figura :numref:`fig_amostra_centro`. A idéia é registrar os dois sinais
 simultaneamente, em uma única varredura. Como o sinal do DPPH é mais intenso,
-esta amostra deve ser colocadapor baixo, um pouco abaixo do centro da cavidade.
+esta amostra deve ser colocada por baixo, um pouco abaixo do centro da cavidade.
 
 Para isso, não toque na amostra de MgO já instalada e medida; e introduza o
 tubo com a amostra de DPPH na cavidadepor baixo, com cuidado, até que ele toque
 o outro tubo e, depois, volte um pouquinho. A amostra de DPPH deve ficar a apenas
 alguns milímetros abaixo da de MgO. Nesta situação, os dois espectros irão ser
-registrados com intensidades semelhantes. Como os fatores g das duas amostras são
-conhecidos pode-se determinar, com precisão, a distância entre as duas linhas e
-a partir daí fazer a calibração do papel, emG/cm,nastrêsescalas de varredura:
-100 G, 500 G e 1000 G.
+registrados com intensidades semelhantes.
