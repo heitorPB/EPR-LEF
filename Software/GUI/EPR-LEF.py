@@ -38,6 +38,7 @@ y_axis = []
 global b_axis
 b_axis = []
 
+
 # descobre qual a porta que o arduino esta conectado
 def get_arduino_port():
     ports = list(serial.tools.list_ports.comports())
@@ -175,6 +176,7 @@ def plot_received_data(collected_points):
     else:
         bt_on.config(state="normal")
         bt_off.config(state="disabled")
+        print len(x_axis), len(b_axis)
         (b, b0), cov = np.polyfit(x_axis, b_axis, 1, cov = True)
         #print b, b0
         B_axis = []
@@ -197,7 +199,38 @@ def start_reading():
     graph.set_xlim(0, number_of_points)
     canvas.draw()
 
-    mean = entry_mean.get()
+    #mean = entry_mean.get()
+    tp = tempo.get()
+    cp = campo.get()
+    #print type(tp), tp
+    #print type(cp), cp
+    
+    connection.write("T")
+    connection.write(str(tp))
+    time.sleep(0.1)
+    echo1_tp = connection.read(1)
+    echo2_tp = connection.read(len(str(tp)))
+    echo3_tp = connection.read(1)
+    if echo1_tp == b't' and echo3_tp == b'T':
+        print str(echo2_tp)
+        
+    #time.sleep(0.01)
+    
+    connection.write("D")
+    connection.write(str(cp))
+    time.sleep(0.1)
+    echo1_cp = connection.read(1)
+    echo2_cp = connection.read(len(str(cp)))
+    echo3_cp = connection.read(1)
+    if echo1_cp == b'd' and echo3_cp == b'D':
+        print str(echo2_cp)
+    #time.sleep(0.01)
+    
+    
+    #time.sleep(0.01)
+    
+    mean = '5'
+    #print mean
     connection.write("A")
     time.sleep(0.01)
     connection.write(mean)
@@ -220,7 +253,6 @@ def start_reading():
     bt_off.config(state="normal")
     connection.write("I")
     plot_received_data(0)
-
 
 def stop_reading():
     global stop_flag
@@ -293,7 +325,7 @@ def on_closing():
 # checa se os campos de numero e medias estao preenchidos
 def field_check(*args):
     #str1 = stringvar1.get()
-    str2 = stringvar2.get()
+    #str2 = stringvar2.get()
     if str2:
         bt_on.config(state='normal')
     else:
@@ -406,6 +438,47 @@ bt_clear.grid(row=2, column=1, pady=3)
 #                    width=8, height=1, state="disabled")
 #display_bits.grid(row=1, column=1)
 
+#Radio buttons, para tempo e escale de varredura
+radio_buttons = Frame(user_area)
+radio_buttons.pack(side="left", fill="y", expand=True)
+
+radio_buttons.columnconfigure(0, weight=1)
+radio_buttons.columnconfigure(1, weight=1)
+
+for i in range(0, 5):
+    radio_buttons.rowconfigure(i, weight=1)
+
+tempo = IntVar()
+titulo_tempo = Button(radio_buttons, text="Tempo", font="Arial 12 bold",width=10)
+titulo_tempo.grid(row = 0, column = 0)
+
+tempo30RB = Radiobutton(radio_buttons, text = "30 segundos", variable = tempo, value = '0')
+tempo30RB.grid(row = 1, column = 0)
+
+tempo60RB = Radiobutton(radio_buttons, text = "60 segundos", variable = tempo, value = '1')
+tempo60RB.grid(row = 2, column = 0)
+
+tempo3mRB = Radiobutton(radio_buttons, text = "3  minutos", variable = tempo, value = '2')
+tempo3mRB.grid(row = 3, column = 0)
+
+tempo5mRB = Radiobutton(radio_buttons, text = "5 minutos", variable = tempo, value = '3')
+tempo5mRB.grid(row = 4, column = 0)
+
+campo = IntVar()
+titulo_campo = Button(radio_buttons, text="Campo", font="Arial 12 bold",width=10)
+titulo_campo.grid(row = 0, column = 1)
+
+campo50G = Radiobutton(radio_buttons, text = "50 Gauss", variable = campo, value = '0')
+campo50G.grid(row = 1, column = 1)
+
+campo100G = Radiobutton(radio_buttons, text = "100 Gauss", variable = campo, value = '1')
+campo100G.grid(row = 2, column = 1)
+
+campo500G = Radiobutton(radio_buttons, text = "500 Gauss", variable = campo, value = '2')
+campo500G.grid(row = 3, column = 1)
+
+campo1000G = Radiobutton(radio_buttons, text = "1000 Gauss", variable = campo, value = '3')
+campo1000G.grid(row = 4, column = 1)
 
 # Entradas
 user_entries = Frame(user_area)
@@ -419,19 +492,19 @@ for i in range(0, 2):
 #label_points.grid(row=0, column=0)
 
 #stringvar1 = StringVar(user_entries)
-stringvar2 = StringVar(user_entries)
+#stringvar2 = StringVar(user_entries)
 #stringvar1.trace("w", field_check)
-stringvar2.trace("w", field_check)
+#stringvar2.trace("w", field_check)
 
 #entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
 #entry_points.insert(END, "205")
 #entry_points.grid(row=0, column=1)
 
-label_mean = Label(user_entries, text="Tempo de varredura:", font="arial 12")
-label_mean.grid(row=0, column=0)
-entry_mean = Entry(user_entries, width=8, textvariable=stringvar2)
-entry_mean.insert(END, "5")
-entry_mean.grid(row=0, column=1)
+#label_mean = Label(user_entries, text="Tempo de varredura:", font="arial 12")
+#label_mean.grid(row=0, column=0)
+#entry_mean = Entry(user_entries, width=8, textvariable=stringvar2)
+#entry_mean.insert(END, "5")
+#entry_mean.grid(row=0, column=1)
 
 
 window.protocol("WM_DELETE_WINDOW", on_closing)
