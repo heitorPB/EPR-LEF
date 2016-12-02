@@ -11,9 +11,18 @@
 
 const int channel_x = 1;
 const int channel_b = 2;
+
 const int pinLed13  = 13;
+
 const int start_r = 2;
 const int stop_r = 3;
+
+const int temp_A = 4;
+const int temp_B = 5;
+
+const int campo_A = 6;
+const int campo_B = 7;
+
 
 Nanoshield_ADC adc;
 SoftwareSerial mySerial(10, 11); // RX, TX
@@ -29,12 +38,29 @@ void setup()
 
         pinMode(start_r, OUTPUT);
         pinMode(stop_r,OUTPUT);
+        
+        pinMode(temp_A, OUTPUT);
+        pinMode(temp_B, OUTPUT);
+        
+        pinMode(campo_A, OUTPUT);
+        pinMode(campo_B, OUTPUT);
+        
         delay(1000);
+        
         digitalWrite(start_r, LOW);
+        
         digitalWrite(stop_r, HIGH);
         delay(7);
         digitalWrite(stop_r, LOW);
+        
+        digitalWrite(temp_A, LOW);
+        digitalWrite(temp_B, LOW);
+        
+        digitalWrite(campo_A, LOW);
+        digitalWrite(campo_A, LOW);
+        
 	pinMode(pinLed13, OUTPUT);
+
 	analogReference(DEFAULT);
         while (mySerial.available() > 0)
           Serial.print(mySerial.read());
@@ -53,7 +79,9 @@ void loop()
 	double y;
         double b;
 	char result[20];
-        char merda;
+        int merda;
+        int tempo_aux = 0;
+        int campo_aux = 0;
         char aux_y[11];
         int j;
 
@@ -152,7 +180,78 @@ void loop()
                         delay(10);
                         digitalWrite(stop_r, LOW);
                         break;
+                // selecao de Tempo
+                // 0 - 0.5 min
+                // 1 - 1   min
+                // 2 - 3   min
+                // 3 - 5   min
+                case 'T':
+                        opcao = 100;
+                        while(Serial.peek() < 0);
+			tempo_aux = Serial.read();
+			Serial.write('t');
+			Serial.write(tempo_aux);
+			Serial.write('T');
 
+                        switch(tempo_aux) {
+                              case '1':
+                                    digitalWrite(temp_B, LOW);
+                                    digitalWrite(temp_A, HIGH);
+                                    break;
+                                    
+                              case '2':
+                                    digitalWrite(temp_B, HIGH);
+                                    digitalWrite(temp_A, LOW);
+                                    break;
+                                    
+                               case '3':
+                                    digitalWrite(temp_B, HIGH);
+                                    digitalWrite(temp_A, HIGH);
+                                    break;
+                              case '0':
+                              default:
+                                    digitalWrite(temp_B, LOW);
+                                    digitalWrite(temp_A, LOW);
+                                    break;
+                                    
+                        }
+                        break;
+                // Selecao de delta B
+                // 0 - 50   gauss
+                // 1 - 100  gauss
+                // 2 - 500  gauss
+                // 3 - 1000 gauss
+                case 'D':
+                        opcao = 100;
+                        while(Serial.peek() < 0);
+			campo_aux = Serial.read();
+			Serial.write('d');
+			Serial.write(campo_aux);
+			Serial.write('D');
+
+                        switch(campo_aux) {
+                              case '1':
+                                    digitalWrite(campo_B, LOW);
+                                    digitalWrite(campo_A, HIGH);
+                                    break;
+                                    
+                              case '2':
+                                    digitalWrite(campo_B, HIGH);
+                                    digitalWrite(campo_A, LOW);
+                                    break;
+                                    
+                               case '3':
+                                    digitalWrite(campo_B, HIGH);
+                                    digitalWrite(campo_A, HIGH);
+                                    break;
+                              case '0':
+                              default:
+                                    digitalWrite(campo_B, LOW);
+                                    digitalWrite(campo_A, LOW);
+                                    break;
+                        }
+                        break;                      
+                
 		default:
 			opcao = 100;
 		}
