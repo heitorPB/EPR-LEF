@@ -14,6 +14,8 @@ Documentação do EPR - LEF!
    equipamento
    praticas
    resultados
+   software
+
 
 .. Indices and tables
    ==================

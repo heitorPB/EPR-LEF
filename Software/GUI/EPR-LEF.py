@@ -1,5 +1,9 @@
 # encoding: utf-8
-# Emilio e Heitor
+"""
+@author Emilio Galera, Heitor de Bittencourt
+@date Dezembro, 2016
+Interface gráfica para o sistema EPR do LEF.
+"""
 
 from Tkinter import *
 from tkFileDialog import askopenfilename, asksaveasfilename
@@ -12,6 +16,7 @@ import time
 import numpy as np
 import struct
 import random
+
 
 global count_max
 count_max = 500000
@@ -70,6 +75,7 @@ def write_display(data, display, decimal):
 def clear_entries():
     entry_points.delete(0, END)
     entry_mean.delete(0, END)
+
 
 def read_data():
     global count_max
@@ -204,7 +210,7 @@ def start_reading():
     cp = campo.get()
     #print type(tp), tp
     #print type(cp), cp
-    
+
     connection.write("T")
     connection.write(str(tp))
     time.sleep(0.1)
@@ -213,9 +219,9 @@ def start_reading():
     echo3_tp = connection.read(1)
     if echo1_tp == b't' and echo3_tp == b'T':
         print str(echo2_tp)
-        
+
     #time.sleep(0.01)
-    
+
     connection.write("D")
     connection.write(str(cp))
     time.sleep(0.1)
@@ -225,10 +231,10 @@ def start_reading():
     if echo1_cp == b'd' and echo3_cp == b'D':
         print str(echo2_cp)
     #time.sleep(0.01)
-    
-    
+
+
     #time.sleep(0.01)
-    
+
     mean = '5'
     #print mean
     connection.write("A")
@@ -253,6 +259,7 @@ def start_reading():
     bt_off.config(state="normal")
     connection.write("I")
     plot_received_data(0)
+
 
 def stop_reading():
     global stop_flag
@@ -332,180 +339,181 @@ def field_check(*args):
         bt_on.config(state='disabled')
 
 
-connection = serial.Serial(get_arduino_port(), 115200, timeout = 2)
-time.sleep(1)
-print("Foi")
+if __name__ == '__main__':
+    connection = serial.Serial(get_arduino_port(), 115200, timeout = 2)
+    time.sleep(1)
+    print("Foi")
 
-window = Tk()
-window.minsize(width=900,height=600)
-window.title("EPR - LEF - FisComp")
-window.state("normal")
+    window = Tk()
+    window.minsize(width=900,height=600)
+    window.title("Trambolhino - EPR - LEF")
+    window.state("normal")
 
-#### TÍTULO ####
-title_area = Frame(window)
-title_area.pack(side="top", fill="y")
+    #### TÍTULO ####
+    title_area = Frame(window)
+    title_area.pack(side="top", fill="y")
 
-#### GRÁFICO ####
-graph_area = Frame(window)
-graph_area.pack(side="top", fill="both", expand=True)
+    #### GRÁFICO ####
+    graph_area = Frame(window)
+    graph_area.pack(side="top", fill="both", expand=True)
 
-#### INTERAÇÃO COM USUÁRIO ####
-user_area = Frame(window)
-user_area.pack(side="bottom", fill="x")
+    #### INTERAÇÃO COM USUÁRIO ####
+    user_area = Frame(window)
+    user_area.pack(side="bottom", fill="x")
 
-# TÍTULO
-title = Label(title_area, text="EPR - LEF",
-              font="arial 14 bold")
-title.pack(side="top", fill="x", expand=True)
-
-
-# GRÁFICO
-
-fig = Figure()
-
-canvas = FigureCanvasTkAgg(fig, graph_area)
-canvas.draw()
-canvas.get_tk_widget().pack(side="bottom", fill="both", expand=True)
-
-graph = fig.add_subplot(1, 1, 1)
-graph.grid()
-graph.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
-graph.xaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
-graph.set_ylabel("Sinal (Volts)", size=18)
-graph.set_xlabel("B (Gauss)", size=18)
-graph.autoscale(True, "y", False)
-#graph.set_ylim(-20, 20)
-
-toolbar = NavigationToolbar2TkAgg(canvas, graph_area)
-toolbar.update()
-toolbar.pack(side="left")
+    # TÍTULO
+    title = Label(title_area, text="Trambolhino - Emilio Galera & Heitor de Bittencourt, 2016",
+                  font="arial 14 bold")
+    title.pack(side="top", fill="x", expand=True)
 
 
-# USUÁRIO
+    # GRÁFICO
 
-# Botões
-# adicionamos agora mais três botões: ler de arquivo, salvar em arquivo e
-# limpar gráfico
+    fig = Figure()
 
-user_buttons = Frame(user_area)
-user_buttons.pack(side="right", fill="y", expand=True)
+    canvas = FigureCanvasTkAgg(fig, graph_area)
+    canvas.draw()
+    canvas.get_tk_widget().pack(side="bottom", fill="both", expand=True)
 
-# grid 2x3 (duas colunas e três linhas)
-user_buttons.columnconfigure(0, weight=1)
-user_buttons.columnconfigure(1, weight=1)
-for i in range(0, 3):
-    user_buttons.rowconfigure(i, weight=1)
+    graph = fig.add_subplot(1, 1, 1)
+    graph.grid()
+    graph.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
+    graph.xaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
+    graph.set_ylabel("Sinal (Volts)", size=18)
+    graph.set_xlabel("B (Gauss)", size=18)
+    graph.autoscale(True, "y", False)
+    #graph.set_ylim(-20, 20)
 
-bt_on = Button(user_buttons, text="Ler conversor",
-               font="Arial 12 bold", width=10, command=start_reading)
-bt_on.grid(row=0, column=0, pady=3)
-
-bt_off = Button(user_buttons, text="Parar leitura", font="Arial 12 bold",
-                width=10, state="disabled", command=stop_reading)
-bt_off.grid(row=1, column=0, pady=3)
-
-bt_write = Button(user_buttons, text="Salvar",
-                  font="Arial 12 bold", width=10, command=write_data)
-bt_write.grid(row=0, column=1, pady=3)
-
-bt_read = Button(user_buttons, text="Ler",
-                 font="Arial 12 bold", width=10, command=plot_file)
-bt_read.grid(row=1, column=1, pady=3)
-
-bt_clear = Button(user_buttons, text="Limpar",
-                  font="Arial 12 bold", width=10, command=clear_plot)
-bt_clear.grid(row=2, column=1, pady=3)
+    toolbar = NavigationToolbar2TkAgg(canvas, graph_area)
+    toolbar.update()
+    toolbar.pack(side="left")
 
 
-# Displays
-#user_displays = Frame(user_area)
-#user_displays.pack(side="right", fill="y", expand=True)
+    # USUÁRIO
 
-#for i in range(0, 2):
-#    user_displays.rowconfigure(i, weight=1)
-#    user_displays.columnconfigure(i, weight=1)
+    # Botões
+    # adicionamos agora mais três botões: ler de arquivo, salvar em arquivo e
+    # limpar gráfico
 
-#label_volts = Label(user_displays, text="Tensão (0 - 5V):", font="arial 12")
-#label_volts.grid(row=0, column=0)
-#display_volts = Text(user_displays, font="arial 12 bold",
- #                    width=8, height=1, state="disabled")
-#display_volts.grid(row=0, column=1)
+    user_buttons = Frame(user_area)
+    user_buttons.pack(side="right", fill="y", expand=True)
 
-#label_bits = Label(
-#    user_displays, text="Tensão (0 -1023 bits):", font="arial 12")
-#label_bits.grid(row=1, column=0)
-#display_bits = Text(user_displays, font="arial 12 bold",
-#                    width=8, height=1, state="disabled")
-#display_bits.grid(row=1, column=1)
+    # grid 2x3 (duas colunas e três linhas)
+    user_buttons.columnconfigure(0, weight=1)
+    user_buttons.columnconfigure(1, weight=1)
+    for i in range(0, 3):
+        user_buttons.rowconfigure(i, weight=1)
 
-#Radio buttons, para tempo e escale de varredura
-radio_buttons = Frame(user_area)
-radio_buttons.pack(side="left", fill="y", expand=True)
+    bt_on = Button(user_buttons, text="Ler conversor",
+                   font="Arial 12 bold", width=10, command=start_reading)
+    bt_on.grid(row=0, column=0, pady=3)
 
-radio_buttons.columnconfigure(0, weight=1)
-radio_buttons.columnconfigure(1, weight=1)
+    bt_off = Button(user_buttons, text="Parar leitura", font="Arial 12 bold",
+                    width=10, state="disabled", command=stop_reading)
+    bt_off.grid(row=1, column=0, pady=3)
 
-for i in range(0, 5):
-    radio_buttons.rowconfigure(i, weight=1)
+    bt_write = Button(user_buttons, text="Salvar",
+                      font="Arial 12 bold", width=10, command=write_data)
+    bt_write.grid(row=0, column=1, pady=3)
 
-tempo = IntVar()
-titulo_tempo = Button(radio_buttons, text="Tempo", font="Arial 12 bold",width=10)
-titulo_tempo.grid(row = 0, column = 0)
+    bt_read = Button(user_buttons, text="Ler",
+                     font="Arial 12 bold", width=10, command=plot_file)
+    bt_read.grid(row=1, column=1, pady=3)
 
-tempo30RB = Radiobutton(radio_buttons, text = "30 segundos", variable = tempo, value = '0')
-tempo30RB.grid(row = 1, column = 0)
-
-tempo60RB = Radiobutton(radio_buttons, text = "60 segundos", variable = tempo, value = '1')
-tempo60RB.grid(row = 2, column = 0)
-
-tempo3mRB = Radiobutton(radio_buttons, text = "3  minutos", variable = tempo, value = '2')
-tempo3mRB.grid(row = 3, column = 0)
-
-tempo5mRB = Radiobutton(radio_buttons, text = "5 minutos", variable = tempo, value = '3')
-tempo5mRB.grid(row = 4, column = 0)
-
-campo = IntVar()
-titulo_campo = Button(radio_buttons, text="Campo", font="Arial 12 bold",width=10)
-titulo_campo.grid(row = 0, column = 1)
-
-campo50G = Radiobutton(radio_buttons, text = "50 Gauss", variable = campo, value = '0')
-campo50G.grid(row = 1, column = 1)
-
-campo100G = Radiobutton(radio_buttons, text = "100 Gauss", variable = campo, value = '1')
-campo100G.grid(row = 2, column = 1)
-
-campo500G = Radiobutton(radio_buttons, text = "500 Gauss", variable = campo, value = '2')
-campo500G.grid(row = 3, column = 1)
-
-campo1000G = Radiobutton(radio_buttons, text = "1000 Gauss", variable = campo, value = '3')
-campo1000G.grid(row = 4, column = 1)
-
-# Entradas
-user_entries = Frame(user_area)
-user_entries.pack(side="left", fill="y", expand=True)
-
-for i in range(0, 2):
-    user_entries.columnconfigure(i, weight=1)
-    user_entries.rowconfigure(i, weight=1)
-
-#label_points = Label(user_entries, text="Número de pontos:", font="arial 12")
-#label_points.grid(row=0, column=0)
-
-#stringvar1 = StringVar(user_entries)
-#stringvar2 = StringVar(user_entries)
-#stringvar1.trace("w", field_check)
-#stringvar2.trace("w", field_check)
-
-#entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
-#entry_points.insert(END, "205")
-#entry_points.grid(row=0, column=1)
-
-#label_mean = Label(user_entries, text="Tempo de varredura:", font="arial 12")
-#label_mean.grid(row=0, column=0)
-#entry_mean = Entry(user_entries, width=8, textvariable=stringvar2)
-#entry_mean.insert(END, "5")
-#entry_mean.grid(row=0, column=1)
+    bt_clear = Button(user_buttons, text="Limpar",
+                      font="Arial 12 bold", width=10, command=clear_plot)
+    bt_clear.grid(row=2, column=1, pady=3)
 
 
-window.protocol("WM_DELETE_WINDOW", on_closing)
-window.mainloop()
+    # Displays
+    #user_displays = Frame(user_area)
+    #user_displays.pack(side="right", fill="y", expand=True)
+
+    #for i in range(0, 2):
+    #    user_displays.rowconfigure(i, weight=1)
+    #    user_displays.columnconfigure(i, weight=1)
+
+    #label_volts = Label(user_displays, text="Tensão (0 - 5V):", font="arial 12")
+    #label_volts.grid(row=0, column=0)
+    #display_volts = Text(user_displays, font="arial 12 bold",
+     #                    width=8, height=1, state="disabled")
+    #display_volts.grid(row=0, column=1)
+
+    #label_bits = Label(
+    #    user_displays, text="Tensão (0 -1023 bits):", font="arial 12")
+    #label_bits.grid(row=1, column=0)
+    #display_bits = Text(user_displays, font="arial 12 bold",
+    #                    width=8, height=1, state="disabled")
+    #display_bits.grid(row=1, column=1)
+
+    #Radio buttons, para tempo e escale de varredura
+    radio_buttons = Frame(user_area)
+    radio_buttons.pack(side="left", fill="y", expand=True)
+
+    radio_buttons.columnconfigure(0, weight=1)
+    radio_buttons.columnconfigure(1, weight=1)
+
+    for i in range(0, 5):
+        radio_buttons.rowconfigure(i, weight=1)
+
+    tempo = IntVar()
+    titulo_tempo = Label(radio_buttons, text="Tempo", font="Arial 12 bold",width=10)
+    titulo_tempo.grid(row = 0, column = 0)
+
+    tempo30RB = Radiobutton(radio_buttons, text = "30 segundos", variable = tempo, value = '0')
+    tempo30RB.grid(row = 1, column = 0, sticky = 'W')
+
+    tempo60RB = Radiobutton(radio_buttons, text = "60 segundos", variable = tempo, value = '1')
+    tempo60RB.grid(row = 2, column = 0, sticky = 'W')
+
+    tempo3mRB = Radiobutton(radio_buttons, text = "3  minutos", variable = tempo, value = '2')
+    tempo3mRB.grid(row = 3, column = 0, sticky = 'W')
+
+    tempo5mRB = Radiobutton(radio_buttons, text = "5 minutos", variable = tempo, value = '3')
+    tempo5mRB.grid(row = 4, column = 0, sticky = 'W')
+
+    campo = IntVar()
+    titulo_campo = Label(radio_buttons, text="Campo", font="Arial 12 bold",width=10)
+    titulo_campo.grid(row = 0, column = 1)
+
+    campo50G = Radiobutton(radio_buttons, text = "50 Gauss", variable = campo, value = '0')
+    campo50G.grid(row = 1, column = 1, sticky = 'W')
+
+    campo100G = Radiobutton(radio_buttons, text = "100 Gauss", variable = campo, value = '1')
+    campo100G.grid(row = 2, column = 1, sticky = 'W')
+
+    campo500G = Radiobutton(radio_buttons, text = "500 Gauss", variable = campo, value = '2')
+    campo500G.grid(row = 3, column = 1, sticky = 'W')
+
+    campo1000G = Radiobutton(radio_buttons, text = "1000 Gauss", variable = campo, value = '3')
+    campo1000G.grid(row = 4, column = 1, sticky = 'W')
+
+    # Entradas
+    user_entries = Frame(user_area)
+    user_entries.pack(side="left", fill="y", expand=True)
+
+    for i in range(0, 2):
+        user_entries.columnconfigure(i, weight=1)
+        user_entries.rowconfigure(i, weight=1)
+
+    #label_points = Label(user_entries, text="Número de pontos:", font="arial 12")
+    #label_points.grid(row=0, column=0)
+
+    #stringvar1 = StringVar(user_entries)
+    #stringvar2 = StringVar(user_entries)
+    #stringvar1.trace("w", field_check)
+    #stringvar2.trace("w", field_check)
+
+    #entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
+    #entry_points.insert(END, "205")
+    #entry_points.grid(row=0, column=1)
+
+    #label_mean = Label(user_entries, text="Tempo de varredura:", font="arial 12")
+    #label_mean.grid(row=0, column=0)
+    #entry_mean = Entry(user_entries, width=8, textvariable=stringvar2)
+    #entry_mean.insert(END, "5")
+    #entry_mean.grid(row=0, column=1)
+
+
+    window.protocol("WM_DELETE_WINDOW", on_closing)
+    window.mainloop()
