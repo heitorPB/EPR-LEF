@@ -57,7 +57,7 @@ esse equipamento.
 Podemos ver claramente que aumentar a constante de tempo do amplificador
 reduz o ruído do sinal, mas também altera a forma dos picos.
 
-.. _fig_duasAmostras-1Kgauss-5min-100ms:
+.. _fig_duasAmostras-1Kgauss-5min-10ms:
 
 .. figure:: img/duasAmostras-1Kgauss-5min-10ms.png
    :width: 95%
@@ -66,7 +66,7 @@ reduz o ruído do sinal, mas também altera a forma dos picos.
    Espectro das duas amostras combinadas, com varredura de 1000 gauss,
    realizada durante 5 minutos. Consante de tempo do *lock-in* de 10 ms.
 
-.. _fig_duasAmostras-1Kgauss-5min-100ms:
+.. _fig_duasAmostras-1Kgauss-5min-30ms:
 
 .. figure:: img/duasAmostras-1Kgauss-5min-30ms.png
    :width: 95%

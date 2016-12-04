@@ -1,6 +1,6 @@
-========
-Práticas
-========
+======
+Testes
+======
 
 Ligar o equipamento
 -------------------

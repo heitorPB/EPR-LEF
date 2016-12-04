@@ -12,10 +12,10 @@ Documentação do EPR - LEF!
    introducao
    teoria
    equipamento
-   praticas
+   testes
    resultados
    software
-
+   TODO
 
 .. Indices and tables
    ==================
