@@ -262,7 +262,19 @@ latex_elements = {
 
      # Additional stuff for the LaTeX preamble.
      #
-      'preamble': '\usepackage[section]{placeins}',
+      'preamble': '''\
+                     \\usepackage[section]{placeins}
+                     \\hypersetup{unicode=true,
+                                  bookmarks=true,
+                                  pdfdisplaydoctitle=true,
+                                  pdfauthor={Emilio Galera, Heitor de Bittencourt},
+                                  pdftitle={Trambolhino},
+                                  pdfsubject={EPR},
+                                  pdfkeywords={Trambolhino, EPR, LEF},
+                                  pdfproducer={Sphinx and Latex with hyperref},
+                                  pdfcreator={pdflatex}
+                                  }
+                     ''',
 
      # Latex figure (float) alignment
      #
