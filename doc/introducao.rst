@@ -1,10 +1,8 @@
-====================
-Introdução Histórica
-====================
+==========
+Introdução
+==========
 
-.. TODO foto dos cara aqui
-
-.. TODO reorganizar esse texto, esta fora de ordem
+.. TODO fotos dos cara aqui
 
 
 Em 1896, Pieter Zeeman desobedeceu as ordens diretas de seu supervisor sobre
@@ -23,7 +21,8 @@ um campo magnético se divide em dois.
 Tais experimentos não podem ser explicados pela física clássica e nem
 completamente pela teoria quântica sem spin. Foram Uhlenbeck e Goudsmit que
 deram uma interpretação correta ao efeito Zeeman anômalo, eles postularam o
-spin eletrônico, um momento angular quantizado, como uma propriedade intrínseca do elétron.
+spin eletrônico, um momento angular quantizado, como uma propriedade
+intrínseca do elétron.
 
 Essas pesquisas marcaram os fundamentos da espectroscopia por ressonância
 magnética eletrônica (EPR), pois ela é baseada na transição entre estados
@@ -50,6 +49,15 @@ de radiofrequência de uma amostra de CuCl2.2H2O.
    A direita temos Yevgeny Konstantinovich Zavoisky, ele foi o primeiro a medir
    efeito de ressonância paramagnética eletrônica.
 
+
+A montagem deste experimento nos `Laboratório Avançado de Física
+<http://www.ifsc.usp.br/~lavfis/>`_ do `Instituto de Física de São Carlos
+<http://www.ifsc.usp.br>`_ começou com o professor Horácio Carlos Panepucci e
+o professor Claudio José Magon terminou a primeira versão. Finalmente na
+segunda metade do ano de 2016, sob supervisão do professor Luiz Antônio de
+Oliveira Nunes e do técnico Antenor Fabbri Petrilli Filho, os alunos Emilio
+Frari Galera e Heitor Pascoal de Bittencourt desenvolveram um sistema digital
+para aquisição dos espectros.
 
 referências:
 	(1) M. J. N. Junk, Assessing the Functional Structure of
