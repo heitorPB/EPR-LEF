@@ -2,6 +2,27 @@
 Montagem Experimental
 =====================
 
+
+Cuidados
+--------
+
+Alguns cuidados devem ser tomados *antes e durante* a operação do
+equipamento, a fim de que nada seja danificado:
+
+        #. **Tenha certeza de que há água para refrigerar o klystron
+           e as bobinas**. Verifique visualmente a circuilação da água e
+           fique atento a varições no som da água circuilando.
+
+        #. **Sobrevoltagem no klystron**. Não aplique uma tensão de feixe
+           superior a 250 V e uma tensão de refletor superior a 200 V.
+
+        #. **Não lique o klystron antes de o mesmo estar aquecido**. O
+           *klystron* pode ser permanentemente danificado caso isso aconteca.
+           Aguarde pelo menos dois minutos entre ligar o filamento e aplicar a
+           alta tensão no *klystron*. **A água para refrigeração deve estar
+           ligada antes destes dois procedimentos**.
+
+
 Equipamento
 -----------
 

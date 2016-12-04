@@ -22,8 +22,6 @@ DOC:
 	teoria:
 		hv = ms g B0
 
-	hyperref stuff para autor, bla
-
 	Secao de referencias
 
 	Secao software:
@@ -39,9 +37,13 @@ DOC:
 
 	escanear o diagrama do controle de varredura e colocar como apendice
 
-        colocar como apendice, ou na documentacao do hardware desenvolvivo, os documentos referentes ao modulo RS232 e ADC. além do Arduino da Circuitar
+	colocar como apendice, ou na documentacao do hardware desenvolvivo, os documentos referentes ao modulo RS232 e ADC. além do Arduino da Circuitar
 
 python:
 	reduzir delay pra 1 ms ou menos
 
 	na hora de salvar os pontos: salvar (B, y)
+
+	Se alguém tiver tempo e paciência, escrever um código totalmente novo, usando classes pra organizar tudo
+
+	tirar aquele monte de comentário de blasfêmias e de codigos nao usados
