@@ -39,6 +39,8 @@ DOC:
 
 	colocar como apendice, ou na documentacao do hardware desenvolvivo, os documentos referentes ao modulo RS232 e ADC. além do Arduino da Circuitar
 
+        Testes:
+                segunda parte, sobre o efeito das constantes de tempo, falar da porra das referencias 3 e 4.
 python:
 	reduzir delay pra 1 ms ou menos
 

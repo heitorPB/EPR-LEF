@@ -12,40 +12,30 @@ Espectro da amostra DPPH
 ------------------------
 
 Nesta prática vamos utilizar uma amostra que é comumente empregada para
-procedimentos de calibração dos espectrômetros de RPE. Trata-se do DPPH,
-ou, diph enyl picryl hydrazyl . Na forma sólida (como a que vamos usar)
-o espectro de EPR do DPPH consiste de uma única linha muito intensa,
+procedimentos de calibração dos espectrômetros de RPE. Trata-se do *DPPH*,
+ou, *diphenyl picryl hydrazyl*. Na forma sólida (como a que vamos usar),
+o espectro de EPR do *DPPH* consiste de uma única linha muito intensa,
 relativamente estreita (largura de aproximadamente 2 G), centralizada em
-g = 2.0038 , e ligeiramente assimétrica. Colocar o tubo contendo DPPH na
+g = 2.0038, e ligeiramente assimétrica.
+
+Colocar o tubo contendo DPPH na
 cavidade. A amostra é muito pequena (fração de milímetros) e está colocada
 no fundo do tubo, enrolada em fita teflon (por isso ela é branca e não
-negra, como seria a cor natural do DPPH). Posicione cuidadosamente a amostra
+negra, como seria a cor natural do *DPPH*). Posicione cuidadosamente a amostra
 no centro da cavidade. Ajustar o espectrômetro e medir o sinal utilizando
-varredura de 50G. Meça o valor do campo magnético no centro da linha com uma
+varredura de 50 G. Meça o valor do campo magnético no centro da linha com uma
 sonda Hall e a freqüência da microonda com o frequencímetro e, a partir
-destes dados, calcule o fator g do DPPH. Compare com o valor tabelado : g =  2.0038.
+destes dados, calcule o fator :math:`g` do DPPH.
+Compare com o valor tabelado: :math:`g =  2.0038`.
+
 
 Análise do efeito conjunto da constante de tempo e velocidade de varredura
 --------------------------------------------------------------------------
 
-Varie a constante de tempo entre os valores de 10ms a 10s, registrando os
-sinais com varreduras de 0.5 min, 1 min e 3 min. Explique os resultados
-com base nas informações deste texto e das referências 3 e 4.
+Varie a constante de tempo do *lock-in* entre os valores de 10 ms a 10 s,
+registrando os sinais com varreduras de 0.5 min, 1 min e 3 min. Explique os
+resultados com base nas informações deste texto e das referências 3 e 4.
 
-Lock-in no modo “2f”
---------------------
-
-Novamente meça o sinal do DPPH com o programa EPR-LEF.py com o lock-in em modo
-"f" (primeira derivada) com a amplitude de modulação ótima,
-:numref:`fig_lockin`. Passe o lock-in para o modo “2f” e registre o sinal
-novamente com o EPR-LEF.py . Para que os dois sinais fiquem com amplitudes
-similares será necessário que a sensibilidade (vertical) do sinal "2f" tenha
-que ser maior.Para entender melhor o que significa o modo "2f", estude o Apêndice1.
-
-Para esta amostra de DPPH, qual deve ser a melhor configuração dos
-parâmetros amplitude da modulação, constante de tempo, amplitude de varredura
-e tempo da varredura para que o espectro represente corretamente a derivada do
-sinal de absorção?
 
 :math:`MgO + Cr^{3+} Mn^{2+}`
 ------------------------------
@@ -64,6 +54,7 @@ marcador para finalidades de calibração. Em adição a esta linha central mais
 intensa, você deverá observar também seis linhas menos intensas, separadas por
 cerca de 80-100 Gauss devido ao :math:`Mn^{2+}`. Como o espectro é largo, faça
 a medida utilizando uma varredura lenta de 1000 Gauss.
+
 
 Duas amostras
 -------------
