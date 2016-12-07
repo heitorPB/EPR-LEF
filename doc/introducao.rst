@@ -4,39 +4,84 @@ Introdução
 
 .. TODO fotos dos cara aqui
 
-
-Em 1896, Pieter Zeeman desobedeceu as ordens diretas de seu supervisor sobre
+Em 1896, Pieter Zeeman :numref:`fig_ZeemanZavoisky` desobedeceu as ordens diretas de seu supervisor sobre
 utilizar equipamentos de laboratório para medir a separação das linhas
-espectrais por um *forte* campo magnético. Ele foi demitido por seus esforços,
-mas mais tarde ele obteve seu reconhecimento: ganhou o Prêmio Nobel de
-Física de 1902 pela descoberta de que agora é conhecido como o efeito Zeeman.
+espectrais por um *forte* campo magnético. Ele foi demitido por tal
+insubordinação mas, mais tarde ele obteve seu reconhecimento: ganhou o Prêmio
+Nobel de Física de 1902 pela descoberta de que agora é conhecido como o efeito
+Zeeman.
 
-Thomas Preston descobre em 1897 uma
-separação anômala em linhas espectrais de amostras na presença de campos
-eletromagnéticos fortes, conhecido como efeito Zeeman anômalo.
+Thomas Preston :numref:`fig_Thomas`  descobre em 1897 uma separação anômala em linhas espectrais de
+amostras na presença de campos eletromagnéticos fortes, conhecido como efeito
+Zeeman anômalo. Tal efeito recebe o nome de anômalo pois o spin eletrônico
+ainda era desconhecido.
 
-Em 1921 Gerlach e Stern observaram que um feixe de átomos de prata submetido a
+.. _fig_Thomas:
+
+.. figure:: img/Thomas.jpg
+   :scale: 80%
+   :align: center
+
+   Thomas Preston
+
+Em 1921 Gerlach e Stern :numref:`fig_Gerlach-Stern` observaram que um feixe de átomos de prata submetido a
 um campo magnético se divide em dois.
 
-Tais experimentos não podem ser explicados pela física clássica e nem
-completamente pela teoria quântica sem spin. Foram Uhlenbeck e Goudsmit que
-deram uma interpretação correta ao efeito Zeeman anômalo, eles postularam o
-spin eletrônico, um momento angular quantizado, como uma propriedade
-intrínseca do elétron.
+.. _fig_Gerlach-Stern:
+
+.. figure:: img/Gerlach-Stern.jpg
+   :scale: 110%
+   :align: center
+
+   A esquerda temos Walther Gerlach e a direita  Otto Stern
+
+Em uma primeira aproximação o efeito *Zeeman* pode ser explicado devido a
+interação do momento angular orbital da amostra com o campo magnético aplicado
+porém, o experimento de *Gerlach* e o exterimento de *Thomas* necessitam de
+algo mais na teoria quântica que ainda não havia sido proposto.
+
+Foram Uhlenbeck e Goudsmit :numref:`fig_UhlenbeckGoudsmit` que deram uma interpretação correta ao efeito
+Zeeman anômalo, eles postularam o spin eletrônico, um momento angular
+quantizado, como uma propriedade intrínseca do elétron.
+
+.. _fig_UhlenbeckGoudsmit:
+
+.. figure:: img/UhlenbeckGoudsmit.jpg
+   :scale: 80%
+   :align: center
+
+   Uhlenbeck a esquerda e Goudsmit a direita
 
 Essas pesquisas marcaram os fundamentos da espectroscopia por ressonância
 magnética eletrônica (EPR), pois ela é baseada na transição entre estados
 quantizados resultante da interação do spin eletrônico com o campo
 magnético esterno.
 
-Em 1931, Breit e Rabi descreveram os níveis de energia do hidrogênio sobre o
+Em 1931, Breit e Rabi :numref:`fig_BreitRabi` descreveram os níveis de energia do hidrogênio sobre o
 efeito de um campo magnético. Rabi estudou transições entre níveis de
 energia induzidos por um campo magnético oscilante. Este foi o primeiro
 experimento a observar ressonância magnética (MNR).
 
+.. _fig_BreitRabi:
+
+.. figure:: img/BreitRabi.jpg
+   :scale: 80%
+   :align: center
+
+   Breit a esquerda e Rabi a adireita
+
 Em 1945, foi feita a primeira observação de um pico de ressonância
-paramagnetica eletronica (EPR), quando Zavoisky detectou a linha de absorção
+paramagnetica eletronica (EPR), quando Zavoisky :numref:`fig_ZeemanZavoisky` detectou a linha de absorção
 de radiofrequência de uma amostra de CuCl2.2H2O.
+
+Apesar do NMR ser mais utilizado, as duas técnicas, EPR e NMR, se desenvolveram
+praticamente juntas. Em meados da década de sessenta a espectroscopia por NMR
+massa por um grande avanço com o desenvolvimento de espectroscopia NMR por FT
+(transformada de Fourier). A técnica equivalente para o EPR demorou a ser
+desenvolvida devido a dificuldades intrínsecas de se trabalhar com micro-ondas.
+
+Atualmente já existem espectrômetros EPR comerciais :cite:`EPR-comercial`.
+
 
 .. _fig_ZeemanZavoisky:
 
