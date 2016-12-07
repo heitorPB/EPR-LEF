@@ -59,6 +59,12 @@ Oliveira Nunes e do técnico Antenor Fabbri Petrilli Filho, os alunos Emilio
 Frari Galera e Heitor Pascoal de Bittencourt desenvolveram um sistema digital
 para aquisição dos espectros.
 
+O novo sistema foi desenvolvido utilizando um microcontrolador *Atmega328p*, da
+plataforma *Arduino*, com módulos para: comunicação digital com o amplificador
+*lock-in* e conversor analógico-digital para leitura do campo magnético. Além
+da eletrônica, foi desenvolvida uma interface gráfica para aquisição dos
+espectros utilizando linguagem *Python 2.7*.
+
 referências:
 	(1) M. J. N. Junk, Assessing the Functional Structure of
 	Molecular Transporters by EPR Spectroscopy, Springer Theses,

@@ -13,7 +13,7 @@ Espectro da amostra DPPH
 
 Nesta prática vamos utilizar uma amostra que é comumente empregada para
 procedimentos de calibração dos espectrômetros de RPE. Trata-se do *DPPH*,
-ou, *diphenyl picryl hydrazyl*. Na forma sólida (como a que vamos usar),
+ou, *2,2-diphenyl-1-picrylhydrazyl*. Na forma sólida (como a que vamos usar),
 o espectro de EPR do *DPPH* consiste de uma única linha muito intensa,
 relativamente estreita (largura de aproximadamente 2 G), centralizada em
 g = 2.0038, e ligeiramente assimétrica.
