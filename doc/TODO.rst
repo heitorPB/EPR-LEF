@@ -22,8 +22,6 @@ DOC:
 	teoria:
 		hv = ms g B0
 
-	Secao de referencias
-
 	Secao software:
 
 		escrever um texto
@@ -53,3 +51,7 @@ python:
 	alterar o esquema de importar o TKinter para importar como tk, importar TKinter.themes como ttk, mudar todos os widgtes pra ttk.widgets.
 
 	compatilibidade com python3
+
+	limpar o codigo
+
+	colocar os prints caso flag de verbose seja usada

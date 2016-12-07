@@ -46,3 +46,16 @@ Uso
 ----
 
     Te vira, bixo.
+
+
+Documentação
+------------
+
+Documentação utiliza `Sphinx <http://sphinx-doc.org/>`_ para gerar um HTML ou
+PDF.
+
+Além do Sphinx, é necessário o pacote `sphinxcontrib-bibtex
+<https://sphinxcontrib-bibtex.readthedocs.io/en/latest/index.html>`_
+
+Para gerar a documentação, basta utilizar o Makefile (caso utilize GNU/Linux)
+ou o make.bat (caso utilize Microsoft Windows) no diretório doc/

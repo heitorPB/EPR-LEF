@@ -65,9 +65,11 @@ plataforma *Arduino*, com módulos para: comunicação digital com o amplificado
 da eletrônica, foi desenvolvida uma interface gráfica para aquisição dos
 espectros utilizando linguagem *Python 2.7*.
 
-referências:
-	(1) M. J. N. Junk, Assessing the Functional Structure of
-	Molecular Transporters by EPR Spectroscopy, Springer Theses,
-	DOI: 10.1007/978-3-642-25135-1_2
 
-	(2) http://hyperphysics.phy-astr.gsu.edu/hbase/molecule/esr.html
+Emilio, nao sei onde essas referêcias se encaixam:
+
+bla :cite:`Junk2012` bla
+
+ble :cite:`HyperESR` ble
+
+Mas agora temos referências!! \o/
