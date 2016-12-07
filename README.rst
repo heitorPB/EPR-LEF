@@ -16,7 +16,9 @@ Funcionalidades
 - Sistema digital, permitindo salvar o espectro como figura e/ou exportar
   o sinal obtido.
 - Aquisição de sinal do *lock-in* usando comunição digital.
-- Controle manual de varredura do campo magnetico.
+- Controle por *software* de varredura do campo magnetico.
+- Controle por *software* de tempo de aquisição.
+- Controle por *software* de início/interrupção de varredura.
 
 
 Instalação
