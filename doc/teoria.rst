@@ -13,7 +13,8 @@ Na presença de um campo magnético externo e temperatura maior que zero
 absoluto, o momento magnético acopla
 paralelamente ou anti paralelamente com o campo e da origem a energias
 ligeiramente diferentes de acoplamento, esse acoplamento é conhecido como
-efeito Zeeman. A energia desse acoplamento é dada por :cite:`wiki:EPR`:
+efeito Zeeman. A energia desse acoplamento é dada por
+:cite:`wiki:EPR`:cite:`brustolon2009`:
 
 .. math::
 
@@ -85,34 +86,52 @@ interna do EPR, pois o lock-in mede sinais modulados pelo sinal de
 referência :cite:`wiki:lockin`.
 
 Vamos supor que :math:`Y(H)` seja a função absorção de uma amostra dentro
-do EPR onde *H* é o campo produzido pelo eletroímã. Podemos expandir essa
-função utilizando uma série de *tylor*, ao redor de um ponto :math:`H'`:
+do EPR onde *H* é o campo produzido pelo eletroímã, esse campo varia de maneira
+bem lenta e passa pelos eventuais picos de absorção da amostra. O sinal de
+referência do *lock-in* também passa pelo EPR e esse varia de maneira muito
+rápida, em comparação com o a variação do campo *H*.
+
+Com isso em mente, expandindo a função de absorção *Y(H)* do campo gerado
+pelo eletroímã em terno de um ponto *H - H'* na curva de *Y(H)* temos:
 
 .. math::
 
 	Y(H') = Y(H) + {\frac{\mathrm{d} Y}{\mathrm{d} H}}(H' - H) +
 	\frac{1}{2}\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2}(H' - H)^2 + ...
 
-A diferença *H' - H* pode ser vista como uma função na forma
+Como a função *Y(H)* varia de maneira muito lenta no tempo em comparação com o
+sinal de referência do lock-in diferença *H' - H* pode ser vista como uma
+função periódica de frequência igual a do sinal de referência.
 
 .. math::
 
-	f(t) = H_m sen(\omega_m t)
+	H - H' = f(t) = H_m sen(\omega_m t)
 
-isso é possível pois o campo é modulado pelo sinal de referência do
-lock-in.
+Isso é possível pois o campo é modulado pelo sinal de referência do
+lock-in. O campo varia lentamente mas, há uma modulação pequena e muito rápida
+que ocorre em torno do valor *H*.
 
 .. math::
 
-	Y(H') =  \left [Y(H) +
-	\frac{1}{2}H_m^2\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2} \right ]
-	 + \left [ H_m\frac{\mathrm{d} Y}{\mathrm{d} H} \right ]sen(\omega_mt) -
-	\left [ \frac{1}{4}H_m^2\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2} \right ]
-	sen^2(\omega_mt) + ...
+	Y(H') = Y(H) + {\frac{\mathrm{d} Y}{\mathrm{d} H}}H_m \sin(\omega t) +
+        \frac{1}{2}\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2}H_m^2 \sin^2(\omega t) + ...
 
-O lock-in funciona multiplicando o sinal de entrada pela referência e o
-resultado dessa multiplicação passa por um filtro passa baixa.
-O primeiro termo dignificativo que sobra dessa forma é:
+O lock-in funciona multiplicando o sinal de entrada, a ser amplificado, pela
+referência :math:`sen(\omega t)`.
+
+.. math::
+
+	Y(H') = Y(H) \sin(\omega t) + {\frac{\mathrm{d} Y}{\mathrm{d} H}}
+	H_m \sin^2(\omega t) + \frac{1}{2}\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2}
+	H_m^2 \sin^3(\omega t) + ...
+
+O resultado dessa multiplicação passa por um filtro passa baixa, isso é
+equivalente a integrar o sinal em um período de tempo. A função *seno* é
+uma função impar e portanto quando a integramos em um número inteiro de
+períodos ou por um intervalo de tempo grande o suficiente para conter vários
+períodos os termos de potencia impar vão a zero e apenas os termos com
+potências pares contribuem para o resultado. Assim podemos concluir que,
+dessa integração, o primeiro termo não zero é:
 
 .. math::
 	S(H) = \frac{1}{2} H_m \frac{\mathrm{d} Y}{\mathrm{d} H}
