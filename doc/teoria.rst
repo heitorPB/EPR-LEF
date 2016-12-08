@@ -115,8 +115,12 @@ referência :math:`sen(\omega t)`.
 	H_m^2sin^3(\omega t) + ...
 
 O resultado dessa multiplicação passa por um filtro passa baixa, isso é
-equivalente a integrar o sinal em um período de tempo. O primeiro termo
-dignificativo que sobra dessa forma é:
+equivalente a integrar o sinal em um período de tempo. A função *seno* é
+uma função impar e portanto quando a integramos em um número inteiro de
+períodos ou por um intervalo de tempo grande o suficiente para conter vários
+períodos os termos de potencia impar vão a zero e apenas os termos com
+potências pares contribuem para o resultado. Assim podemos concluir que,
+dessa integração, o primeiro termo não zero é:
 
 .. math::
 	S(H) = \frac{1}{2}H_m\frac{\mathrm{d} Y}{\mathrm{d} H}
