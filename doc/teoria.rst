@@ -72,39 +72,51 @@ utilizar um amplificador *lock-in*.
 
 O lock-in utiliza um tipo de detecção chamada detecção sensível a fase.
 Para isso ele necessita de um sinal de referência, que nesse experimento é
-um sinal senoidal de áudio, esse sinal também é passado para a bobina
-interna do EPR, pois o lock-in mede sinais modulados pelo sinal de
-referência.
+um sinal senoidal, esse sinal também é passado para a bobina interna do EPR,
+pois o lock-in mede sinais modulados pelo sinal de referência.
 
 Vamos supor que :math:`Y(H)` seja a função absorção de uma amostra dentro
-do EPR onde *H* é o campo produzido pelo eletroímã. Podemos expandir essa
-função utilizando uma série de *tylor*:
+do EPR onde *H* é o campo produzido pelo eletroímã, esse campo varia de maneira
+bem lenta e passa pelos eventuais picos de absorção da amostra. O sinal de
+referência do *lock-in* também passa pelo EPR e esse varia de maneira muito
+rápida em comparação com o a variação do campo *H*.
+Com isso em mente, expandindo a função de absorção *Y(H)* do campo gerado
+pelo eletroímã em terno de um ponto *h - h'* na curva de *Y(H)* temos:
 
 .. math::
 
 	Y(h') = Y(h) + {\frac{\mathrm{d} Y}{\mathrm{d} H}}(h'-h) +
 	\frac{1}{2}\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2}(h'-h)^2 + ...
 
-A diferença *h' - h* pode ser vista como uma função na forma
+Como a função *Y(H)* varia de maneira muito lenta no tempo em comparação com o
+sinal de referência do lock-in diferença *h' - h* pode ser vista como uma
+função periódica de frequência igual a do sinal de referência.
 
 .. math::
 
-	f(t) = H_m sen(\omega_m t)
+	h - h' = f(t) = H_m sen(\omega_m t)
 
-isso é possível pois o campo é modulado pelo sinal de referência do
-lock-in.
+Isso é possível pois o campo é modulado pelo sinal de referência do
+lock-in. O campo varia lentamente mas, há uma modulação pequena e muito rápida
+que ocorre em torno do valor *H*.
 
 .. math::
 
-	Y(h') =  \left [Y(h) +
-	\frac{1}{2}H_m^2\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2} \right ]
-	 + \left [ H_m\frac{\mathrm{d} Y}{\mathrm{d} H} \right ]sen(\omega_mt) -
-	\left [ \frac{1}{4}H_m^2\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2} \right ]
-	sen^2(\omega_mt) + ...
+	Y(h') = Y(h) + {\frac{\mathrm{d} Y}{\mathrm{d} H}}H_msin(\omega t) +
+        \frac{1}{2}\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2}H_m^2sin^2(\omega t) + ...
 
-O lock-in funciona multiplicando o sinal de entrada pela referência e o
-resultado dessa multiplicação passa por um filtro passa baixa.
-O primeiro termo dignificativo que sobra dessa forma é:
+O lock-in funciona multiplicando o sinal de entrada, a ser amplificado, pela
+referência :math:`sen(\omega t)`.
+
+.. math::
+
+	Y(h') = Y(h)sin(\omega t) + {\frac{\mathrm{d} Y}{\mathrm{d} H}}
+	H_msin^2(\omega t) + \frac{1}{2}\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2}
+	H_m^2sin^3(\omega t) + ...
+
+O resultado dessa multiplicação passa por um filtro passa baixa, isso é
+equivalente a integrar o sinal em um periodo de tempo. O primeiro termo
+dignificativo que sobra dessa forma é:
 
 .. math::
 	S(H) = \frac{1}{2}H_m\frac{\mathrm{d} Y}{\mathrm{d} H}
