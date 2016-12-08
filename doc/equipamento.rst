@@ -23,21 +23,33 @@ equipamento, a fim de que nada seja danificado:
            ligada antes destes dois procedimentos**.
 
 
-Equipamento
------------
-
-.. TODO diagrama de blocos arduino ligado no bagulho
+Descrição e funcionamento
+-------------------------
 
 O equipamento necessário para se fazer espectroscopia por EPR consiste
 de um magneto com controle de campo magnético, *klystron* para gerar a
 microonda, sistema de modulação de sinal, amplificador *lock-in* e
-registrador.
+registrador. Um diagrama da montagem encontra-se na figura
+:numref:`fig_diagrama_blocos_trambolho` a seguir.
+
+.. _fig_diagrama_blocos_trambolho:
+
+.. figure:: img/diagrama_blocos_trambolho.jpg
+   :scale: 80%
+   :align: center
+
+   Diagrama de blocos do EPR
 
 Além do registrador mecânico do resultado, foi adicionado um sistema digital
 de aquisição de dados, que consiste em um microcontrolador Arduino e uma
 interface através de um microcomputador.
 
 Todo o equipamento utilizado está registrado a seguir.
+
+Na figura :numref:`fig_sala` a seguir, vemos como era o equipamento antes da
+modernização. Na figura :numref:`fig_sala_nova` a seguir vemos a nova
+montagem, com o novo sistema de aquisição de dados utilizando um computador
+e Arduino para aquisição e visualização de dados.
 
 .. _fig_sala:
 
@@ -52,13 +64,46 @@ Todo o equipamento utilizado está registrado a seguir.
    substituído por um sistema de aquisição de dados utilizando um arduino e um
    microcomputador.
 
-.. _fig_diagrama_blocos_trambolho:
+.. _fig_sala_nova:
 
-.. figure:: img/diagrama_blocos_trambolho.jpg
+.. figure:: img/sala_nova.jpg
    :scale: 80%
    :align: center
 
-   Diagrama de blocos do EPR
+   TROCAR ESSA FIGURA AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+Neste experimento, é utilizada radiação eletromagnética de aproximadamente 10 GHz.
+Para emissão desta frequência, é utilizado um *klystron*, modelo VA-217CH, fabricado
+pela *Varian* e mostrado na figura :numref:`fig_klystron` abaixo. A fonte para
+ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
+
+.. TODO principio de funcionamento do klystron aqui. Falar da porra da fonte dele também
+
+.. _fig_klystron:
+
+.. figure:: img/klystron.jpg
+   :scale: 80%
+   :align: center
+
+   Emissor de micro-ondas *klystron*. Note o parafuso cinza. Este ajusta o centro
+   de emissão de microondas.
+
+.. _fig_fonte_klystron:
+
+.. figure:: img/fonte_klystron.jpg
+   :scale: 80%
+   :align: center
+
+   Fonte do *klystron*. (1) medidor da corrente do feixe de etétrons. (2) formato
+   da função de onda do *klystron*, pode ser C.W (onda contínua), onda dente de
+   "serra" ou onda pulsada. (3) tensão do feixe de elétrons, (4) tensão do refletor
+   do feixe. (5) chave para ligar e desligar a fonte, note que a mesma possui 3
+   estágios, *off* para desligar o equipamento, *FIL* para ligar apenas a
+   tensão do filamento e *HV+FIL* para ligar a alta tensão e a tensão no filamento.
+   Não ligue a fonte direramente em *HV+FIl*, o filamento deve esquentar primeiro
+   na opção *FIL*.
+
+
 
 .. _fig_torneiras:
 
@@ -89,31 +134,6 @@ Todo o equipamento utilizado está registrado a seguir.
    :align: center
 
    Fonte do eletroímã. (1) botão para ligar e (2) botão para desligar a fonte.
-
-.. _fig_fonte_klystron:
-
-.. figure:: img/fonte_klystron.jpg
-   :scale: 80%
-   :align: center
-
-   Fonte do *klystron*. (1) medidor da corrente do feixe de etétrons. (2) formato
-   da função de onda do *klystron*, pode ser C.W (onda contínua), onda dente de
-   "serra" ou onda pulsada. (3) tensão do feixe de elétrons, (4) tensão do refletor
-   do feixe. (5) chave para ligar e desligar a fonte, note que a mesma possui 3
-   estágios, *off* para desligar o equipamento, *FIL* para ligar apenas a
-   tensão do filamento e *HV+FIL* para ligar a alta tensão e a tensão no filamento.
-   Não ligue a fonte direramente em *HV+FIl*, o filamento deve esquentar primeiro
-   na opção *FIL*.
-
-
-.. _fig_klystron:
-
-.. figure:: img/klystron.jpg
-   :scale: 80%
-   :align: center
-
-   Emissor de micro-ondas *klystron*. Note o parafuso cinza. Este ajusta o centro
-   de emissão de microondas.
 
 .. _fig_defasador:
 

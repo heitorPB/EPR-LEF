@@ -4,14 +4,22 @@ Introdução
 
 .. TODO fotos dos cara aqui
 
-Em 1896, Pieter Zeeman :numref:`fig_ZeemanZavoisky` desobedeceu as ordens diretas de seu supervisor sobre
+Em 1896, Pieter Zeeman desobedeceu as ordens diretas de seu supervisor sobre
 utilizar equipamentos de laboratório para medir a separação das linhas
 espectrais por um *forte* campo magnético. Ele foi demitido por tal
-insubordinação mas, mais tarde ele obteve seu reconhecimento: ganhou o Prêmio
+insubordinação mas, mais tarde obteve seu reconhecimento: ganhou o Prêmio
 Nobel de Física de 1902 pela descoberta de que agora é conhecido como o efeito
-Zeeman.
+Zeeman :cite:`ZeemanFired`.
 
-Thomas Preston :numref:`fig_Thomas`  descobre em 1897 uma separação anômala em linhas espectrais de
+.. _fig_Zeeman:
+
+.. figure:: img/Zeeman.jpg
+   :align: center
+
+   Pieter Zeeman, físico dinamarquês que ganhou o prêmio Nobel em 1902 pela
+   discoberta do Efeito Zeeman :cite:`wiki:Zeeman`.
+
+Thomas Preston descobre em 1897 uma separação anômala em linhas espectrais de
 amostras na presença de campos eletromagnéticos fortes, conhecido como efeito
 Zeeman anômalo. Tal efeito recebe o nome de anômalo pois o spin eletrônico
 ainda era desconhecido.
@@ -22,10 +30,13 @@ ainda era desconhecido.
    :scale: 80%
    :align: center
 
-   Thomas Preston
+   Thomas Preston, físico irlandês que descobriu o efeito Zeeman Anômalo
+   :cite:`wiki:thomas`.
 
-Em 1921 Gerlach e Stern :numref:`fig_Gerlach-Stern` observaram que um feixe de átomos de prata submetido a
-um campo magnético se divide em dois.
+.. TODO colocar referencias das fotos dos caras, pode ser wikipedia mesmo
+
+Em 1921 Gerlach e Stern observaram que um feixe de
+átomos de prata submetido a um campo magnético se divide em dois.
 
 .. _fig_Gerlach-Stern:
 
@@ -33,7 +44,7 @@ um campo magnético se divide em dois.
    :scale: 110%
    :align: center
 
-   A esquerda temos Walther Gerlach e a direita  Otto Stern
+   A esquerda temos Walther Gerlach e a direita Otto Stern
 
 Em uma primeira aproximação o efeito *Zeeman* pode ser explicado devido a
 interação do momento angular orbital da amostra com o campo magnético aplicado
