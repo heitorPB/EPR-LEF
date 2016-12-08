@@ -115,7 +115,7 @@ referência :math:`sen(\omega t)`.
 	H_m^2sin^3(\omega t) + ...
 
 O resultado dessa multiplicação passa por um filtro passa baixa, isso é
-equivalente a integrar o sinal em um periodo de tempo. O primeiro termo
+equivalente a integrar o sinal em um período de tempo. O primeiro termo
 dignificativo que sobra dessa forma é:
 
 .. math::
