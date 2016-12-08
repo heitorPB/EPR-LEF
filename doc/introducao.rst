@@ -86,7 +86,7 @@ paramagnetica eletronica (EPR), quando Zavoisky :numref:`fig_ZeemanZavoisky` det
 de radiofrequência de uma amostra de CuCl2.2H2O.
 
 Apesar do NMR ser mais utilizado, as duas técnicas, EPR e NMR, se desenvolveram
-praticamente juntas. Em meados da década de sessenta a espectroscopia por NMR
+praticamente juntas, :cite:`Junk2012`, :cite:`HyperESR`. Em meados da década de sessenta a espectroscopia por NMR
 massa por um grande avanço com o desenvolvimento de espectroscopia NMR por FT
 (transformada de Fourier). A técnica equivalente para o EPR demorou a ser
 desenvolvida devido a dificuldades intrínsecas de se trabalhar com micro-ondas.
@@ -120,12 +120,3 @@ plataforma *Arduino*, com módulos para: comunicação digital com o amplificado
 *lock-in* e conversor analógico-digital para leitura do campo magnético. Além
 da eletrônica, foi desenvolvida uma interface gráfica para aquisição dos
 espectros utilizando linguagem *Python 2.7*.
-
-
-Emilio, nao sei onde essas referêcias se encaixam:
-
-bla :cite:`Junk2012` bla
-
-ble :cite:`HyperESR` ble
-
-Mas agora temos referências!! \o/
