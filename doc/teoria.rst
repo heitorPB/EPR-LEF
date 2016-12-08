@@ -9,10 +9,11 @@ podem ter momento magnético :math:`m_s g_e \mu_B`, onde :math:`m_s` pode
 ser 1/2 ou -1/2, :math:`\mu_B` é o magneton de Bohr e :math:`g_e` é o
 fator g de Landé, que para o elétron livre vale aproximadamente *2.0023*.
 
-Na presença de um campo magnético externo, o momento magnético acopla
+Na presença de um campo magnético externo e temperatura maior que zero
+absoluto, o momento magnético acopla
 paralelamente ou anti paralelamente com o campo e da origem a energias
 ligeiramente diferentes de acoplamento, esse acoplamento é conhecido como
-efeito Zeeman. A energia desse acoplamento é dada por:
+efeito Zeeman. A energia desse acoplamento é dada por :cite:`wiki:EPR`:
 
 .. math::
 
@@ -33,7 +34,8 @@ Essa associação, entre a frequência do foton e :math:`\Delta E`, é important
 pois esse espectrômetro usa uma fonte de radiação de frequência conhecida e
 uma varredura de campo magnético para obter o espéctro de amostras.
 
-Dentro da amostra a probabilidade de um elétron ter spin :math:`m_s = 1/2` é:
+Dentro da amostra a probabilidade de um elétron ter spin :math:`m_s = 1/2` é
+:cite:`salinas1997`:
 
 .. math::
 
@@ -58,8 +60,8 @@ da quantidade relativa de elétrons com spin :math:`1/2` e :math:`-1/2`.
 
 O :math:`\Delta E` típico para acoplamento entre spin e campo magnético está
 dentro do espéctro de frequência de micro-ondas, para uma frequência de
-:math:`\nu \approx 9.75GHz` e temperatura de :math:`298 K` a equação acima da
-uma razão aproximadamente :math:`0.998`.
+:math:`\nu \approx 9.75 \, GHz`  (:math:`h \nu \approx 40 \, \mu eV`) e temperatura
+de :math:`298 \, K` a equação acima da uma razão aproximadamente :math:`0.998`.
 
 Isso mostra que há um número ligeiramente maior de elétrons com spin
 :math:`-1/2`. Tais elétrons absorvem energia para mudar de estado, portanto
@@ -67,25 +69,31 @@ a espectroscopia por EPR funciona observando a absorção de micro-ondas pela
 amostra na região de energia entre os níveis acoplados pelo campo magnético
 externo.
 
-O sinal de absorção do EPR é extremamente pequeno e uma maneira de observa-lo é
-utilizar um amplificador *lock-in*.
+Na montagem experimental desta prática, o sinal de absorção do EPR é
+extremamente pequeno e uma maneira de observa-lo é utilizar um amplificador
+*lock-in*.
+
+Um amplificador *lock-in* é um tipo de amplificador que extrai um sinal, com
+uma modulação conhecida, de um ambiente extremamente ruidoso. Dependendo do
+instrumento e da montagem em que se encontra, é possível extrair sinais
+1 milhão de vezes menos intenso que o ruído.
 
 O lock-in utiliza um tipo de detecção chamada detecção sensível a fase.
 Para isso ele necessita de um sinal de referência, que nesse experimento é
-um sinal senoidal de áudio, esse sinal também é passado para a bobina
+um sinal senoidal de :math:`\sim 30 KHz`, esse sinal também é passado para a bobina
 interna do EPR, pois o lock-in mede sinais modulados pelo sinal de
-referência.
+referência :cite:`wiki:lockin`.
 
 Vamos supor que :math:`Y(H)` seja a função absorção de uma amostra dentro
 do EPR onde *H* é o campo produzido pelo eletroímã. Podemos expandir essa
-função utilizando uma série de *tylor*:
+função utilizando uma série de *tylor*, ao redor de um ponto :math:`H'`:
 
 .. math::
 
-	Y(h') = Y(h) + {\frac{\mathrm{d} Y}{\mathrm{d} H}}(h'-h) +
-	\frac{1}{2}\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2}(h'-h)^2 + ...
+	Y(H') = Y(H) + {\frac{\mathrm{d} Y}{\mathrm{d} H}}(H' - H) +
+	\frac{1}{2}\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2}(H' - H)^2 + ...
 
-A diferença *h' - h* pode ser vista como uma função na forma
+A diferença *H' - H* pode ser vista como uma função na forma
 
 .. math::
 
@@ -96,7 +104,7 @@ lock-in.
 
 .. math::
 
-	Y(h') =  \left [Y(h) +
+	Y(H') =  \left [Y(H) +
 	\frac{1}{2}H_m^2\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2} \right ]
 	 + \left [ H_m\frac{\mathrm{d} Y}{\mathrm{d} H} \right ]sen(\omega_mt) -
 	\left [ \frac{1}{4}H_m^2\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2} \right ]
@@ -107,7 +115,7 @@ resultado dessa multiplicação passa por um filtro passa baixa.
 O primeiro termo dignificativo que sobra dessa forma é:
 
 .. math::
-	S(H) = \frac{1}{2}H_m\frac{\mathrm{d} Y}{\mathrm{d} H}
+	S(H) = \frac{1}{2} H_m \frac{\mathrm{d} Y}{\mathrm{d} H}
 
 Portando vemos que o que realmente observamos no EPR é a derivada do sinal
 de absorção.
