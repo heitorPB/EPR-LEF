@@ -27,7 +27,7 @@ DOC:
 		escrever um texto
 
 	Novas fotos:
-		sala (com o computador rodando o programa)
+		sala (com o computador rodando o programa). Salvar como sala_nova.jpg, ou mudar o nome do arquivo no equipamentos.rst
 
 		controle de varredura de campo (nao temos com o novo botao selecao Arduino/Manual)
 
@@ -39,6 +39,9 @@ DOC:
 
 	Testes:
 		segunda parte, sobre o efeito das constantes de tempo, falar da porra das referencias 3 e 4.
+
+	PDF: jogar coisas pra apêndice
+
 python:
 	reduzir delay pra 1 ms ou menos
 
@@ -55,3 +58,5 @@ python:
 	limpar o codigo
 
 	colocar os prints caso flag de verbose seja usada
+
+	fazer rodar no pc da sala
