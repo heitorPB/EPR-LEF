@@ -15,9 +15,9 @@ DOC:
 	aviso sobre o campo magnético: é uma estimativa
 
 	intro:
-		fotos dos cara
+		fotos dos cara(ok)
 
-		texto decente
+		texto decente(ok?)
 
 	teoria:
 		hv = ms g B0
