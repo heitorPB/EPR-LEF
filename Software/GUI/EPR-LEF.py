@@ -54,29 +54,8 @@ def get_arduino_port():
         else:
             return "/dev/ttyUSB0"
 
-
-def write_display(data, display, decimal):
-    format_string = "%." + decimal + "f"
-    display.config(state="normal")
-    display.delete(1.0, END)
-    display.insert(END, format_string % data)
-    display.config(state="disabled")
-
-
-"""def clear_displays():
-    display_volts.config(state="normal")
-    display_volts.delete(1.0, END)
-    display_volts.config(state="disabled")
-    display_bits.config(state="normal")
-    display_bits.delete(1.0, END)
-    display_bits.config(state="disabled")"""
-
-
-def clear_entries():
-    entry_points.delete(0, END)
-    entry_mean.delete(0, END)
-
-
+#essa função se comunica com o arduino e obtem dados do campo B, rampa
+#do registrador (tensão de referencia de 0 a 1 volt) e sinal do lock-in 
 def read_data():
     global count_max
     sem_dados = True
@@ -125,9 +104,11 @@ def read_data():
     return dados_x, dados_y, dados_b
 
 
-# TODO fazer a porra do texto pro eixo x
+# essa função coleta dados e plota os mesmos de maneira recursiva
 def plot_received_data(collected_points):
-
+    
+    # se for o primeiro ponto, a função espera até que a rampa inicie
+    # para iniciar a coleta.
     if collected_points == 0:
         from_AD_x, from_AD_y, from_AD_b = read_data()
         while True:
@@ -142,11 +123,10 @@ def plot_received_data(collected_points):
         while from_AD_x == None or from_AD_y == None:
             from_AD_x, from_AD_y, from_AD_b = read_data()
 
-        #write_display(from_AD_y, display_bits, "0")
-        #write_display(5.0 * from_AD_y / 1023.0, display_volts, "2")
-
         global x_axis, y_axis, b_axis
         try:
+            # corta os ultimos pontos para não plotar a volta abrupta de
+            # tensão da rampa.
             if abs(from_AD_x * 10000. - x_axis[len(x_axis) - 1]) < 100.:
                 x_axis.append(from_AD_x * 10000.)
                 y_axis.append(from_AD_y)
@@ -160,11 +140,6 @@ def plot_received_data(collected_points):
                     linestyle="solid", linewidth="2.5")
             else:
                 stop_flag = True
-		# graph.plot (x_axis, y_axis, "r-", lw="2.5")
-		# graph.plot (y_axis, "r-", lw="2.5")
-		# line, = graph.plot (x_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
-		# escala automatica para o eixo y
-            #graph.set_ylim(min(y_axis) * .9, max(y_axis) * 1.1)
             graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
             canvas.draw()
 
@@ -197,15 +172,14 @@ def plot_received_data(collected_points):
 
         print "Fim da coleta"
 
-
+# essa função inicia a leitura
+#inicia os parâmetros de tempo e varredura antes da leitura
 def start_reading():
     global mean
 
-    #number_of_points = int(entry_points.get())
     graph.set_xlim(0, number_of_points)
     canvas.draw()
 
-    #mean = entry_mean.get()
     tp = tempo.get()
     cp = campo.get()
     #print type(tp), tp
@@ -260,27 +234,20 @@ def start_reading():
     connection.write("I")
     plot_received_data(0)
 
-
+#força uma parada de leitura, é chamada pelo botão
 def stop_reading():
     global stop_flag
     stop_flag = True
     connection.write("P");
 
-
+#plota o gráfico de um arquivo txt
 def plot_file():
-    global number_of_points, mean
-
     cores = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'g'] #no more white
     # recebe o nome do arquivo a ser lido
     file_name = askopenfilename()
     # Le o arquivo em uma linha e retorna uma matriz com os dados
     data = np.loadtxt(file_name)
 
-    # limpa a área gráfica (opcional)
-    #try:
-    #    graph.lines[0].remove()
-    #except IndexError:
-    #    pass
     # separa a matriz de dados em vetores para X e Y
     x_axis = data[:, 0]
     y_axis = data[:, 1]
@@ -290,7 +257,7 @@ def plot_file():
     # desenha
     canvas.draw()
 
-
+#escreve os dados do ultimo gráfico plotado em um arguivo txt
 def write_data():
     global mean
     global x_axis, y_axis
@@ -307,7 +274,7 @@ def write_data():
     np.savetxt(file_name, np.transpose(
         [x_axis, y_axis]), delimiter='\t', header=header, comments='# ')
 
-
+#função chamada quando o botão de limpar a tela for ativado
 def clear_plot():
     global x_axis, y_axis
     x_axis = []
@@ -320,24 +287,13 @@ def clear_plot():
     # redesenha
     canvas.draw()
 
-
+# função chamada ao fechar o programa
 def on_closing():
     print("Adios")
     # manda o comando C pro arduino resetar
     connection.write("C")
     connection.close()
     window.destroy()
-
-
-# checa se os campos de numero e medias estao preenchidos
-def field_check(*args):
-    #str1 = stringvar1.get()
-    #str2 = stringvar2.get()
-    if str2:
-        bt_on.config(state='normal')
-    else:
-        bt_on.config(state='disabled')
-
 
 if __name__ == '__main__':
     connection = serial.Serial(get_arduino_port(), 115200, timeout = 2)
@@ -349,6 +305,7 @@ if __name__ == '__main__':
     window.title("Trambolhino - EPR - LEF")
     window.state("normal")
 
+    #### divide a janela em áreas ###
     #### TÍTULO ####
     title_area = Frame(window)
     title_area.pack(side="top", fill="y")
@@ -360,6 +317,7 @@ if __name__ == '__main__':
     #### INTERAÇÃO COM USUÁRIO ####
     user_area = Frame(window)
     user_area.pack(side="bottom", fill="x")
+    ###                           ###
 
     # TÍTULO
     title = Label(title_area, text="Trambolhino - Emilio Galera & Heitor de Bittencourt, 2016",
@@ -391,9 +349,9 @@ if __name__ == '__main__':
 
     # USUÁRIO
 
-    # Botões
-    # adicionamos agora mais três botões: ler de arquivo, salvar em arquivo e
-    # limpar gráfico
+    # Botões para iniciar e para a leitura, salvar um gráfico em txt
+    #(apenas as coordenadas x e y), ler um arquivo txt e plotar o 
+    #gáfico e limpar a tela.
 
     user_buttons = Frame(user_area)
     user_buttons.pack(side="right", fill="y", expand=True)
@@ -425,28 +383,7 @@ if __name__ == '__main__':
     bt_clear.grid(row=2, column=1, pady=3)
 
 
-    # Displays
-    #user_displays = Frame(user_area)
-    #user_displays.pack(side="right", fill="y", expand=True)
-
-    #for i in range(0, 2):
-    #    user_displays.rowconfigure(i, weight=1)
-    #    user_displays.columnconfigure(i, weight=1)
-
-    #label_volts = Label(user_displays, text="Tensão (0 - 5V):", font="arial 12")
-    #label_volts.grid(row=0, column=0)
-    #display_volts = Text(user_displays, font="arial 12 bold",
-     #                    width=8, height=1, state="disabled")
-    #display_volts.grid(row=0, column=1)
-
-    #label_bits = Label(
-    #    user_displays, text="Tensão (0 -1023 bits):", font="arial 12")
-    #label_bits.grid(row=1, column=0)
-    #display_bits = Text(user_displays, font="arial 12 bold",
-    #                    width=8, height=1, state="disabled")
-    #display_bits.grid(row=1, column=1)
-
-    #Radio buttons, para tempo e escale de varredura
+    #Radio buttons, para tempo e escala de varredura
     radio_buttons = Frame(user_area)
     radio_buttons.pack(side="left", fill="y", expand=True)
 
@@ -455,7 +392,8 @@ if __name__ == '__main__':
 
     for i in range(0, 5):
         radio_buttons.rowconfigure(i, weight=1)
-
+        
+    # Radio button para selecionar o tempo de varredura
     tempo = IntVar()
     titulo_tempo = Label(radio_buttons, text="Tempo", font="Arial 12 bold",width=10)
     titulo_tempo.grid(row = 0, column = 0)
@@ -472,6 +410,7 @@ if __name__ == '__main__':
     tempo5mRB = Radiobutton(radio_buttons, text = "5 minutos", variable = tempo, value = '3')
     tempo5mRB.grid(row = 4, column = 0, sticky = 'W')
 
+    #Radio button para selecionar o delta B
     campo = IntVar()
     titulo_campo = Label(radio_buttons, text="Campo", font="Arial 12 bold",width=10)
     titulo_campo.grid(row = 0, column = 1)
@@ -487,33 +426,6 @@ if __name__ == '__main__':
 
     campo1000G = Radiobutton(radio_buttons, text = "1000 Gauss", variable = campo, value = '3')
     campo1000G.grid(row = 4, column = 1, sticky = 'W')
-
-    # Entradas
-    user_entries = Frame(user_area)
-    user_entries.pack(side="left", fill="y", expand=True)
-
-    for i in range(0, 2):
-        user_entries.columnconfigure(i, weight=1)
-        user_entries.rowconfigure(i, weight=1)
-
-    #label_points = Label(user_entries, text="Número de pontos:", font="arial 12")
-    #label_points.grid(row=0, column=0)
-
-    #stringvar1 = StringVar(user_entries)
-    #stringvar2 = StringVar(user_entries)
-    #stringvar1.trace("w", field_check)
-    #stringvar2.trace("w", field_check)
-
-    #entry_points = Entry(user_entries, width=8, textvariable=stringvar1)
-    #entry_points.insert(END, "205")
-    #entry_points.grid(row=0, column=1)
-
-    #label_mean = Label(user_entries, text="Tempo de varredura:", font="arial 12")
-    #label_mean.grid(row=0, column=0)
-    #entry_mean = Entry(user_entries, width=8, textvariable=stringvar2)
-    #entry_mean.insert(END, "5")
-    #entry_mean.grid(row=0, column=1)
-
 
     window.protocol("WM_DELETE_WINDOW", on_closing)
     window.mainloop()
