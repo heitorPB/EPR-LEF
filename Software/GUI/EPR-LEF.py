@@ -159,7 +159,7 @@ def plot_received_data(collected_points):
         #print b, b0
         B_axis = []
         for x_iten in x_axis:
-            B_axis.append(((x_iten * b) + b0))
+            B_axis.append(10000. * ((x_iten * b) + b0))
         #print B_axis
         try:
             graph.lines[0].remove()
