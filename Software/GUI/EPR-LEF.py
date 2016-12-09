@@ -55,7 +55,7 @@ def get_arduino_port():
             return "/dev/ttyUSB0"
 
 #essa função se comunica com o arduino e obtem dados do campo B, rampa
-#do registrador (tensão de referencia de 0 a 1 volt) e sinal do lock-in 
+#do registrador (tensão de referencia de 0 a 1 volt) e sinal do lock-in
 def read_data():
     global count_max
     sem_dados = True
@@ -106,7 +106,7 @@ def read_data():
 
 # essa função coleta dados e plota os mesmos de maneira recursiva
 def plot_received_data(collected_points):
-    
+
     # se for o primeiro ponto, a função espera até que a rampa inicie
     # para iniciar a coleta.
     if collected_points == 0:
@@ -118,6 +118,8 @@ def plot_received_data(collected_points):
 
     global stop_flag
 
+    graph.set_xlabel(u"Tensäo Rampa (Volts)", size=18)
+    graph.autoscale(True, "y", False)
     if not stop_flag:
         from_AD_x, from_AD_y, from_AD_b = read_data()
         while from_AD_x == None or from_AD_y == None:
@@ -127,17 +129,12 @@ def plot_received_data(collected_points):
         try:
             # corta os ultimos pontos para não plotar a volta abrupta de
             # tensão da rampa.
-            if abs(from_AD_x * 10000. - x_axis[len(x_axis) - 1]) < 100.:
-                x_axis.append(from_AD_x * 10000.)
+            if abs(from_AD_x - x_axis[len(x_axis) - 1]) < .01:
+                x_axis.append(from_AD_x)
                 y_axis.append(from_AD_y)
                 b_axis.append(from_AD_b)
-                try:
-                    graph.lines[0].remove()
-                except IndexError:
-                    pass
 
-                graph.plot(x_axis, y_axis, color="red",
-                    linestyle="solid", linewidth="2.5")
+                graph.scatter(from_AD_x, from_AD_y, color="red")
             else:
                 stop_flag = True
             graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
@@ -145,7 +142,7 @@ def plot_received_data(collected_points):
 
         except IndexError:
             if collected_points == 0:
-                x_axis.append(from_AD_x * 10000)
+                x_axis.append(from_AD_x)
                 y_axis.append(from_AD_y)
                 b_axis.append(from_AD_b)
             else:
@@ -162,10 +159,23 @@ def plot_received_data(collected_points):
         #print b, b0
         B_axis = []
         for x_iten in x_axis:
-            B_axis.append(10000. * ((x_iten * b) + b0))
+            B_axis.append(((x_iten * b) + b0))
         #print B_axis
-        graph.lines[0].remove()
+        try:
+            graph.lines[0].remove()
+        except:
+            pass
+        try:
+            graph.clear()
+        except:
+            pass
         canvas.draw()
+        graph.grid()
+        graph.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
+        graph.xaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
+        graph.set_ylabel("Sinal (Volts)", size=18)
+        graph.set_xlabel("B (Gauss)", size=18)
+        graph.autoscale(True, "y", False)
         graph.plot(B_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
         graph.set_xlim(min(B_axis) * .99, max(B_axis) * 1.01)
         canvas.draw()
@@ -221,7 +231,7 @@ def start_reading():
     except IndexError:
         pass
 
-    global x_axis, y_axis
+    global x_axis, y_axis, b_axis
     x_axis = []
     y_axis = []
     b_axis = []
@@ -283,7 +293,7 @@ def clear_plot():
     graph.lines[0].remove()
     # reseta os limites do gráfico
     graph.set_xlim(0, 1)
-    graph.set_ylim(0, 1050)
+    graph.set_ylim(-1, 1)
     # redesenha
     canvas.draw()
 
@@ -340,7 +350,6 @@ if __name__ == '__main__':
     graph.set_ylabel("Sinal (Volts)", size=18)
     graph.set_xlabel("B (Gauss)", size=18)
     graph.autoscale(True, "y", False)
-    #graph.set_ylim(-20, 20)
 
     toolbar = NavigationToolbar2TkAgg(canvas, graph_area)
     toolbar.update()
@@ -350,7 +359,7 @@ if __name__ == '__main__':
     # USUÁRIO
 
     # Botões para iniciar e para a leitura, salvar um gráfico em txt
-    #(apenas as coordenadas x e y), ler um arquivo txt e plotar o 
+    #(apenas as coordenadas x e y), ler um arquivo txt e plotar o
     #gáfico e limpar a tela.
 
     user_buttons = Frame(user_area)
@@ -392,7 +401,7 @@ if __name__ == '__main__':
 
     for i in range(0, 5):
         radio_buttons.rowconfigure(i, weight=1)
-        
+
     # Radio button para selecionar o tempo de varredura
     tempo = IntVar()
     titulo_tempo = Label(radio_buttons, text="Tempo", font="Arial 12 bold",width=10)
