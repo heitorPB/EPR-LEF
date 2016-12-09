@@ -15,6 +15,7 @@ Zeeman :cite:`ZeemanFired`.
 
 .. figure:: img/Zeeman.jpg
    :align: center
+   :scale: 80%
 
    Pieter Zeeman, físico dinamarquês que ganhou o prêmio Nobel em 1902 pela
    discoberta do Efeito Zeeman :cite:`wiki:Zeeman`.
@@ -41,7 +42,7 @@ Em 1921 Gerlach e Stern observaram que um feixe de
 .. _fig_Gerlach-Stern:
 
 .. figure:: img/Gerlach-Stern.jpg
-   :scale: 110%
+   :scale: 137%
    :align: center
 
    A esquerda temos Walther Gerlach e a direita Otto Stern
@@ -76,7 +77,7 @@ experimento a observar ressonância magnética (MNR).
 .. _fig_BreitRabi:
 
 .. figure:: img/BreitRabi.jpg
-   :scale: 80%
+   :width: 70%
    :align: center
 
    Breit a esquerda e Rabi a adireita
@@ -97,7 +98,7 @@ Atualmente já existem espectrômetros EPR comerciais :cite:`EPR-comercial`.
 .. _fig_ZeemanZavoisky:
 
 .. figure:: img/Zemman-Zavoisky.png
-   :scale: 80%
+   :width: 66%
    :align: center
 
    A esquerda vamos Pieter Zeeman, descobriu a separação de linhas espectrais

@@ -11,7 +11,7 @@ diferentes:
 .. _fig_DPPH_1kgauss_05min:
 
 .. figure:: img/DPPH-1Kgauss-05min.png
-   :width: 95%
+   :width: 100%
    :align: center
 
    Espectro de DPPH, com 1000 gauss de varredura de campo magnético, realizado
@@ -20,7 +20,7 @@ diferentes:
 .. _fig_DPPH_50gauss_1min:
 
 .. figure:: img/DPPH-50gauss-1min.png
-   :width: 95%
+   :width: 100%
    :align: center
 
    Espectro de DPPH, com 50 gauss de varredura de campo magnético, realizado
@@ -37,7 +37,7 @@ distância da ordem de 100 gauss cada:
 .. _fig_amostra2_supersinal:
 
 .. figure:: img/super-sinal.png
-   :width: 95%
+   :width: 100%
    :align: center
 
    Espectro da amostra *MgO + Cr + Mn* com varredura de 1000 gauss.
@@ -60,7 +60,7 @@ reduz o ruído do sinal, mas também altera a forma dos picos.
 .. _fig_duasAmostras-1Kgauss-5min-10ms:
 
 .. figure:: img/duasAmostras-1Kgauss-5min-10ms.png
-   :width: 95%
+   :width: 100%
    :align: center
 
    Espectro das duas amostras combinadas, com varredura de 1000 gauss,
@@ -69,7 +69,7 @@ reduz o ruído do sinal, mas também altera a forma dos picos.
 .. _fig_duasAmostras-1Kgauss-5min-30ms:
 
 .. figure:: img/duasAmostras-1Kgauss-5min-30ms.png
-   :width: 95%
+   :width: 100%
    :align: center
 
    Espectro das duas amostras combinadas, com varredura de 1000 gauss,
@@ -78,7 +78,7 @@ reduz o ruído do sinal, mas também altera a forma dos picos.
 .. _fig_duasAmostras-1Kgauss-5min-100ms:
 
 .. figure:: img/duasAmostras-1Kgauss-5min-100ms.png
-   :width: 95%
+   :width: 100%
    :align: center
 
    Espectro das duas amostras combinadas, com varredura de 1000 gauss,

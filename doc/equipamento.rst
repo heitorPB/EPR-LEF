@@ -40,6 +40,14 @@ registrador. Um diagrama da montagem encontra-se na figura
 
    Diagrama de blocos do EPR
 
+.. _fig_diagrama_blocos_arduino:
+
+.. figure:: img/Diagrama-arduino.png
+   :scale: 100%
+   :align: center
+
+   Diagrama das ligações do Arduino com o equipamento utilizado.
+
 Além do registrador mecânico do resultado, foi adicionado um sistema digital
 de aquisição de dados, que consiste em um microcontrolador Arduino e uma
 interface através de um microcomputador.
@@ -82,7 +90,7 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
 .. _fig_klystron:
 
 .. figure:: img/klystron.jpg
-   :scale: 80%
+   :width: 70%
    :align: center
 
    Emissor de micro-ondas *klystron*. Note o parafuso cinza. Este ajusta o centro
@@ -157,7 +165,7 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
 .. _fig_gerador_sinais:
 
 .. figure:: img/gerador_sinais.jpg
-   :scale: 80%
+   :width: 70%
    :align: center
 
    Gerador de sinais.
@@ -165,7 +173,7 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
 .. _fig_amplificador_audio:
 
 .. figure:: img/amplificador_audio.jpg
-   :scale: 80%
+   :width: 60%
    :align: center
 
    Amplificador de audio. (1) botão para ligar. (2) ajustes de ganho.
@@ -173,21 +181,26 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
 .. _fig_lockin:
 
 .. figure:: img/lock-in.jpg
-   :scale: 80%
+   :width: 90%
    :align: center
 
    Amplificador *lock-in*. (1) sinais de entrada, (2) display do aparelho,
    (3) sensibilidade de medida, (4) ajuste de fase do sinal de entrada,
    (5) controle de constantes de tempo para integração do sinal (médias).
 
+   .. TODO colocar evolucao dos arduiinos. Arquivs: arduino-lindo,
+      arduino lindo 2....
+
+   .. TODO Atualizar essa foto
+
 .. _fig_arduino_lindo:
 
-.. figure:: img/arduino-lindo.jpg
+.. figure:: img/arduino-lindo-2.jpg
    :scale: 80%
    :align: center
 
-   Arduino(1) com módulos *ADC* (3), *RS-232* (2). (4) conexão entre arduino e
-   computador.
+   Arduino com módulos *ADC*, *RS-232*, no interior do controlador de
+   varredura. Essa foto vai ser atualizada.
 
 Instruções
 ----------
@@ -245,7 +258,7 @@ Ligar o espectrômetro
            .. _fig_amostra_centro:
 
            .. figure:: img/amostra_centro.jpg
-              :width: 75%
+              :width: 70%
               :align: center
 
               Posição correta da amostra na cavidade. Note que existem 2 entradas
@@ -273,19 +286,25 @@ Ligar o espectrômetro
 
         #. Ligue o osciloscópio no modo XY e ajuste a amplitude de modulação
            na fonte do *klystron*  para observar o modo de oscilação do
-           *klystron* e de absorção da cavidade.
+           *klystron* e de absorção da cavidade, como mostrado nas figuras
+           :numref:`fig_klystron_sintonia_cavidade` e
+           :numref:`fig_klystron_fora_sintonia_cavidade`.
 
            .. TODO fotos to osciloscopio mostrando o klystron oscilando na cavidade:
            .. fora de sintonia e em sintonia.
 
+           .. _fig_klystron_sintonia_cavidade:
+
            .. figure:: img/cavidade_klystron.jpg
-              :width: 75%
+              :width: 40%
               :align: center
 
               Klystron em sintonia com a cavidade.
 
+           .. _fig_klystron_fora_sintonia_cavidade:
+
            .. figure:: img/cavidade_klystron_fora_sintonia.jpg
-              :width: 75%
+              :width: 40%
               :align: center
 
               Klystron fora de sincronia
@@ -312,19 +331,19 @@ Ligar o espectrômetro
            .. TODO fotos iguais a da fig7 do magon:
 
            .. figure:: img/acoplamento_cavidade_klystron1.jpg
-              :width: 75%
+              :width: 28%
               :align: center
 
               Klystron fora de sintonia.
 
            .. figure:: img/acoplamento_cavidade_klystron2.jpg
-              :width: 75%
+              :width: 28%
               :align: center
 
               klystron em sintonia, cavidade desacoplada.
 
            .. figure:: img/acoplamento_cavidade_klystron3.jpg
-              :width: 75%
+              :width: 28%
               :align: center
 
               klystron ok e cavidade ok.
@@ -339,7 +358,7 @@ Ligar o espectrômetro
            .. _fig_reflexao_boa:
 
            .. figure:: img/reflexao_boa.jpg
-              :width: 75%
+              :width: 50%
               :align: center
 
               Reflexão de microonda desloca o mínimo de absorção.
@@ -357,7 +376,7 @@ Ligar o espectrômetro
            .. _fig_ponto_centro:
 
            .. figure:: img/CW.jpg
-              :width: 75%
+              :width: 50%
               :align: center
 
               Ponto centralizado na tela.
@@ -421,7 +440,7 @@ Ligar o espectrômetro
            .. _fig_screenshot:
 
            .. figure:: img/sinal-epr.png
-              :width: 75%
+              :width: 100%
               :align: center
 
               Tela do programa, após uma aquisição com 1000 gauss de
