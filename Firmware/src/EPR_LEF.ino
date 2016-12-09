@@ -216,7 +216,7 @@ void loop()
 			default:
 				digitalWrite(temp_B, LOW);
 				digitalWrite(temp_A, LOW);
-				media = 1;
+				media = 25;
 				break;
 			}
 			break;
