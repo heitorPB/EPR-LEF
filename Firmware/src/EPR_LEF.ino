@@ -198,21 +198,25 @@ void loop()
 			case '1':
 				digitalWrite(temp_B, LOW);
 				digitalWrite(temp_A, HIGH);
+				media = 50;
 				break;
 
 			case '2':
 				digitalWrite(temp_B, HIGH);
 				digitalWrite(temp_A, LOW);
+				media = 150;
 				break;
 
 			case '3':
 				digitalWrite(temp_B, HIGH);
 				digitalWrite(temp_A, HIGH);
+				media = 250;
 				break;
 			case '0':
 			default:
 				digitalWrite(temp_B, LOW);
 				digitalWrite(temp_A, LOW);
+				media = 1;
 				break;
 			}
 			break;
