@@ -195,12 +195,12 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
 
 .. _fig_arduino_lindo:
 
-.. figure:: img/arduino-lindo-2.jpg
+.. figure:: img/arduino-lindo-3.jpg
    :scale: 80%
    :align: center
 
    Arduino com módulos *ADC*, *RS-232*, no interior do controlador de
-   varredura. Essa foto vai ser atualizada.
+   varredura.
 
 Instruções
 ----------
