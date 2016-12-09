@@ -5,11 +5,7 @@ TODO
 Arduino:
 	aumentar baudrate com o lockin
 
-	echo da media
-
 DOC:
-	Diagrama de blocos da ligacao do arduino com o trambolho
-
 	como explicar o ganho da modulacao do campo
 
 	aviso sobre o campo magnético: é uma estimativa
@@ -25,13 +21,6 @@ DOC:
 	Secao software:
 
 		escrever um texto
-
-	Novas fotos:
-		sala (com o computador rodando o programa). Salvar como sala_nova.jpg, ou mudar o nome do arquivo no equipamentos.rst
-
-		controle de varredura de campo (nao temos com o novo botao selecao Arduino/Manual)
-
-		dentro da caixa de controle de varredura
 
 	escanear o diagrama do controle de varredura e colocar como apendice
 
@@ -49,13 +38,9 @@ python:
 
 	Se alguém tiver tempo e paciência, escrever um código totalmente novo, usando classes pra organizar tudo
 
-	tirar aquele monte de comentário de blasfêmias e de codigos nao usados
-
 	alterar o esquema de importar o TKinter para importar como tk, importar TKinter.themes como ttk, mudar todos os widgtes pra ttk.widgets.
 
 	compatilibidade com python3
-
-	limpar o codigo
 
 	colocar os prints caso flag de verbose seja usada
 
