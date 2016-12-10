@@ -118,8 +118,6 @@ def plot_received_data(collected_points):
 
     global stop_flag
 
-    graph.set_xlabel(u"Tensäo Rampa (Volts)", size=18)
-    graph.autoscale(True, "y", False)
     if not stop_flag:
         from_AD_x, from_AD_y, from_AD_b = read_data()
         while from_AD_x == None or from_AD_y == None:
@@ -129,7 +127,7 @@ def plot_received_data(collected_points):
         try:
             # corta os ultimos pontos para não plotar a volta abrupta de
             # tensão da rampa.
-            if abs(from_AD_x - x_axis[len(x_axis) - 1]) < .01:
+            if abs(from_AD_x - x_axis[len(x_axis) - 1]) < .1:
                 x_axis.append(from_AD_x)
                 y_axis.append(from_AD_y)
                 b_axis.append(from_AD_b)
@@ -148,7 +146,6 @@ def plot_received_data(collected_points):
             else:
                 pass
 
-        global delay
         window.after(delay, plot_received_data, collected_points + 1)
 
     else:
@@ -244,6 +241,8 @@ def start_reading():
     bt_on.config(state="disabled")
     bt_off.config(state="normal")
     connection.write("I")
+    graph.set_xlabel(u"Tensäo Rampa (Volts)", size=18)
+    graph.autoscale(True, "y", False)
     plot_received_data(0)
 
 #força uma parada de leitura, é chamada pelo botão
