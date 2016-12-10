@@ -417,23 +417,16 @@ Ligar o espectrômetro
            a fase de :math:`90 ^\circ`. É muito mais fácil minimizar o sinal em
            quadratura do que maximizar o sinal em fase.
 
-        #. Antes de ligar o arduino na saída USB do computador verifique se os
-           fios estão ligados corretamente.
-           Verifique se as saídas Rx e Tx do shield RS232 estão ligados nos
-           pinos 11 e 10 do arduino respectivamente.
-           No conversor ADC verifique se os pinos A1 e GND estão ligados na
-           saída marcada de campo magnético do controlador de varredura.
+        #. Verifique se o cabo *USB* do controlo de varredura esta ligadno no
+           computdaor.
 
         #. Inicie o programa EPR-LEF com o comando python EPR-LEF.py.
 
-           Nesse programa o usuário tem controle sobre o número de pontos a
-           serem coletados para o gráfico e o número de amostragem para
-           média assim, por exemplo, se o usuário colocar 1000 pontos e 50
-           médias o gráfico ira conter 1000 pontos e cada ponto será a média
-           de 50 amostragens do lock-in.
+           Neste programa, o usuario tem controle sobre o tempo da verredura
+           e o intervalo de campo a ser medido.
 
            Há também a opção de salvar ou ler um gráfico, limpar a tela do
-           gráfico e parar a varredura.
+           gráfico e iniciar e parar a varredura.
 
            Exemplo de uma aquisição está na :numref:`fig_screenshot` a seguir.
 

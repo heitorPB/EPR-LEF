@@ -14,9 +14,9 @@ Documentação do EPR - LEF!
    equipamento
    testes
    resultados
-   zreferences
-   software
    Hardware
+   software
+   zreferences
    TODO
 
 .. Indices and tables
