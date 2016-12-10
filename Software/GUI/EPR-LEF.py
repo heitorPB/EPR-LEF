@@ -26,7 +26,7 @@ stop_flag = False
 
 # tempo entre aquisições (em milisegundos)
 global delay
-delay = 5
+delay = 1
 
 global number_of_points
 number_of_points = 1
@@ -48,11 +48,11 @@ b_axis = []
 def get_arduino_port():
     ports = list(serial.tools.list_ports.comports())
     for p in ports:
-        if "Arduino" in p[1] or "tty" in p[1]:
+        if "Arduino" in p[1]:
             print("Arduino in", p[0])
             return p[0]
-        else:
-            return "/dev/ttyUSB0"
+    print("Did not find arduino. Using \"/dev/ttyUSB0\" as fallback.")
+    return "/dev/ttyUSB0"
 
 #essa função se comunica com o arduino e obtem dados do campo B, rampa
 #do registrador (tensão de referencia de 0 a 1 volt) e sinal do lock-in
@@ -118,8 +118,6 @@ def plot_received_data(collected_points):
 
     global stop_flag
 
-    graph.set_xlabel(u"Tensäo Rampa (Volts)", size=18)
-    graph.autoscale(True, "y", False)
     if not stop_flag:
         from_AD_x, from_AD_y, from_AD_b = read_data()
         while from_AD_x == None or from_AD_y == None:
@@ -129,16 +127,16 @@ def plot_received_data(collected_points):
         try:
             # corta os ultimos pontos para não plotar a volta abrupta de
             # tensão da rampa.
-            if abs(from_AD_x - x_axis[len(x_axis) - 1]) < .01:
+            if abs(from_AD_x - x_axis[len(x_axis) - 1]) < .1:
                 x_axis.append(from_AD_x)
                 y_axis.append(from_AD_y)
                 b_axis.append(from_AD_b)
 
-                graph.scatter(from_AD_x, from_AD_y, color="red")
+                #graph.scatter(from_AD_x, from_AD_y, color="red")
             else:
                 stop_flag = True
-            graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
-            canvas.draw()
+            #graph.set_xlim(min(x_axis) * .99, max(x_axis) * 1.01)
+            #canvas.draw()
 
         except IndexError:
             if collected_points == 0:
@@ -148,7 +146,6 @@ def plot_received_data(collected_points):
             else:
                 pass
 
-        global delay
         window.after(delay, plot_received_data, collected_points + 1)
 
     else:
@@ -179,6 +176,8 @@ def plot_received_data(collected_points):
         graph.plot(B_axis, y_axis, color="red", linestyle="solid", linewidth="2.5")
         graph.set_xlim(min(B_axis) * .99, max(B_axis) * 1.01)
         canvas.draw()
+
+        b_axis = B_axis
 
         print "Fim da coleta"
 
@@ -242,6 +241,8 @@ def start_reading():
     bt_on.config(state="disabled")
     bt_off.config(state="normal")
     connection.write("I")
+    graph.set_xlabel(u"Tensäo Rampa (Volts)", size=18)
+    graph.autoscale(True, "y", False)
     plot_received_data(0)
 
 #força uma parada de leitura, é chamada pelo botão
@@ -282,7 +283,7 @@ def write_data():
     print header
     # salva os dados
     np.savetxt(file_name, np.transpose(
-        [x_axis, y_axis]), delimiter='\t', header=header, comments='# ')
+        [b_axis, y_axis]), delimiter='\t', header=header, comments='# ')
 
 #função chamada quando o botão de limpar a tela for ativado
 def clear_plot():
