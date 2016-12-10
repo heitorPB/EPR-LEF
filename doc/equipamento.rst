@@ -65,7 +65,7 @@ e Arduino para aquisição e visualização de dados.
    :scale: 80%
    :align: center
 
-   Foto da sala. (1) EPR, (2) ontrolador de varredura, (3) osciloscópio analógico,
+   Foto da sala. (1) EPR, (2) controlador de varredura, (3) osciloscópio analógico,
    (4) fonte do *klystron*, (5) amplificador de audio, (6) *lock-in*, (7)
    frequencímetro, (8) fonte do EPR, (9) refletor desafador de miro-ondas e (10)
    equipamento utilizado para desenhar o sinal do EPR esse aparelho será

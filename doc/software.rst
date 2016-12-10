@@ -24,10 +24,14 @@ como padrão. Caso o aluno não tenha python em seu computador basta instalá-lo
 através do gerenciador de pacotes de seu sistema, em ubuntu, por exemplo,
 digite *sudo apt-get install python2.7*.
 
-Em windows aconselhamos instalar a distribuição python(x,y)
+Para instalar os pacotes é recomendado utilizar o próprio gerenciador de
+pacotes do python, *pip*. Para instalar pacotes utilizando o pip use, em seu
+terminal, *sudo pip install <nome do pacote>*.
+
+Em windows, aconselhamos instalar a distribuição python(x,y)
 https://python-xy.github.io/, pois nela já se encontram todos os pacotes
-necessários. Ao instalar o python(x,y) verifique se as bibliotecas necessárias
-estão selecionadas para instalação.
+necessários. Ao instalar o python(x,y) verifique se os pacotes necessários
+estão *selecionadas* para instalação.
 
 .. literalinclude:: ../Software/GUI/EPR-LEF.py
    :language: python
@@ -42,6 +46,7 @@ Para programá-lo utilizamos uma linguagem similar a *C++*. O arduino da caixa
 já está carregado com o programa de aquisição de dados mas, caso seja
 necessário carregá-lo novamente são necessárias algumas bibliotecas adicionais
 para que o programa compile corretamente.
+
 	#. Nanoshield_ADC.h - biblioteca para controlar o módulo ADC (convesor
 	   analógico digital).
 
@@ -50,6 +55,8 @@ para que o programa compile corretamente.
 
 	#. SoftwareSerial.h - biblioteca utilizada para se comunicar com o
 	   software, python nesse caso.
+
+Todas as bibliotecas se emcontram no projeto *EPR-LEF* na pasta Firmware/libs.
 
 .. literalinclude:: ../Firmware/src/EPR_LEF.ino
    :language: c++
