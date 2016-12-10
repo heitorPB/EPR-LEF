@@ -46,6 +46,9 @@ já está carregado com o programa de aquisição de dados mas, caso seja
 necessário carregá-lo novamente são necessárias algumas bibliotecas adicionais
 para que o programa compile corretamente.
 
+	#. Nanoshield_ADC.h - biblioteca para controlar o módulo ADC (convesor
+	   analógico digital).
+
         #. Nanoshield_ADC.h - biblioteca para controlar o módulo ADC (convesor
            analógico digital).
 
@@ -54,6 +57,8 @@ para que o programa compile corretamente.
 
         #. SoftwareSerial.h - biblioteca utilizada para se comunicar com o
            software, python nesse caso.
+
+Todas as bibliotecas se emcontram no projeto *EPR-LEF* na pasta Firmware/libs.
 
 .. literalinclude:: ../Firmware/src/EPR_LEF.ino
    :language: c++

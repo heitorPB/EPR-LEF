@@ -16,6 +16,7 @@ Documentação do EPR - LEF!
    resultados
    zreferences
    software
+   Hardware
    TODO
 
 .. Indices and tables
