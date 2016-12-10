@@ -3,19 +3,21 @@ Hardware adicional
 ==================
 
 Neste projeto automatizamos o EPR do laboratório. Esse EPR era praticamente
-todo controlado pelo controlador de varredura (CV) :numref:`fig_sala` (2), logo
-para automatizar o EPR foi necessário controlar o CV digitalmente.
+todo controlado pelo controlador de varredura (CV) :numref:`fig_sala`,
+:numref:`fig_controlador_varredura`, logo para automatizar o EPR foi necessário
+controlar o CV digitalmente.
 
-Para isso, utilizamos uma placa *Boarduino*, essa pequena placa utiliza o mesmo
-microcontrolador que que um arduino uno, a *ATmega328* porém, possui a vantagem
-de ter entradas para 4 periféricos *nanoshields*, :cite:`boarduino`.
-Nanoshields são pequenos módulos, pronto para usar, basta colocá-los na placa e
-incluir sua biblioteca no código para usá-los, o próprio boarduino possui um
-pino fixo para impedir que os módulos sejam colocados de maneira errada.
+Para isso, utilizamos uma placa *Boarduino*, que consiste em um arduino
+adaptado, essa pequena placa utiliza o mesmo microcontrolador que que um
+arduino uno, a *ATmega328* porém, possui a vantagem de ter entradas para 4
+periféricos *nanoshields*, :cite:`boarduino`. Nanoshields são pequenos módulos,
+de fácil instalação, basta colocá-los na placa e incluir sua biblioteca no
+código para usá-los, o próprio boarduino possui um pino fixo para impedir que
+os módulos sejam colocados de maneira errada.
 
-Neste projeto utilizamos 2 nanoshields, um convesor analógico digital *ADC*
+Neste projeto utilizamos 2 nanoshields, um convesor analógico digital ,*ADC* ,
 para ler a tensão de referência da rampa e a tensão de estimativa de campo no
-EPR, essa duas tensões são medidas no próprio *CV*. E um nanoshield para fazer
+EPR, essa duas tensões são medidas no próprio *CV*. Um nanoshield para fazer
 comunicação *serial* com o amplificador lock-in e obter medidas do sinal do
 EPR.
 
@@ -52,3 +54,5 @@ O controlador de varredura permite 4 tempos de varredura e 4 valores diferentes
 de larguras de campo. Os 4 valores de tempo são controlados pelos pinos D4 e D5
 através de um multiplexador, o campo é controlado de maneira similar, veja os
 comentários no código de Firmware.
+
+A comunicação do Boarduino com o computador é feita através de uma porta USP
