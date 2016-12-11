@@ -205,7 +205,14 @@ essa funcionalidade. Há uma chave que indica como é feita esta seleção: por
 
    Fonte do eletroímã. (1) botão para ligar e (2) botão para desligar a fonte.
 
+O gerador de sinal, :numref:`fig_gerador_sinais`, para modulação de campo
+produz uma tensão senoidal de cerca de 30 KHz, que é amplificado,
+:numref:`fig_amplificador_audio` e então vai para a bobina da cavidade.
 
+Um capacitor está ligado em série com a bobina de modulação. Esse capacitor
+tem duas funcionalidades: na frequência de ressonância, esse circuito RLC se
+comporta como um sistema puramente resistivo e também para retirar um nível
+*DC* de sinal, que poderia aquecer a bobina.
 
 .. _fig_gerador_sinais:
 
@@ -221,7 +228,13 @@ essa funcionalidade. Há uma chave que indica como é feita esta seleção: por
    :width: 60%
    :align: center
 
-   Amplificador de audio. (1) botão para ligar. (2) ajustes de ganho.
+   Amplificador do sinal para modulação. (1) botão para ligar. (2) ajustes
+   de ganho.
+
+O sinal da amostra é amplificado por um amplificador *lock-in*. Nessa
+montagem, utilizamos o modelo *SR510*, da *Stanford Research Systems*.
+Além do sinal da amostra, um sinal de referência do gerador de sinais
+também é usado.
 
 .. _fig_lockin:
 
@@ -233,10 +246,10 @@ essa funcionalidade. Há uma chave que indica como é feita esta seleção: por
    (3) sensibilidade de medida, (4) ajuste de fase do sinal de entrada,
    (5) controle de constantes de tempo para integração do sinal (médias).
 
-   .. TODO colocar evolucao dos arduiinos. Arquivs: arduino-lindo,
-      arduino lindo 2....
-
-   .. TODO Atualizar essa foto
+O *klystron* e o magneto devem ser refrigerados para não superaquecerem.
+Para isso, um sistema de refrigeração por água é usado. As torneiras,
+:numref:`fig_torneiras`, encontram-se atrás do magneto. Cuidado para nǎo
+abrir a torneira errada.
 
 .. _fig_torneiras:
 
@@ -248,14 +261,21 @@ essa funcionalidade. Há uma chave que indica como é feita esta seleção: por
    torneira (1) e o registro (2). Cuidado para não abrir a torneira errada e
    molhar o equipamento. Essas torneiras se encontram atrás do ímã.
 
+   .. TODO colocar evolucao dos arduiinos. Arquivs: arduino-lindo,
+      arduino lindo 2....
+
+O Arduino com módulos *ADC* e *RS-232* foi colocado dentro do controlador
+de varredura, de modo que apenas os cabos USB, para interface com o computador,
+e serial, para interface com o *lock-in*, fiquem para fora.
+
 .. _fig_arduino_lindo:
 
 .. figure:: img/arduino-lindo-3.jpg
    :scale: 80%
    :align: center
 
-   Arduino com módulos *ADC*, *RS-232*, no interior do controlador de
-   varredura.
+   Arduino (1) com módulos *ADC* (2) e *RS-232* (3), no interior do controlador
+   de varredura.
 
 Instruções
 ----------
@@ -448,17 +468,10 @@ Ligar o espectrômetro
            Ligue a bobina *pick-up*, :numref:`fig_cavidade` a um osciloscópio e
            observe o sinal. Altere a frequência para maximizar o sinal visto.
 
-        #. Antes de ligar o lock-in, :numref:`fig_lockin`, certifique-se de que
-           o mesmo esteja conectado corretamente.
-
-           Verifique se o input do lock-in está ligado ao gerador de funções.
-
-           Verifique se a entrada A esteja recebendo o sinal do receptor de
-           microondas.
-
-           Ligue o lock-in. Em seu painel verifique a sensibilidade está
-           marcando :math:`200 \mu V`, *offset* desligado e constante de tempo
-           em :math:`100 ms`.
+        #. Ligue o lock-in. Em seu painel verifique a sensibilidade está
+           marcando :math:`200 \mu V`e constante de tempo em :math:`100 ms`.
+           Talvez seja necessário ajustar o *offset* para evitar saturação do
+           sinal.
 
         #. Agora deve ser possível observar o sinal do EPR no display do lock-in.
            No controlador de varredura, varie B_0 até que no display do lock-in
@@ -472,10 +485,10 @@ Ligar o espectrômetro
            a fase de :math:`90 ^\circ`. É muito mais fácil minimizar o sinal em
            quadratura do que maximizar o sinal em fase.
 
-        #. Verifique se o cabo *USB* do controlo de varredura esta ligadno no
+        #. Verifique se o cabo *USB* do controlador de varredura esta ligadno no
            computdaor.
 
-        #. Inicie o programa EPR-LEF com o comando python EPR-LEF.py.
+        #. Inicie o programa EPR-LEF com o comando *python EPR-LEF.py*.
 
            Neste programa, o usuario tem controle sobre o tempo da verredura
            e o intervalo de campo a ser medido.
@@ -493,6 +506,10 @@ Ligar o espectrômetro
 
               Tela do programa, após uma aquisição com 1000 gauss de
               varredura.
+
+           Note que o campo magnético, indicado como eixo x no gráfico, é uma
+           estimativa. Fica a cargo do aluno fazer um ajuste fino para
+           recalibração.
 
 
 Desligar o espectrômetro

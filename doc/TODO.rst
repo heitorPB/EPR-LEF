@@ -8,19 +8,12 @@ Arduino:
 DOC:
 	como explicar o ganho da modulacao do campo
 
-	aviso sobre o campo magnético: é uma estimativa
+	sobre o codigo:
+
+		aviso sobre o campo magnético: é uma estimativa
 
 	intro:
 		fotos dos cara(ok)
-
-		texto decente(ok?)
-
-	teoria:
-		hv = ms g B0
-
-	Secao software:
-
-		escrever um texto
 
 	escanear o diagrama do controle de varredura e colocar como apendice
 
@@ -31,10 +24,10 @@ DOC:
 
 	PDF: jogar coisas pra apêndice
 
+	Mudar o nome que aparece na secao pra fonte normal do Cr3+ Mn2+
+
 python:
 	reduzir delay pra 1 ms ou menos
-
-	na hora de salvar os pontos: salvar (B, y)
 
 	Se alguém tiver tempo e paciência, escrever um código totalmente novo, usando classes pra organizar tudo
 
@@ -42,6 +35,7 @@ python:
 
 	compatilibidade com python3
 
-	colocar os prints caso flag de verbose seja usada
-
 	fazer rodar no pc da sala
+
+all:
+	colocar copyright em cada arquivo
