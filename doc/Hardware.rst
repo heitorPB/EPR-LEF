@@ -55,4 +55,4 @@ de larguras de campo. Os 4 valores de tempo são controlados pelos pinos D4 e D5
 através de um multiplexador, o campo é controlado de maneira similar, veja os
 comentários no código de Firmware.
 
-A comunicação do Boarduino com o computador é feita através de uma porta USP
+A comunicação do Boarduino com o computador é feita através de uma porta USB
