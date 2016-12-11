@@ -107,3 +107,6 @@ quando retiramos a função de desenhar o gráfico enquanto os dados são obtido
 Instabilidades no gerador de rampa também dificultaram as medidas, o mesmo
 apresenta perda de linearidade no final da varredura a qual não conseguimos
 solucionar.
+
+Recomendamos fortemente aos alunos que irão realizar esta prática que utilizem
+seus próprios computadores para coleta de dados com o programa *EPR-LEF.py*
