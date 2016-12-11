@@ -22,6 +22,11 @@ equipamento, a fim de que nada seja danificado:
            alta tensão no *klystron*. **A água para refrigeração deve estar
            ligada antes destes dois procedimentos**.
 
+        #. **Certifique-se de abrir a torneira correta**. Apenas uma torneira
+           de água tem uma mangueira ligada. A outra não. Caso a torneira
+           errada seja aberta, o equipamento será molhado e pode ser
+           permanentemente danificado.
+
 
 Descrição e funcionamento
 -------------------------
@@ -117,37 +122,36 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
    Não ligue a fonte direramente em *HV+FIl*, o filamento deve esquentar primeiro
    na opção *FIL*.
 
+A cavidade para inserir a amostra, :numref:`fig_cavidade` encontra-se entre as
+duas bobinas do eletroímã. No interior da mesma, há duas bobinas de modulação
+de sinal. A cavidade deste equipamento possui duas entradas para amostras: uma
+por cima, como mostrado na figura, e outra por baixo. Isso é feito para que
+uma amostra de referência seja usada simultaneamente com a amostra a ser
+analisada.
 
+A cavidade possui um parafuso de *teflon* para ajustar o acoplamento com a
+amostra. Esse parafuso deve ser ajustado cada vez que uma amostra é inserida.
 
-.. _fig_torneiras:
+Também há uma bobina *pick-up* próxima à cavidade para medir o sinal de
+modulação.
 
-.. figure:: img/torneiras.jpg
+.. _fig_cavidade:
+
+.. figure:: img/cavidade.jpg
    :scale: 80%
    :align: center
 
-   Registro geral de água (1) e torneiras para refrigeração, ligue apenas a
-   torneira (1) e o registro (2). Cuidado para não abrir a torneira errada e
-   molhar o equipamento.
+   Cavidade do espectrômetro. (1) local onde a amostra é colocada. (2) parafuso
+   de ajuste de sintonia amostra-cavidade. (3) bobina *pick-up*.
 
-.. _fig_controlador_varredura:
+Além do ajuste da cavidade, também é necessário o ajuste de um sinal refletido.
+Esse sinal é defasado e é possível ajustar a fase e a amplitude, atrávez de
+um refletor, :numref:`fig_defasador`. O refletor consiste de um pino metálico
+que é inserido na guia de onda. O comprimento de penetração determina a
+intensidade do sinal refletido e a posição determina a fase.
 
-.. figure:: img/controlador_varredura.jpg
-   :scale: 80%
-   :align: center
-
-   Controlador de varredura do campo magnético.
-   Chave para ligar e desligar o controlador (1), três botões estilo rádio para
-   controlar respectivamente o tempo de varredura (2), a largura do campo varrido (3)
-   e o mais importante, :math:`B_0` o referencial do campo para varredura (4). Os
-   dois últimos são botões de disparo, para iniciar (5)  e parar (6) a varredura.
-
-.. _fig_fonte_eletroima:
-
-.. figure:: img/fonte_TCA.jpg
-   :scale: 80%
-   :align: center
-
-   Fonte do eletroímã. (1) botão para ligar e (2) botão para desligar a fonte.
+Acima do defasador, existe um absorvedor de microondas, para que exista somente
+uma reflexão de sinal.
 
 .. _fig_defasador:
 
@@ -159,14 +163,49 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
    defasador da guia de onda, (2) ajuste de fase do defasador. Acima (3)
    encontra-se o absorvedor de microondas.
 
-.. _fig_cavidade:
+O sistema de controle de varredura, :numref:`fig_controlador_varredura`, gera
+um sinal de tensão que controla a corrente do eletroímã. A fonte do magneto,
+:numref:`fig_fonte_eletroima`, produz uma corrente proporcional à tensão lida.
+Sabemos que o campo magnético produzido é linearmente proporcional à corrente,
+assim, conseguimos controlar o campo.
 
-.. figure:: img/cavidade.jpg
+O controlador de Varredura gera um sinal linear ao redor de um valor de
+*offset*, selecionado manualmente.
+
+O intervalo de campo magnético varrido é controlado por uma chave seletora, e
+o intervalo de tempo para fazer tal varredura é selecionado por outra chave.
+Essas seleções também podem ser feitas por *software*, já que foi adicionada
+essa funcionalidade. Há uma chave que indica como é feita esta seleção: por
+*software*, utilizando um *Arduino*, ou manualmente, utilizando as chaves.
+
+.. _fig_controlador_varredura:
+
+.. figure:: img/controlador_varredura.jpg
    :scale: 80%
    :align: center
 
-   Cavidade do espectrômetro. (1) local onde a amostra é colocada. (2) parafuso
-   de ajuste de sintonia amostra-cavidade. (3) bobina *pick-up*.
+   Controlador de varredura do campo magnético.
+   Chave para ligar e desligar o controlador (1), três botões estilo rádio para
+   controlar respectivamente o tempo de varredura (em minutos) (2), a largura
+   do campo varrido (em Gauss) (3) e o mais importante, :math:`B_0`, o
+   referencial do campo para varredura (4). Os botões de disparo, para iniciar
+   (5) e parar (6) a varredura. (7) é a chava seletora de modo de operação:
+   controle por *software* utilizando *Arduino*, ou controle manual utilizando
+   as chaves (2) e (3). (8) é uma saída com uma estimativa do valor do campo
+   magnético, com escala de 0.1 V para 1000 Gauss. (9) é uma saída de tensão
+   linear entre 0 e 1 V, para ser utilizada com um registrador gráfico. (10)
+   é uma entrada para disparo de varredura. (11) é o valor de tensão enviado
+   para a fonte do magneto.
+
+.. _fig_fonte_eletroima:
+
+.. figure:: img/fonte_TCA.jpg
+   :scale: 80%
+   :align: center
+
+   Fonte do eletroímã. (1) botão para ligar e (2) botão para desligar a fonte.
+
+
 
 .. _fig_gerador_sinais:
 
@@ -198,6 +237,16 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
       arduino lindo 2....
 
    .. TODO Atualizar essa foto
+
+.. _fig_torneiras:
+
+.. figure:: img/torneiras.jpg
+   :scale: 80%
+   :align: center
+
+   Registro geral de água (1) e torneiras para refrigeração, ligue apenas a
+   torneira (1) e o registro (2). Cuidado para não abrir a torneira errada e
+   molhar o equipamento. Essas torneiras se encontram atrás do ímã.
 
 .. _fig_arduino_lindo:
 
