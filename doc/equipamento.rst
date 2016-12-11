@@ -65,9 +65,9 @@ e Arduino para aquisição e visualização de dados.
    :scale: 80%
    :align: center
 
-   Foto da sala. (1) EPR, (2) controlador de varredura, (3) osciloscópio analógico,
+   Foto da sala. (1) magneto, (2) controlador de varredura, (3) osciloscópio analógico,
    (4) fonte do *klystron*, (5) amplificador de audio, (6) *lock-in*, (7)
-   frequencímetro, (8) fonte do EPR, (9) refletor desafador de miro-ondas e (10)
+   frequencímetro, (8) fonte do ímã, (9) refletor desafador de miro-ondas e (10)
    equipamento utilizado para desenhar o sinal do EPR esse aparelho será
    substituído por um sistema de aquisição de dados utilizando um arduino e um
    microcomputador.
@@ -78,7 +78,13 @@ e Arduino para aquisição e visualização de dados.
    :scale: 80%
    :align: center
 
-   TROCAR ESSA FIGURA AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+   Foto da sala após a modernização pelos alunos Emilio Galera e Heitor de
+   Bittencourt. (1) magneto, (2) controlador de varredura, (3) osciloscópio
+   analógico para observar o modo de oscilação do *klystron*, (4) fonte do
+   *klystron*, (5) amplificador do sinal de modulação, (6) *lock-in*, (7)
+   frequencímetro, (8) fonte do ímã, (9) refletor desafador de miro-ondas,
+   (10) computador para aquisição de dados, (11) voltímetro digital de alta
+   precisão, (12) gerador de sinais, (13) emissor de microondas *klystron*.
 
 Neste experimento, é utilizada radiação eletromagnética de aproximadamente 10 GHz.
 Para emissão desta frequência, é utilizado um *klystron*, modelo VA-217CH, fabricado
