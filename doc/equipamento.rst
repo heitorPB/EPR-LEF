@@ -11,7 +11,7 @@ equipamento, a fim de que nada seja danificado:
 
         #. **Tenha certeza de que há água para refrigerar o klystron
            e as bobinas**. Verifique visualmente a circuilação da água e
-           fique atento a varições no som da água circuilando.
+           fique atento a varições no som da água circulando.
 
         #. **Sobrevoltagem no klystron**. Não aplique uma tensão de feixe
            superior a 250 V e uma tensão de refletor superior a 200 V.
@@ -72,8 +72,8 @@ e Arduino para aquisição e visualização de dados.
 
    Foto da sala. (1) magneto, (2) controlador de varredura, (3) osciloscópio analógico,
    (4) fonte do *klystron*, (5) amplificador de audio, (6) *lock-in*, (7)
-   frequencímetro, (8) fonte do ímã, (9) refletor desafador de miro-ondas e (10)
-   equipamento utilizado para desenhar o sinal do EPR esse aparelho será
+   frequencímetro, (8) fonte do ímã, (9) refletor desafador de microondas e (10)
+   equipamento utilizado para desenhar o sinal do EPR, esse aparelho será
    substituído por um sistema de aquisição de dados utilizando um arduino e um
    microcomputador.
 
@@ -87,12 +87,12 @@ e Arduino para aquisição e visualização de dados.
    Bittencourt. (1) magneto, (2) controlador de varredura, (3) osciloscópio
    analógico para observar o modo de oscilação do *klystron*, (4) fonte do
    *klystron*, (5) amplificador do sinal de modulação, (6) *lock-in*, (7)
-   frequencímetro, (8) fonte do ímã, (9) refletor desafador de miro-ondas,
+   frequencímetro, (8) fonte do ímã, (9) refletor desafador de microondas,
    (10) computador para aquisição de dados, (11) voltímetro digital de alta
    precisão, (12) gerador de sinais, (13) emissor de microondas *klystron*.
 
 Neste experimento, é utilizada radiação eletromagnética de aproximadamente 10 GHz.
-Para emissão desta frequência, é utilizado um *klystron*, modelo VA-217CH, fabricado
+Para emissão desta frequência, é utilizado um *klystron*, modelo VA-217C, fabricado
 pela *Varian* e mostrado na figura :numref:`fig_klystron` abaixo. A fonte para
 ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
 
@@ -104,7 +104,7 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
    :width: 70%
    :align: center
 
-   Emissor de micro-ondas *klystron*. Note o parafuso cinza. Este ajusta o centro
+   Emissor de microondas *klystron*. Note o parafuso cinza. Este ajusta o centro
    de emissão de microondas.
 
 .. _fig_fonte_klystron:
@@ -291,7 +291,7 @@ para isso acontecer:
 
         #. Tensão do feixe superior a 250 V ou do refletor superior a 200 V.
 
-        #. Ligar o *klystron* antes do mesmo estar aquecido.
+        #. Ligar o *klystron* antes de o mesmo estar aquecido.
 
 Muito cuidado ao manusear os tubinhos de amostra. Eles são feitos de quartzo
 ultrapuro, para não haver impurezas magnéticas. Por esse motivo, são muito
@@ -344,7 +344,7 @@ Ligar o espectrômetro
            :numref:`fig_fonte_eletroima`, e coloque seus controles de voltagem
            e corrente no máximo.
 
-        #. Aumente B_0 no controlador de varredura até que a corrente do
+        #. Aumente B0 no controlador de varredura até que a corrente do
            eletroímã esteja perto de 32 A.
 
         #. Verifique os controles da fonte do *klystron*
@@ -385,7 +385,7 @@ Ligar o espectrômetro
               Klystron fora de sincronia
 
            Talvez seja necessário ajustar o parafuso do *klystron*,
-           :numref:`fig_klystron` para centralizar a absorção da cavidade no
+           :numref:`fig_klystron`, para centralizar a absorção da cavidade no
            centro do modo.
 
         #. No defasador de microondas, :numref:`fig_defasador`, desparafuse o
@@ -411,13 +411,13 @@ Ligar o espectrômetro
 
               Klystron fora de sintonia.
 
-           .. figure:: img/acoplamento_cavidade_klystron2.jpg
+           .. figure:: img/acoplamento_cavidade_klystron3.jpg
               :width: 28%
               :align: center
 
               klystron em sintonia, cavidade desacoplada.
 
-           .. figure:: img/acoplamento_cavidade_klystron3.jpg
+           .. figure:: img/acoplamento_cavidade_klystron2.jpg
               :width: 28%
               :align: center
 
@@ -462,20 +462,21 @@ Ligar o espectrômetro
            operação do espectrômetro.
 
         #. Ligue o gerador de sinais, :numref:`fig_gerador_sinais`. Selecione
-           onda senoidal de cerca de 25 kHz. E ligue o amplificador de áudio,
-           :numref:`fig_amplificador_audio`, com ganho de 1X.
+           onda senoidal de cerca de 25 kHz. E posteriormente ligue o
+           amplificador de áudio, :numref:`fig_amplificador_audio`, com ganho
+           de 1X.
 
-           Ligue a bobina *pick-up*, :numref:`fig_cavidade` a um osciloscópio e
-           observe o sinal. Altere a frequência para maximizar o sinal visto.
+           Ligue a bobina *pick-up*, :numref:`fig_cavidade`, a um osciloscópio
+           e observe o sinal. Altere a frequência para maximizar o sinal visto.
 
         #. Ligue o lock-in. Em seu painel verifique a sensibilidade está
-           marcando :math:`200 \mu V` e constante de tempo em :math:`100 ms`.
+           marcando :math:`200 \mu V` e constante de tempo em :math:`100 \, ms`.
            Talvez seja necessário ajustar o *offset* para evitar saturação do
            sinal.
 
         #. Agora deve ser possível observar o sinal do EPR no display do lock-in.
-           No controlador de varredura, varie B_0 até que no display do lock-in
-           seja possível observar uma variação brusca do sinal. Varie B_0 com
+           No controlador de varredura, varie B0 até que no display do lock-in
+           seja possível observar uma variação brusca do sinal. Varie B0 com
            cuidado, o aparelho é muito sensível a pequenas variações de campo.
 
         #. Talvez seja necessário ajustar a fase do *lock-in*. Para isso, varie
@@ -485,7 +486,7 @@ Ligar o espectrômetro
            a fase de :math:`90 ^\circ`. É muito mais fácil minimizar o sinal em
            quadratura do que maximizar o sinal em fase.
 
-        #. Verifique se o cabo *USB* do controlador de varredura esta ligadno no
+        #. Verifique se o cabo *USB* do controlador de varredura esta ligado no
            computdaor.
 
         #. Inicie o programa EPR-LEF com o comando *python EPR-LEF.py*.

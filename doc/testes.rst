@@ -16,7 +16,7 @@ procedimentos de calibração dos espectrômetros de RPE. Trata-se do *DPPH*,
 ou, *2,2-diphenyl-1-picrylhydrazyl*. Na forma sólida (como a que vamos usar),
 o espectro de EPR do *DPPH* consiste de uma única linha muito intensa,
 relativamente estreita (largura de aproximadamente 2 G), centralizada em
-g = 2.0038, e ligeiramente assimétrica.
+:math:`g = 2.0038`, e ligeiramente assimétrica.
 
 Colocar o tubo contendo DPPH na
 cavidade. A amostra é muito pequena (fração de milímetros) e está colocada
@@ -34,7 +34,8 @@ Análise do efeito conjunto da constante de tempo e velocidade de varredura
 
 Varie a constante de tempo do *lock-in* entre os valores de 10 ms a 10 s,
 registrando os sinais com varreduras de 0.5 min, 1 min e 3 min. Explique os
-resultados com base nas informações deste texto e das referências 3 e 4.
+resultados com base nas informações deste texto e das referências
+:cite:`poole1996electron` e :cite:`tese_roni_ribeiro`.
 
 MgO + Cr3+ + Mn2+
 -----------------
@@ -45,7 +46,7 @@ duas componentes: um sexteto resultante da interação hiperfina com o núcleo
 do Manganês, I = 5/2, e uma linha intensa (com transições proibidas laterais)
 proveniente do Cromo. O fator g da linha intensa é 1.9797. Esta amostra também
 é muito pequena e está colocada no fundo do tubo. Posicione cuidadosamente a
-amostra no centroda cavidade.
+amostra no centro da cavidade.
 
 Devido ao fato de que a linha central é intensa e relativamente estreita e ter
 um fator g menor que 2, esta amostra é também muitas vezes utilizadas como

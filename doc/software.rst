@@ -6,7 +6,7 @@ Interface Gráfica
 -----------------
 
 A interface gráfica foi feita em linguagem python. Para rodar o programa
-corretamente é necessário ter o `*Python* 2.7 <https://www.python.org>`_
+corretamente é necessário ter o `Python 2.7 <https://www.python.org>`_
 com os seguintes pacotes instalados:
 
         #. `Matplotlib <http://matplotlib.org/>`_ - pacote padrão para plotar
@@ -20,8 +20,8 @@ com os seguintes pacotes instalados:
         #. Tkinter - pacote para gerenciar a interface gráfica, um intepretador
            de TK.
 
-Sistemas linux, como `*Ubuntu* <https://www.ubuntu.com/>`_  e
-`*Debian* <https://www.debian.org/>`_, costumam vir com python2.7 instalado
+Sistemas linux, como `Ubuntu <https://www.ubuntu.com/>`_  e
+`Debian <https://www.debian.org/>`_, costumam vir com python2.7 instalado
 como padrão. Caso o aluno não tenha python em seu computador basta instalá-lo
 através do gerenciador de pacotes de seu sistema, em ubuntu, por exemplo,
 digite *sudo apt-get install python2.7*.
@@ -62,7 +62,7 @@ problema. Ligamos um osciloscópio digital nas saídas de tensão para a fonte
 do eletroímã (mostrado na curva amarela) e também na saída para registrador
 gráfico (em azul).
 
-A curva azul deveria ser linear de zero a cerca de um vol, com duração de
+A curva azul deveria ser linear de zero a cerca de um volt, com duração de
 300 segundos, mas vemos que rampa está muito instável: após cerca de 100
 segundos, a tensão sobe abruptamente para o valor máximo, tendo duração de
 cerca de 140 segundos.
@@ -90,7 +90,7 @@ Firmware para Arduino
 Para obter os dados de tensão da rampa e sinal do *lock-in* utilizamos um
 microcontrolador *Arduino*.
 
-Para programá-lo utilizamos uma linguagem similar a *C++*. O arduino da caixa
+Para programá-lo utilizamos linguagem *C++*. O arduino da caixa
 já está carregado com o programa de aquisição de dados mas, caso seja
 necessário carregá-lo novamente são necessárias algumas bibliotecas adicionais
 para que o programa compile corretamente.

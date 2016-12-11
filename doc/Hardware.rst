@@ -1,37 +1,36 @@
-==================
-Hardware adicional
-==================
+========
+Hardware
+========
 
-Neste projeto automatizamos o EPR do laboratório. Esse EPR era praticamente
-todo controlado pelo controlador de varredura (CV) :numref:`fig_sala`,
-:numref:`fig_controlador_varredura`, logo para automatizar o EPR foi necessário
-controlar o CV digitalmente.
+A contribuição dos alunos Emilio Frari Galera e Heitor Pascoal de Bittencurt
+para esse experimento foi desenvolver um sistema de controle e aquisião de
+dados digital.
 
 Para isso, utilizamos uma placa *Boarduino*, que consiste em um arduino
 adaptado, essa pequena placa utiliza o mesmo microcontrolador que que um
-arduino uno, a *ATmega328* porém, possui a vantagem de ter entradas para 4
+*Arduino Uno*, o *ATmega328* :cite:`arduino_uno`, porém, possui a vantagem de ter entradas para 4
 periféricos *nanoshields*, :cite:`boarduino`. Nanoshields são pequenos módulos,
 de fácil instalação, basta colocá-los na placa e incluir sua biblioteca no
 código para usá-los, o próprio boarduino possui um pino fixo para impedir que
 os módulos sejam colocados de maneira errada.
 
-Neste projeto utilizamos 2 nanoshields, um convesor analógico digital ,*ADC* ,
+Neste projeto utilizamos 2 nanoshields, um convesor analógico digital, *ADC*,
 para ler a tensão de referência da rampa e a tensão de estimativa de campo no
-EPR, essa duas tensões são medidas no próprio *CV*. Um nanoshield para fazer
-comunicação *serial* com o amplificador lock-in e obter medidas do sinal do
+EPR, essa duas tensões são medidas no próprio controlador de varredura. Um nanoshield para fazer
+comunicação *serial* com o amplificador *lock-in* e obter medidas do sinal do
 EPR.
 
 Observando a :numref:`fig_diagrama_blocos_arduino` podemos ver como tudo está
 ligado.
 
-O arduino se comunica com o lock-in por serial pelos pinos *D10* e *D11*,
-*transmissor* e *receptor* (Tx e Rx), por intermédio do *nanoshield* RS232,
+O Arduino se comunica com o lock-in por serial *RS232* pelos pinos *D10* e *D11*,
+*transmissor* e *receptor* (Tx e Rx), por intermédio do *nanoshield RS232*,
 veja o apêndice sobre o nanoshield RS232. O lock-in recebe um comando enviado
-pelo arduino e retorna uma resposta correspondente em string.
+pelo arduino e retorna uma resposta correspondente em *string*.
 
-Importante: O programa foi feito para se comunicar com o lock-in com *Baud* de
-*9600*, qualquer alteração no *Baud*  deve ser feita com cuidado pois os bits
-de configuração *Baud* do lock-in devem ser reconfigurados, de acordo,
+Importante: O programa foi feito para se comunicar com o lock-in com *Baud rate* de
+*9600*, qualquer alteração no *Baud rate* deve ser feita com cuidado pois os bits
+de configuração do lock-in devem ser reconfigurados, de acordo com
 :cite:`lock-in-man`.
 
 O nannoshield ADC se comunica com o arduino através do protocolo *i2c*, o *i2c*

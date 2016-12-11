@@ -67,12 +67,12 @@ quantizado, como uma propriedade intrínseca do elétron.
 Essas pesquisas marcaram os fundamentos da espectroscopia por ressonância
 magnética eletrônica (EPR), pois ela é baseada na transição entre estados
 quantizados resultante da interação do spin eletrônico com o campo
-magnético esterno.
+magnético externo.
 
 Em 1931, Breit e Rabi :numref:`fig_BreitRabi` descreveram os níveis de energia do hidrogênio sobre o
 efeito de um campo magnético. Rabi estudou transições entre níveis de
 energia induzidos por um campo magnético oscilante. Este foi o primeiro
-experimento a observar ressonância magnética (MNR).
+experimento a observar ressonância magnética (NMR).
 
 .. _fig_BreitRabi:
 
@@ -80,17 +80,17 @@ experimento a observar ressonância magnética (MNR).
    :width: 70%
    :align: center
 
-   Breit a esquerda e Rabi a adireita
+   Breit a esquerda e Rabi a direita
 
 Em 1945, foi feita a primeira observação de um pico de ressonância
-paramagnetica eletronica (EPR), quando Zavoisky :numref:`fig_ZeemanZavoisky` detectou a linha de absorção
+paramagnética eletrônica (EPR), quando Zavoisky :numref:`fig_ZeemanZavoisky` detectou a linha de absorção
 de radiofrequência de uma amostra de CuCl2.2H2O.
 
 Apesar do NMR ser mais utilizado, as duas técnicas, EPR e NMR, se desenvolveram
 praticamente juntas, :cite:`Junk2012`, :cite:`HyperESR`. Em meados da década de sessenta a espectroscopia por NMR
 massa por um grande avanço com o desenvolvimento de espectroscopia NMR por FT
 (transformada de Fourier). A técnica equivalente para o EPR demorou a ser
-desenvolvida devido a dificuldades intrínsecas de se trabalhar com micro-ondas.
+desenvolvida devido a dificuldades intrínsecas de se trabalhar com microondas.
 
 Atualmente já existem espectrômetros EPR comerciais :cite:`EPR-comercial`.
 
@@ -107,7 +107,7 @@ Atualmente já existem espectrômetros EPR comerciais :cite:`EPR-comercial`.
    efeito de ressonância paramagnética eletrônica.
 
 
-A montagem deste experimento nos `Laboratório Avançado de Física
+A montagem deste experimento no `Laboratório Avançado de Física
 <http://www.ifsc.usp.br/~lavfis/>`_ do `Instituto de Física de São Carlos
 <http://www.ifsc.usp.br>`_ começou com o professor Horácio Carlos Panepucci e
 o professor Claudio José Magon terminou a primeira versão. Finalmente na

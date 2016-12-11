@@ -5,13 +5,13 @@ Descrição Teórica
 EPR ou Ressonância Paramagnética Eletrônica é uma técnica espectroscópica
 utilizada para analisar amostras que possuem orbitais populados por
 apenas um elétron. Elétrons são partículas de spin meio, tais partículas
-podem ter momento magnético :math:`m_s g_e \mu_B`, onde :math:`m_s` pode
-ser 1/2 ou -1/2, :math:`\mu_B` é o magneton de Bohr e :math:`g_e` é o
-fator g de Landé, que para o elétron livre vale aproximadamente *2.0023*.
+tem momento magnético dado por :math:`m_s g_e \mu_B`, onde :math:`m_s` pode
+ser +1/2 ou -1/2, :math:`\mu_B` é o magneton de Bohr e :math:`g_e` é o
+fator g de *Landé*, que para o elétron livre vale aproximadamente *2.0023*.
 
 Na presença de um campo magnético externo e temperatura maior que zero
 absoluto, o momento magnético acopla
-paralelamente ou anti paralelamente com o campo e da origem a energias
+paralelamente ou antiparalelamente com o campo e da origem a energias
 ligeiramente diferentes de acoplamento, esse acoplamento é conhecido como
 efeito Zeeman. A energia desse acoplamento é dada por
 :cite:`wiki:EPR`:cite:`brustolon2009`:
@@ -20,18 +20,18 @@ efeito Zeeman. A energia desse acoplamento é dada por
 
    E = m_s g_e \mu_B B_0
 
-A variação de energia entre esses níveis é
+A variação de energia entre esses níveis é:
 
 .. math::
 
    \Delta E = g_e \mu_B B_0.
 
 Note que quando um elétron passa de um nível a outro ele pode emitir ou
-absorver :math:`\Delta E` na forma de um foton com frequência :math:`\nu`
-e energia :math:`h\nu` que é igual a energia de transição
+absorver :math:`\Delta E` na forma de um fóton com frequência :math:`\nu`
+e energia :math:`h\nu`, que é igual a energia de transição
 :math:`\Delta E`.
 
-Essa associação, entre a frequência do foton e :math:`\Delta E`, é importante
+Essa associação, entre a frequência do fóton e :math:`\Delta E`, é importante
 pois esse espectrômetro usa uma fonte de radiação de frequência conhecida e
 uma varredura de campo magnético para obter o espéctro de amostras.
 
@@ -60,13 +60,13 @@ da quantidade relativa de elétrons com spin :math:`1/2` e :math:`-1/2`.
    e^{-\frac{\Delta E}{k_bT}} = e^{-\frac{h\nu}{k_bT}}
 
 O :math:`\Delta E` típico para acoplamento entre spin e campo magnético está
-dentro do espéctro de frequência de micro-ondas, para uma frequência de
+dentro do espéctro de frequência de microondas, para uma frequência de
 :math:`\nu \approx 9.75 \, GHz`  (:math:`h \nu \approx 40 \, \mu eV`) e temperatura
 de :math:`298 \, K` a equação acima da uma razão aproximadamente :math:`0.998`.
 
 Isso mostra que há um número ligeiramente maior de elétrons com spin
 :math:`-1/2`. Tais elétrons absorvem energia para mudar de estado, portanto
-a espectroscopia por EPR funciona observando a absorção de micro-ondas pela
+a espectroscopia por EPR funciona observando a absorção de microondas pela
 amostra na região de energia entre os níveis acoplados pelo campo magnético
 externo.
 
@@ -92,7 +92,7 @@ referência do *lock-in* também passa pelo EPR e esse varia de maneira muito
 rápida, em comparação com o a variação do campo *H*.
 
 Com isso em mente, expandindo a função de absorção *Y(H)* do campo gerado
-pelo eletroímã em terno de um ponto *H - H'* na curva de *Y(H)* temos:
+pelo eletroímã em terno de um ponto *H'* na curva de *Y(H)* temos:
 
 .. math::
 
@@ -131,7 +131,7 @@ uma função impar e portanto quando a integramos em um número inteiro de
 períodos ou por um intervalo de tempo grande o suficiente para conter vários
 períodos os termos de potencia impar vão a zero e apenas os termos com
 potências pares contribuem para o resultado. Assim podemos concluir que,
-dessa integração, o primeiro termo não zero é:
+dessa integração, o primeiro termo não nulo é:
 
 .. math::
 	S(H) = \frac{1}{2} H_m \frac{\mathrm{d} Y}{\mathrm{d} H}
