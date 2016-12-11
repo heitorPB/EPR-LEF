@@ -8,13 +8,6 @@ Arduino:
 DOC:
 	como explicar o ganho da modulacao do campo
 
-	sobre o codigo:
-
-		aviso sobre o campo magnético: é uma estimativa
-
-	intro:
-		fotos dos cara(ok)
-
 	escanear o diagrama do controle de varredura e colocar como apendice
 
 	colocar como apendice, ou na documentacao do hardware desenvolvivo, os documentos referentes ao modulo RS232 e ADC. além do Arduino da Circuitar
@@ -24,11 +17,7 @@ DOC:
 
 	PDF: jogar coisas pra apêndice
 
-	Mudar o nome que aparece na secao pra fonte normal do Cr3+ Mn2+
-
 python:
-	reduzir delay pra 1 ms ou menos
-
 	Se alguém tiver tempo e paciência, escrever um código totalmente novo, usando classes pra organizar tudo
 
 	alterar o esquema de importar o TKinter para importar como tk, importar TKinter.themes como ttk, mudar todos os widgtes pra ttk.widgets.

@@ -35,6 +35,55 @@ estão selecionadas para instalação.
    :language: python
 
 
+Observações importantes
+~~~~~~~~~~~~~~~~~~~~~~~
+
+O programa *EPR-LEF.py* foi testado nos computadores dos alunos, e no
+computador disponível no laboratório.
+
+Os resultados obtidos nos computadores dos alunos foram satisfatórios, foram
+coletados pontos suficiente para observar todos os sinais necessários. O
+computador do laboratório não obteve pontos o suficientes para apresentar
+resultados aceitáveis: estava lento demais mesmo antes do programa
+ser rodado. Levantamos a hipótese de que o sistema operacional não era
+adequado, o computador estava usando *Windows XP*, formatamos a máquina e
+colocamos nela o sistema *lubuntu*, um sistema específico para máquinas com
+restrição de recursos. Nesse sistema o programa *EPR-LEF.py* obteve resultados
+melhores porém, ainda assim, não foi o suficiente para observar sinais claros e
+limpos.
+
+Nas três máquinas testadas, os resultados foram substancialmente melhorados
+quando retiramos a função de desenhar o gráfico enquanto os dados são obtidos.
+
+Instabilidades no gerador de rampa também dificultaram as medidas, o mesmo
+apresenta perda de linearidade no final da varredura a qual não conseguimos
+solucionar. A imagem :numref:`fig_rampa_osciloscopio` a seguir mostra este
+problema. Ligamos um osciloscópio digital nas saídas de tensão para a fonte
+do eletroímã (mostrado na curva amarela) e também na saída para registrador
+gráfico (em azul).
+
+A curva azul deveria ser linear de zero a cerca de um vol, com duração de
+300 segundos, mas vemos que rampa está muito instável: após cerca de 100
+segundos, a tensão sobe abruptamente para o valor máximo, tendo duração de
+cerca de 140 segundos.
+
+.. _fig_rampa_osciloscopio:
+
+.. figure:: img/rampa_osciloscopio.jpg
+   :width: 75%
+   :align: center
+
+   Saídas do controlador de varredura vistas no osciloscópio. Em amarelo, vemos
+   o sinal enviado para a fonte do magneto, em azul está a rampa a ser usada em
+   registrador gráfico. Esse sistema apresenta um problema de instabilidade
+   muito acentuado: a rampa (azul) era para ser linear, de zero a um volt, com
+   duração de 300 segundos, mas após cerca de 100 segundos rampa atinge
+   abruptamente o valor máximo.
+
+Recomendamos fortemente aos alunos que irão realizar esta prática que utilizem
+seus próprios computadores para coleta de dados com o programa *EPR-LEF.py*
+
+
 Firmware para Arduino
 ---------------------
 

@@ -6,16 +6,17 @@ DPPH
 ----
 
 Para a amostra *DPPH*, obtivemos os seguintes espectros, com parâmetros
-diferentes:
+de varredura diferentes:
 
-.. _fig_DPPH_1kgauss_05min:
+.. _fig_DPPH_1kgauss_5min:
 
-.. figure:: img/DPPH-1Kgauss-05min.png
+.. figure:: img/DPPH-1Kgauss-5min.png
    :width: 100%
    :align: center
 
    Espectro de DPPH, com 1000 gauss de varredura de campo magnético, realizado
-   durante meio minuto.
+   durante cinco minutos. No *lock-in*, a sensibilidade de :math:`200 \, \mu V` e
+   constante de tempo de 30 ms.
 
 .. _fig_DPPH_50gauss_1min:
 
@@ -24,11 +25,12 @@ diferentes:
    :align: center
 
    Espectro de DPPH, com 50 gauss de varredura de campo magnético, realizado
-   durante um minuto.
+   durante um minuto. No *lock-in*, a sensibilidade de :math:`200 \, \mu V` e
+   constante de tempo de 100 ms.
 
 
-:math:`MgO + Cr^{3+} Mn^{2+}`
-------------------------------
+MgO + Cr3+ Mn2+
+---------------
 
 Para a amostra de :math:`MgO + Cr^{3+} Mn^{2+}`, realizamos uma medida com
 varredura de 1000 gauss, já que as linhas do íon de manganês tem uma
@@ -40,31 +42,37 @@ distância da ordem de 100 gauss cada:
    :width: 100%
    :align: center
 
-   Espectro da amostra *MgO + Cr + Mn* com varredura de 1000 gauss.
+   Espectro da amostra *MgO + Cr + Mn* com varredura de 1000 gauss, realizado
+   durante cinco minutos. No *lock-in*, a sensibilidade de :math:`20 \, \mu V` e
+   constante de tempo de 100 ms.
+
+Podemos ver claramente o pico central do íon de Cromo e cinco picos de menor
+intensidade do íon de Manganês.
 
 
-DPPH + :math:`MgO + Cr^{3+} Mn^{2+}`
-------------------------------------
+DPPH + MgO + Cr3+ Mn2+
+----------------------
 
-Para a combinação de ambas as amostras, realizamos três medidas. Todas com
+Para a combinação de ambas as amostras, realizamos duas medidas. Todas com
 varredura de 1000 gauss com duração de 5 minutos, mas constantes de tempo
 do *lock-in* diferentes.
 
-Nesse caso, a intensidade máxima do sinal obtido foi de :math:`1 \mu V`.
+Nesse caso, a intensidade máxima do sinal obtido foi de :math:`15 \mu V`.
 Vemos que é possível identificar picos de sinal de cerca de dezenas de nV com
 esse equipamento.
 
 Podemos ver claramente que aumentar a constante de tempo do amplificador
 reduz o ruído do sinal, mas também altera a forma dos picos.
 
-.. _fig_duasAmostras-1Kgauss-5min-10ms:
+.. _fig_duasAmostras-1Kgauss-5min-1ms:
 
-.. figure:: img/duasAmostras-1Kgauss-5min-10ms.png
+.. figure:: img/duasAmostras-1Kgauss-5min-1ms.png
    :width: 100%
    :align: center
 
    Espectro das duas amostras combinadas, com varredura de 1000 gauss,
-   realizada durante 5 minutos. Consante de tempo do *lock-in* de 10 ms.
+   realizada durante 5 minutos. No *lock-in*, a sensibilidade de
+   :math:`100 \, \mu V` e constante de tempo de 1 ms.
 
 .. _fig_duasAmostras-1Kgauss-5min-30ms:
 
@@ -73,40 +81,9 @@ reduz o ruído do sinal, mas também altera a forma dos picos.
    :align: center
 
    Espectro das duas amostras combinadas, com varredura de 1000 gauss,
-   realizada durante 5 minutos. Consante de tempo do *lock-in* de 30 ms.
+   realizada durante 5 minutos. No *lock-in*, a sensibilidade de
+   :math:`100 \, \mu V` e constante de tempo de 30 ms.
 
-.. _fig_duasAmostras-1Kgauss-5min-100ms:
-
-.. figure:: img/duasAmostras-1Kgauss-5min-100ms.png
-   :width: 100%
-   :align: center
-
-   Espectro das duas amostras combinadas, com varredura de 1000 gauss,
-   realizada durante 5 minutos. Consante de tempo do *lock-in* de 100 ms.
-
-Observações importantes
------------------------
-
-O programa *EPR-LEF.py* foi testado nos computadores dos alunos, e no
-computador disponível no laboratório.
-
-Os resultados obtidos nos computadores dos alunos foram satisfatórios, foram
-coletados pontos suficiente para observar todos os sinais necessários. O
-computador do laboratório não obteve pontos o suficientes para apresentar
-resultados aceitáveis. O computador estava lento demais mesmo antes do programa
-ser rodado, levantamos a hipótese de que o sistema operacional não era
-adequado, o computador estava usando *Windows XP*, formatamos a máquina e
-colocamos nela o sistema *lubuntu*, um sistema específico para máquinas com
-restrição de recursos. Nesse sistema o programa *EPR-LEF.py* obteve resultados
-melhores porém, ainda assim, não foi o suficiente para observar sinais claros e
-limpos.
-
-Nas três máquinas testadas, os resultados foram substancialmente melhorados
-quando retiramos a função de desenhar o gráfico enquanto os dados são obtidos.
-
-Instabilidades no gerador de rampa também dificultaram as medidas, o mesmo
-apresenta perda de linearidade no final da varredura a qual não conseguimos
-solucionar.
-
-Recomendamos fortemente aos alunos que irão realizar esta prática que utilizem
-seus próprios computadores para coleta de dados com o programa *EPR-LEF.py*
+Os dois picos centrais, de alte intensidade são referentes à *DPPH*, com
+campo menor, e o *Cromo*, com campo ligeiramente maior. Os cinco picos pequenos
+são do *Manganês*.

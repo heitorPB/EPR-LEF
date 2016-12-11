@@ -36,9 +36,8 @@ Varie a constante de tempo do *lock-in* entre os valores de 10 ms a 10 s,
 registrando os sinais com varreduras de 0.5 min, 1 min e 3 min. Explique os
 resultados com base nas informações deste texto e das referências 3 e 4.
 
-
-:math:`MgO + Cr^{3+} Mn^{2+}`
-------------------------------
+MgO + Cr3+ + Mn2+
+-----------------
 
 Esta é uma amostra de um cristal MgO dopado com :math:`Cr^{3+}` e :math:`Mn^{2+}`.
 Apesar de ser uma amostra cristalina, seu espectro é isotrópico e consiste de
