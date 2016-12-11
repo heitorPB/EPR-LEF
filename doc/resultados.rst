@@ -95,10 +95,11 @@ coletados pontos suficiente para observar todos os sinais necessários. O
 computador do laboratório não obteve pontos o suficientes para apresentar
 resultados aceitáveis. O computador estava lento demais mesmo antes do programa
 ser rodado, levantamos a hipótese de que o sistema operacional não era
-adequado, formatamos a máquina e colocamos nela o sistema *lubuntu*, um sistema
-específico para máquinas com restrição de recursos. Nesse sistema o programa
-*EPR-LEF.py* obteve resultados melhores porém, ainda assim, não foi o
-suficiente para observar sinais claros e limpos.
+adequado, o computador estava usando *Windows XP*, formatamos a máquina e
+colocamos nela o sistema *lubuntu*, um sistema específico para máquinas com
+restrição de recursos. Nesse sistema o programa *EPR-LEF.py* obteve resultados
+melhores porém, ainda assim, não foi o suficiente para observar sinais claros e
+limpos.
 
 Nas três máquinas testadas, os resultados foram substancialmente melhorados
 quando retiramos a função de desenhar o gráfico enquanto os dados são obtidos.
