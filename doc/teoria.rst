@@ -100,7 +100,7 @@ pelo eletroímã em terno de um ponto *H - H'* na curva de *Y(H)* temos:
 	\frac{1}{2}\frac{\mathrm{d}^2 Y}{\mathrm{d} H^2}(H' - H)^2 + ...
 
 Como a função *Y(H)* varia de maneira muito lenta no tempo em comparação com o
-sinal de referência do lock-in diferença *H' - H* pode ser vista como uma
+sinal de referência do lock-in, a diferença *H' - H* pode ser vista como uma
 função periódica de frequência igual a do sinal de referência.
 
 .. math::

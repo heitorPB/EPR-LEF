@@ -125,9 +125,9 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
 A cavidade para inserir a amostra, :numref:`fig_cavidade` encontra-se entre as
 duas bobinas do eletroímã. No interior da mesma, há duas bobinas de modulação
 de sinal. A cavidade deste equipamento possui duas entradas para amostras: uma
-por cima, como mostrado na figura, e outra por baixo. Isso é feito para que
-uma amostra de referência seja usada simultaneamente com a amostra a ser
-analisada.
+por cima, como mostrado na figura, e outra por baixo,
+:numref:`fig_amostra_centro`. Isso é feito para que uma amostra de referência
+seja usada simultaneamente com a amostra a ser analisada.
 
 A cavidade possui um parafuso de *teflon* para ajustar o acoplamento com a
 amostra. Esse parafuso deve ser ajustado cada vez que uma amostra é inserida.
@@ -469,7 +469,7 @@ Ligar o espectrômetro
            observe o sinal. Altere a frequência para maximizar o sinal visto.
 
         #. Ligue o lock-in. Em seu painel verifique a sensibilidade está
-           marcando :math:`200 \mu V`e constante de tempo em :math:`100 ms`.
+           marcando :math:`200 \mu V` e constante de tempo em :math:`100 ms`.
            Talvez seja necessário ajustar o *offset* para evitar saturação do
            sinal.
 

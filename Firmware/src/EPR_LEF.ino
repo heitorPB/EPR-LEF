@@ -71,10 +71,14 @@ void setup()
 
 	pinMode(pinLed13, OUTPUT);
 
+	// o lock-in envia um cabeçalho ao iniciar
+	// o while abaixo le o mesmo e o descarta
 	analogReference(DEFAULT);
 	while (lockin.available() > 0)
 		Serial.print(lockin.read());
 	lockin.print("W0\r");
+
+	//ganho utilizado para medir as voltagens com o ADC
 	adc.setGain(GAIN_EIGHT);
 }
 

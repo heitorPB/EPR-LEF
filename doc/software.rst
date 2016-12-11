@@ -49,9 +49,6 @@ para que o programa compile corretamente.
 	#. Nanoshield_ADC.h - biblioteca para controlar o módulo ADC (convesor
 	   analógico digital).
 
-        #. Nanoshield_ADC.h - biblioteca para controlar o módulo ADC (convesor
-           analógico digital).
-
         #. SoftReset.h - biblioteca utilizada para resetar o arduino através
            de software.
 
