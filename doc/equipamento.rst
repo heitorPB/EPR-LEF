@@ -248,7 +248,7 @@ também é usado.
 
 O *klystron* e o magneto devem ser refrigerados para não superaquecerem.
 Para isso, um sistema de refrigeração por água é usado. As torneiras,
-:numref:`fig_torneiras`, encontram-se atrás do magneto. Cuidado para nǎo
+:numref:`fig_torneiras`, encontram-se atrás do magneto. Cuidado para não
 abrir a torneira errada.
 
 .. _fig_torneiras:
