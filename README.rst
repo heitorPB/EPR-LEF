@@ -7,6 +7,10 @@ EPR-LEF
 Sistema de Aquisição Digital para o experimento de EPR do Laboratório de
 Ensino de Física do IFSC - USP.
 
+.. figure:: doc/img/sinal-epr.png
+    :alt: Resultado final do sistema :)
+    :scale: 90%
+
 Desenvolvido por Emilio Galera e Heitor Pascoal de Bittencourt, sob
 orientação do Professor Luiz Antônio de Oliveira Nunes e do técnico
 Antenor Fabbri Petrilli Filho.
@@ -61,3 +65,9 @@ Além do Sphinx, é necessário o pacote `sphinxcontrib-bibtex
 
 Para gerar a documentação, basta utilizar o Makefile (caso utilize GNU/Linux)
 ou o make.bat (caso utilize Microsoft Windows) no diretório doc/
+
+
+.. |docs| image:: https://readthedocs.org/projects/epr-lef/badge/?version=latest
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://epr-lef.readthedocs.io/?badge=latest
