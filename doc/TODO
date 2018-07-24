@@ -14,6 +14,12 @@ DOC:
 
 	PDF: jogar coisas pra apêndice
 
+	instrucoes: falar do modo arduino e modo manual, isso está somente no texto dos equipamentos
+
+	falar sobre:
+		isolador de ferrite
+
+		frequencímetro
 python:
 	Se alguém tiver tempo e paciência, escrever um código totalmente novo, usando classes pra organizar tudo
 
@@ -25,3 +31,5 @@ python:
 
 all:
 	colocar copyright em cada arquivo
+
+falar da nome da pasta: nao pode ter espaco pra salvar os aqruivos, o tk não gosta

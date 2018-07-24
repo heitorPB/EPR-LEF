@@ -40,7 +40,7 @@ registrador. Um diagrama da montagem encontra-se na figura
 .. _fig_diagrama_blocos_trambolho:
 
 .. figure:: img/diagrama_blocos_trambolho.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Diagrama de blocos do EPR
@@ -48,7 +48,7 @@ registrador. Um diagrama da montagem encontra-se na figura
 .. _fig_diagrama_blocos_arduino:
 
 .. figure:: img/Diagrama-arduino.png
-   :scale: 100%
+   :width: 100%
    :align: center
 
    Diagrama das ligações do Arduino com o equipamento utilizado.
@@ -67,7 +67,7 @@ e Arduino para aquisição e visualização de dados.
 .. _fig_sala:
 
 .. figure:: img/sala.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Foto da sala. (1) magneto, (2) controlador de varredura, (3) osciloscópio analógico,
@@ -80,7 +80,7 @@ e Arduino para aquisição e visualização de dados.
 .. _fig_sala_nova:
 
 .. figure:: img/sala_nova.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Foto da sala após a modernização pelos alunos Emilio Galera e Heitor de
@@ -96,7 +96,7 @@ Para emissão desta frequência, é utilizado um *klystron*, modelo VA-217C, fab
 pela *Varian* e mostrado na figura :numref:`fig_klystron` abaixo. A fonte para
 ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
 
-.. TODO principio de funcionamento do klystron aqui. Falar da porra da fonte dele também
+.. TODO principio de funcionamento do klystron aqui. Falar da fonte dele também
 
 .. _fig_klystron:
 
@@ -110,7 +110,7 @@ ligá-lo está mostrada na figura :numref:`fig_fonte_klystron`.
 .. _fig_fonte_klystron:
 
 .. figure:: img/fonte_klystron.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Fonte do *klystron*. (1) medidor da corrente do feixe de etétrons. (2) formato
@@ -138,7 +138,7 @@ modulação.
 .. _fig_cavidade:
 
 .. figure:: img/cavidade.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Cavidade do espectrômetro. (1) local onde a amostra é colocada. (2) parafuso
@@ -156,7 +156,7 @@ uma reflexão de sinal.
 .. _fig_defasador:
 
 .. figure:: img/defasador.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Refletor defasador de microondas. (1) parafuso para inserir ou retirar o
@@ -181,7 +181,7 @@ essa funcionalidade. Há uma chave que indica como é feita esta seleção: por
 .. _fig_controlador_varredura:
 
 .. figure:: img/controlador_varredura.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Controlador de varredura do campo magnético.
@@ -200,7 +200,7 @@ essa funcionalidade. Há uma chave que indica como é feita esta seleção: por
 .. _fig_fonte_eletroima:
 
 .. figure:: img/fonte_TCA.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Fonte do eletroímã. (1) botão para ligar e (2) botão para desligar a fonte.
@@ -254,7 +254,7 @@ abrir a torneira errada.
 .. _fig_torneiras:
 
 .. figure:: img/torneiras.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Registro geral de água (1) e torneiras para refrigeração, ligue apenas a
@@ -271,7 +271,7 @@ e serial, para interface com o *lock-in*, fiquem para fora.
 .. _fig_arduino_lindo:
 
 .. figure:: img/arduino-lindo-3.jpg
-   :scale: 80%
+   :width: 80%
    :align: center
 
    Arduino (1) com módulos *ADC* (2) e *RS-232* (3), no interior do controlador
@@ -348,8 +348,8 @@ Ligar o espectrômetro
            eletroímã esteja perto de 32 A.
 
         #. Verifique os controles da fonte do *klystron*
-           (:numref:`fig_fonte_klystron`): *beam*: 250 V, *refletor*: 150 V,
-           *function*: dente de serra.
+           (:numref:`fig_fonte_klystron`): *function*: dente de serra,
+           *Sq. wave freq (CPS)*: 400, *beam*: 250 V, *refletor*: 150 V,
 
         #. Ligue a fonte do *klystron* na primeira posição (*FIL*), aguarde
            dois minutos e passe para a posição *HV-FIL*. Esse atraso é
@@ -406,19 +406,19 @@ Ligar o espectrômetro
            .. TODO fotos iguais a da fig7 do magon:
 
            .. figure:: img/acoplamento_cavidade_klystron1.jpg
-              :width: 28%
+              :width: 40%
               :align: center
 
               Klystron fora de sintonia.
 
            .. figure:: img/acoplamento_cavidade_klystron3.jpg
-              :width: 28%
+              :width: 40%
               :align: center
 
               klystron em sintonia, cavidade desacoplada.
 
            .. figure:: img/acoplamento_cavidade_klystron2.jpg
-              :width: 28%
+              :width: 40%
               :align: center
 
               klystron ok e cavidade ok.
@@ -489,7 +489,7 @@ Ligar o espectrômetro
         #. Verifique se o cabo *USB* do controlador de varredura esta ligado no
            computdaor.
 
-        #. Inicie o programa EPR-LEF com o comando *python EPR-LEF.py*.
+        #. Inicie o programa EPR-LEF com o comando `python EPR-LEF.py`.
 
            Neste programa, o usuario tem controle sobre o tempo da verredura
            e o intervalo de campo a ser medido.
@@ -550,4 +550,5 @@ Fonte do *klystron*         *Lock-in*                        Amplificador
 Beam voltage: 250 V         Sensitivity: 200 :math:`\mu V`   Ganho: 1X.
 Reflector voltage: 150 V    Time constant: 100 ms
 Function: CW
+Sq. Wave Freq (CPS): 400
 ========================    ==============================   ============
